@@ -51,9 +51,22 @@ h2.title2 {
 
 /* 【B3.三級標題-段落標題】 */
 h3.title3 {
-  font-weight: 600;
+  font-weight: bold;
   font-size: 1.414em;
 }
+
+/* 【B4.四級標題】 */
+h4.title4 {
+  font-size: 1.309em;
+  font-weight: bold;
+}
+
+/* 【B5.五級標題】 */
+h5.title5 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
 
 /* 【一般內文段落】隱 */
 p {
