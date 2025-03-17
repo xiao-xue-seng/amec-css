@@ -585,7 +585,7 @@ sub {
 
 /* 底線位置調低，避免與文字緊黏：改為去修改現有的樣式 */
 /* u {
-  text-underline-offset: 5px;
+  text-underline-offset: 0.2em;
 } */
 
 /* #endregion */
