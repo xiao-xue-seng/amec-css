@@ -67,7 +67,6 @@ h5.title5 {
   font-weight: bold;
 }
 
-
 /* 【一般內文段落】隱 */
 p {
   text-indent: 2em;
@@ -131,6 +130,17 @@ blockquote p {
   text-align: justify;
 }
 
+/* 【時間、頁碼錨點】 */
+span.seek-to,
+.seek-to,
+span.pagenum,
+.pagenum {
+  color: #2a6496;
+  font-weight: normal;
+  font-size: 100%;
+  font-family: "Noto Sans TC", sans-serif;
+  text-shadow: none; /* 不要受楷書陰影加粗的影響 */
+}
 /* ------------------------------------------------------------------------------- */
 
 /* 【轉A1-段落-前言介紹】有分深淺主題 */
@@ -735,3 +745,52 @@ p.chapter-end {
   text-indent: 0 !important;
   font-weight: 500;
 }
+
+/* ------------------------------------------------------------------------------- */
+
+/* 復原段落樣式中的時間碼及頁碼大小。TODO：改用CSS變數 */
+p.quoting-explanation-indent .seek-to,
+p.quoting-explanation-indent .pagenum,
+p.quoting-explanation-verse .seek-to,
+p.quoting-explanation-verse .pagenum,
+p.quoting-explanation .seek-to,
+p.quoting-explanation .pagenum,
+p.quoting-treatise-indent .seek-to,
+p.quoting-treatise-indent .pagenum,
+p.quoting-treatise-verse .seek-to,
+p.quoting-treatise-verse .pagenum,
+p.quoting-treatise .seek-to,
+p.quoting-treatise .pagenum,
+p.scripture-modern .seek-to,
+p.scripture-modern .pagenum,
+p.scripture-modern-noindent .seek-to,
+p.scripture-modern-noindent .pagenum,
+p.scripture-modern-nospacing .seek-to,
+p.scripture-modern-nospacing .pagenum,
+p.scripture-modern-verse .seek-to,
+p.scripture-modern-verse .pagenum{
+  font-size: calc(100% / 1.1);
+}
+
+/* 復原 引文區塊+段落樣式 下的時間碼及頁碼大小 */
+blockquote p.quoting-explanation-indent .seek-to,
+blockquote p.quoting-explanation-indent .pagenum,
+blockquote p.quoting-explanation-verse .seek-to,
+blockquote p.quoting-explanation-verse .pagenum,
+blockquote p.quoting-explanation .seek-to,
+blockquote p.quoting-explanation .pagenum,
+blockquote p.quoting-treatise-indent .seek-to,
+blockquote p.quoting-treatise-indent .pagenum,
+blockquote p.quoting-treatise-verse .seek-to,
+blockquote p.quoting-treatise-verse .pagenum,
+blockquote p.quoting-treatise .seek-to,
+blockquote p.quoting-treatise .pagenum {
+  font-size: calc(100% / 1.125 / 1.1);
+}
+
+/* 復原 原文段落 中的時間碼及頁碼大小 */
+p.scripture-classical .seek-to,
+p.scripture-classical .pagenum{
+  font-size: calc(100% / 1.2);
+}
+
