@@ -141,6 +141,17 @@ span.pagenum,
   font-family: "Noto Sans TC", sans-serif;
   text-shadow: none; /* 不要受楷書陰影加粗的影響 */
 }
+
+/* 【A3.經文-藏文】 */
+.font-tibetan,
+span.font-tibetan {
+  bottom: 0.18em;
+  font-size: 100%;
+  font-family: "Monlam Uni OuChan2", serif !important;
+  line-height: 1;
+  position: relative;
+  text-shadow: none; /* 不要受楷書陰影加粗的影響 */
+}
 /* ------------------------------------------------------------------------------- */
 
 /* 【轉A1-段落-前言介紹】有分深淺主題 */
@@ -452,11 +463,18 @@ span.scripture-classical {
 /* 【轉D1-段落-原文】 */
 p.scripture-classical {
   line-height: 1.618;
+  text-indent: calc(2em / 1.2);
 }
 /* 【轉隱-原文-藏文調整】配合現有樣式：原文中的藏文不要縮小行高，避免太擠 */
 p.scripture-classical .font-tibetan {
   line-height: normal;
 }
+/* 【轉隱-偈頌-原文-藏文】 */
+.scripture-verse .scripture-classical.font-tibetan {
+  font-size: calc(100% / 1.1 * 1.2);
+  font-family: "Monlam Uni OuChan2", serif !important;
+}
+
 /* ------------------------------------------------------------------------------- */
 /* 【轉D2-字元-白話語譯】 */
 .scripture-modern-noindent, /*白話不縮排來共用*/
@@ -471,7 +489,7 @@ span.scripture-modern {
 }
 /* 【轉D2-段落-白話語譯】 */
 p.scripture-modern {
-  --dummy: 0;
+  text-indent: calc(2em / 1.1);
 }
 /* 【轉-段落-D3白話不縮排】 */
 p.scripture-modern-noindent {
@@ -768,7 +786,7 @@ p.scripture-modern-noindent .pagenum,
 p.scripture-modern-nospacing .seek-to,
 p.scripture-modern-nospacing .pagenum,
 p.scripture-modern-verse .seek-to,
-p.scripture-modern-verse .pagenum{
+p.scripture-modern-verse .pagenum {
   font-size: calc(100% / 1.1);
 }
 
@@ -790,7 +808,6 @@ blockquote p.quoting-treatise .pagenum {
 
 /* 復原 原文段落 中的時間碼及頁碼大小 */
 p.scripture-classical .seek-to,
-p.scripture-classical .pagenum{
+p.scripture-classical .pagenum {
   font-size: calc(100% / 1.2);
 }
-
