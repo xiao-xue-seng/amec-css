@@ -480,6 +480,7 @@ p.scripture-classical .font-tibetan {
 .scripture-modern-noindent, /*白話不縮排來共用*/
 .scripture-modern-nospacing, /*白話無間距來共用*/
 .scripture-modern-verse, /*白話偈頌來共用*/
+.scripture-modern-homage,
 .scripture-modern, /*與P共用*/
 span.scripture-modern {
   font-family: cwTeXFangSong, STFangsong, "STKaitiTC-Regular", serif;
@@ -505,6 +506,11 @@ p.scripture-modern-nospacing {
 p.scripture-modern-verse {
   /* = 偈頌段落 + 白話語譯(字元) + 以下 */
   text-align: left; /*偈頌不做左右對齊*/
+}
+/* 【轉-段落-D6白話皈敬】 */
+p.scripture-modern-homage {
+  /* = 以下 + 白話語譯(字元) */
+  text-indent: 0 !important;
 }
 
 /* #endregion */
