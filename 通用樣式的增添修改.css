@@ -583,8 +583,9 @@ span.footnote-ref {
 p.footnote-hr {
   width: 33%;
   height: 5px;
-  border: none;
-  border-top: 1px solid #808080;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #808080;
   margin: 2em 0 1em;
   text-indent: 0;
 }
