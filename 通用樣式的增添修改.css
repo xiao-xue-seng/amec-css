@@ -28,7 +28,7 @@
 h1.title1 {
   font-weight: 900;
   font-size: 2em;
-  font-family: "Noto Serif", "Noto Serif TC", "Source Han Serif TC", serif;
+  font-family: "Noto Serif", "Noto Serif SC", "Source Han Serif SC", serif; /* 這裡必須用SC版，因為TC版的字碼範圍較小，會缺字。 */
   font-style: normal;
   font-optical-sizing: auto;
   line-height: 1.618;
@@ -262,7 +262,7 @@ p.scripture-verse {
 .annotation,
 span.annotation {
   font-size: 0.707em !important;
-  font-family: "Noto Sans TC", "Source Han Sans TC", sans-serif;
+  font-family: "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-weight: 400;
   /* line-height: 1; 必須要這個，垂直對齊才會準。不能用normal，一定要用1 */
   /* 垂直對齊不要用text-bottom，因為對於不同字型會有差異很大的不同結果。 */
@@ -363,7 +363,7 @@ p.quoting-outline {
 .quoting-sutra-indent, /*引經縮排來共用*/
 .quoting-sutra, /*與 P 共用*/
 span.quoting-sutra {
-  font-family: "Noto Serif", "Noto Serif TC", "Source Han Serif TC", serif;
+  font-family: "Noto Serif", "Noto Serif SC", "Source Han Serif SC", serif;  /*用SC版，因為TC版缺字較多*/
   /* 即使引文區塊已經加粗，也要考慮「不在引文區塊的字元套用」情況 */
   font-weight: 600;
 }
@@ -596,7 +596,7 @@ p.footnote-hr {
 
 /* #region 上下標 */
 
-/* 【轉B5-字元-上標】 */
+/* 【轉隱-字元-上標】 */
 sup {
   font-size: 0.707em;
   /* 用vertical-align效能會比top、bottom好 */
@@ -608,7 +608,7 @@ sup {
   line-height: 1;
 }
 
-/* 【轉B5-字元-下標】 */
+/* 【轉隱-字元-下標】 */
 sub {
   font-size: 0.707em;
   /* 用vertical-align效能會比top、bottom好 */
