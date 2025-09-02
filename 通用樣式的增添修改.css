@@ -818,3 +818,10 @@ p.scripture-classical .seek-to,
 p.scripture-classical .pagenum {
   font-size: calc(100% / 1.2);
 }
+
+/* 讓舊式「表格排版偈頌」的凸排部分，不要出現換行 */
+*:not(.title3) + .table td:first-of-type > span,
+blockquote .table td:first-of-type > span{
+  white-space: nowrap;
+  display: inline-block;
+}
