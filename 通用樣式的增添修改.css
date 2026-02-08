@@ -825,3 +825,57 @@ blockquote .table td:first-of-type > span{
   white-space: nowrap;
   display: inline-block;
 }
+
+/* ------------------------------------------------------------------------------- */
+
+/*
+label: 著重號-點
+keystroke:
+show in menu: true
+*/
+.emph-dot {
+  font-style: normal; /* 取消斜體 */
+}
+
+/*
+label: 著重號-圈
+keystroke:
+show in menu: true
+*/
+.emph-open-dot {
+  font-style: normal; /* 取消斜體 */
+}
+
+/* 著重號：基礎 */
+.emph-dot,
+.emph-open-dot {
+  position: relative;
+  line-height: 2;
+}
+
+/*
+label: 著重號：偽元素
+keystroke:
+show in menu: false
+*/
+.emph-dot::before,
+.emph-open-dot::before {
+  position: absolute;
+  left: 50%;
+  line-height: 1;
+  text-indent: 0;
+  /* 用scale控制大小而不用font-size，以免受瀏覽器最小字元限制 */
+  transform: translateX(-50%) scale(0.3);
+
+  bottom: -0.6em; /* 修改此值即可調整與字元的垂直距離 */
+}
+
+/* 著重號：點：偽元素 */
+.emph-dot::before {
+  content: "●";
+}
+
+/* 著重號：圈：偽元素 */
+.emph-open-dot::before {
+  content: "○";
+}
