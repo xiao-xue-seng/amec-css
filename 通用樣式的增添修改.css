@@ -892,7 +892,7 @@ keystroke:
 show in menu: false
 */
 .emph-open-dot::before {
-  content: "○";
+  content: "〇";
   text-shadow:
     -2px -2px 2px currentColor,
     2px -2px 2px currentColor,
