@@ -78,13 +78,27 @@ p {
 }
 
 /* 【A1.經文-楷書】 */
+/*
+  font-family:
+    "cwTeXKai",
+    "標楷體",
+    "DFKai-SB",           標楷體的正式字體名稱
+    "Kaiti TC",           macOS 內建楷體
+    "STKaiti",            win / 舊版 macOS 的楷體
+    "STKaitiTC-Regular",  win / 舊版 macOS 的楷體
+    "KaiTi",              Windows 大陸版
+    "KaiTi_GB2312",       Windows 大陸版
+    "AR PL KaitiM GB",    Linux 常見的楷體
+    "Noto Serif TC",
+    serif !important;
+*/
 .homage, /*皈敬來共用*/
 .scripture-verse, /*偈頌*/
 /* -------------------------- */
 .scripture-kai,
 span.scripture-kai {
   font-size: 110%;
-  font-family: cwTeXKai, 標楷體, "STKaitiTC-Regular", serif !important;
+  font-family: "cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;
   line-height: calc(1.618 / 1.1);
   text-shadow:
     0.01em 0 0 #0f0f0f80,
@@ -114,7 +128,7 @@ th .scripture-kai {
 span.scripture-fangsong {
   font-weight: normal;
   font-size: 110%;
-  font-family: "cwTeXFangSong", "標楷體", "STKaitiTC-Regular", serif !important;
+  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
   line-height: calc(1.618 / 1.1);
 }
 
@@ -163,7 +177,7 @@ p.intro {
   border-radius: 5px;
   margin-block-start: 0;
   margin-block-end: 2lh;
-  font-family: "cwTeXFangSong", "STFangsong", "STKaitiTC-Regular", serif;
+  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
   font-size: 110%;
   font-weight: normal;
   text-indent: 0;
@@ -393,7 +407,7 @@ p.quoting-sutra-indent {
 /* --- */
 .quoting-treatise,
 span.quoting-treatise {
-  font-family: cwTeXKai, 標楷體, "STKaitiTC-Regular", serif;
+  font-family: "cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;
   font-size: 110%;
   line-height: calc(1.618 / 1.1);
   text-shadow:
@@ -433,7 +447,7 @@ p.quoting-treatise-indent {
 .quoting-explanation-indent,
 .quoting-explanation,
 span.quoting-explanation {
-  font-family: cwTeXFangSong, STFangsong, serif;
+  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
   font-size: 110%;
   font-weight: normal;
   line-height: calc(1.618 / 1.1);
@@ -461,7 +475,7 @@ p.quoting-explanation-indent {
 /* 【轉D1-字元-原文】 */
 .scripture-classical, /*讓P也共用這些設定*/
 span.scripture-classical {
-  font-family: cwTeXKai, 標楷體, "STKaitiTC-Regular", serif !important;
+  font-family: "cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;
   font-size: 120%;
   font-weight: bold;
   line-height: calc(1.618 / 1.2);
@@ -489,7 +503,7 @@ p.scripture-classical .font-tibetan {
 .scripture-modern-homage,
 .scripture-modern, /*與P共用*/
 span.scripture-modern {
-  font-family: cwTeXFangSong, STFangsong, "STKaitiTC-Regular", serif;
+  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
   font-size: 110%;
   font-weight: normal;
   line-height: calc(1.618 / 1.1);
@@ -899,4 +913,3 @@ show in menu: false
     -2px 2px 2px currentColor,
     2px 2px 2px currentColor;
 }
-
