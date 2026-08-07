@@ -1,0 +1,516 @@
+/*Noto Sans TC (Traditional Chinese) 黑體（思源繁黑體 -）可以設定的 font-weight 字體粗細的變化比較多樣化，從最細到最粗*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+/*font-family: 'Noto Sans TC', sans-serif;*/
+
+/*Noto Sans SC (Simplified Chinese) 黑體（思源簡黑體 -）可以設定的 font-weight 字體粗細的變化比較多樣化，從最細到最粗*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosanssc.css);
+/*font-family: 'Noto Sans SC', sans-serif;*/
+
+/*cwTeXYen (Chinese Traditional) 圓體字型*/
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+/*font-family: 'cwTeXYen', sans-serif;*/
+
+/*cwTeXFangSong (Chinese Traditional) 仿宋體字型*/
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+/*font-family: 'cwTeXFangSong', serif;*/
+
+/*cwTeXKai (Chinese Traditional) 楷體字型*/
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+/*font-family: 'cwTeXKai', serif;*/
+
+/*cwTeXMing (Chinese Traditional) 明體字型*/
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexming.css);
+/*font-family: 'cwTeXMing', serif;*/
+
+@import url("https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&family=LXGW+WenKai+TC:wght@300;400;700&display=swap");
+
+@font-face {
+  font-family: "Monlam Uni OuChan2";
+  src: url("https://cdn.amec.amrtf.org/asset/common/fonts/Monlam_Uni_OuChan2.ttf");
+}
+
+/* 拉丁字 */
+@font-face {
+  font-family: "Noto Sans TC";
+  font-weight: 400;
+  src: local("Arial");
+  unicode-range:
+    U+0000-02FF, U+1D00-1DBF, U+1E00-1EFF, U+2070-218F, U+2C60-2C7F,
+    U+A720-A7FF, U+AB30-AB6F;
+}
+
+@font-face {
+  font-family: "Noto Sans TC";
+  font-weight: 700;
+  src: local("Arial-BoldMT");
+  unicode-range:
+    U+0000-02FF, U+1D00-1DBF, U+1E00-1EFF, U+2070-218F, U+2C60-2C7F,
+    U+A720-A7FF, U+AB30-AB6F;
+}
+
+/* 破折號、刪節號 */
+@font-face {
+  font-family: "cwTeXKai";
+  font-weight: 500;
+  src:
+    local("標楷體"), local("STKaitiTC-Regular"), local("BiauKaiTC-Regular"),
+    local("Helvetica");
+  unicode-range: U+2500, U+2026;
+}
+@font-face {
+  font-family: "cwTeXFangSong";
+  font-weight: 500;
+  src:
+    local("標楷體"), local("STKaitiTC-Regular"), local("BiauKaiTC-Regular"),
+    local("Helvetica");
+  unicode-range: U+2500, U+2026;
+}
+
+/* 單引號、雙引號 */
+@font-face {
+  font-family: "cwTeXKai";
+  font-weight: 500;
+  src:
+    local("標楷體"), local("LiSungLight"), local("Trebuchet MS"),
+    local("Andale Mono"), local("Didot"), local("Georgia"),
+    local("Times New Roman");
+  unicode-range: U+201C, U+201D, U+2018, U+2019;
+}
+@font-face {
+  font-family: "cwTeXFangSong";
+  font-weight: 500;
+  src:
+    local("標楷體"), local("LiSungLight"), local("Trebuchet MS"),
+    local("Andale Mono"), local("Didot"), local("Georgia"),
+    local("Times New Roman");
+  unicode-range: U+201C, U+201D, U+2018, U+2019;
+}
+
+.amrtf-amec.zh-hans .ck-content,
+.task\.edit.amrtf-amec.zh-hans .ck-content,
+body[data-theme="light"] .context-root .content .context.amrtf-amec.zh-hans,
+body[data-theme="dark"] .context-root .content .context.amrtf-amec.zh-hans,
+.amrtf-amec.zh-hans {
+  font-weight: 400;
+  font-family: "Noto Sans SC", sans-serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+.amrtf-amec.bo .ck-content,
+.task\.edit.amrtf-amec.bo .ck-content,
+body[data-theme="light"] .context-root .content .context.amrtf-amec.bo,
+body[data-theme="dark"] .context-root .content .context.amrtf-amec.bo,
+.amrtf-amec.bo {
+  bottom: 0.18em;
+  font-size: 100%;
+  font-family: "Monlam Uni OuChan2";
+  line-height: 1;
+  position: relative;
+}
+.amrtf-amec span.seek-to::after,
+.amrtf-amec seek-to::after {
+  content: attr(data-label);
+}
+.amrtf-amec .image img {
+  width: 100%;
+}
+.amrtf-amec p {
+  text-indent: 2em;
+  line-height: 1.6;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: justify;
+}
+.amrtf-amec blockquote p {
+  text-indent: 0em;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: justify;
+}
+.amrtf-amec span.seek-to,
+.amrtf-amec .seek-to,
+.amrtf-amec span.pagenum,
+.amrtf-amec .pagenum {
+  color: #2a6496;
+  font-weight: normal;
+  font-size: 100%;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.amrtf-amec table,
+.amrtf-amec th,
+.amrtf-amec td {
+  border: 1px solid #0f0f0f;
+  padding: 0.3em;
+  border-collapse: collapse;
+}
+.amrtf-amec blockquote {
+  padding: 0.01em 1.25em;
+  margin: 1em 0em;
+  border-left: #a04b14 solid 0.2em;
+  font-size: 112.5%;
+}
+.amrtf-amec span.sub_,
+.amrtf-amec .sub_ {
+  bottom: -0.15em;
+  font-size: 75%;
+  position: relative;
+}
+.amrtf-amec span.super_,
+.amrtf-amec .super_ {
+  top: -0.4em;
+  font-size: 75%;
+  position: relative;
+}
+.amrtf-amec h1.title1 {
+  text-indent: 0;
+  font-weight: bold;
+  font-size: 175%;
+  font-family: "Noto Serif", "Noto Serif TC", "Source Han Serif TC", serif;
+  line-height: 1.618;
+  font-style: normal;
+  font-optical-sizing: auto;
+  text-align: justify;
+}
+.amrtf-amec h2.title2 {
+  font-weight: bold;
+  font-size: 155%;
+}
+.amrtf-amec h3.title3 {
+  font-weight: bold;
+  font-size: 138%;
+}
+.amrtf-amec .scripture-outline,
+.amrtf-amec span.scripture-outline {
+  font-weight: bold;
+  font-family: "Noto Sans TC", sans-serif !important;
+}
+.amrtf-amec .scripture-kai,
+.amrtf-amec span.scripture-kai {
+  font-weight: bold;
+  font-size: 110%;
+  font-family: "cwTeXKai", "標楷體", "STKaitiTC-Regular", serif !important;
+  line-height: 1.4;
+}
+.amrtf-amec .scripture-fangsong,
+.amrtf-amec span.scripture-fangsong {
+  font-weight: normal;
+  font-size: 110%;
+  font-family: "cwTeXFangSong", "標楷體", "STKaitiTC-Regular", serif !important;
+  line-height: 1.4;
+}
+.amrtf-amec blockquote .scripture-outline {
+  font-size: 112%;
+  line-height: 1.4;
+}
+.amrtf-amec .scripture-kai.sub_,
+.amrtf-amec .scripture-kai.super_,
+.amrtf-amec .scripture-fangsong.sub_,
+.amrtf-amec .scripture-fangsong.super_ {
+  font-size: calc(110% * 0.75);
+}
+.amrtf-amec table {
+  width: 100%;
+}
+.amrtf-amec td > span {
+  width: 100%;
+}
+.amrtf-amec blockquote .scripture-outline.sub_,
+.amrtf-amec blockquote .scripture-outline.super_ {
+  font-size: calc(112% * 0.75);
+}
+.amrtf-amec figure.table:not(.ck-widget) {
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+.amrtf-amec .title1.sub_,
+.amrtf-amec .title1.super_ {
+  font-size: calc(175% * 0.75);
+}
+.amrtf-amec .title2.sub_,
+.amrtf-amec .title2.super_ {
+  font-size: calc(155% * 0.75);
+}
+.amrtf-amec .title3.sub_,
+.amrtf-amec .title3.super_ {
+  font-size: calc(138% * 0.75);
+}
+.amrtf-amec blockquote .seek-to {
+  font-size: calc(100% / 1.125);
+}
+.amrtf-amec .font-tibetan,
+.amrtf-amec span.font-tibetan {
+  bottom: 0.18em;
+  font-size: 100%;
+  font-family: "Monlam Uni OuChan2" !important;
+  line-height: 1;
+  position: relative;
+}
+.amrtf-amec p.no-indent {
+  text-indent: 0em !important;
+}
+.amrtf-amec p.text-right {
+  text-indent: 0em;
+  text-align: right;
+}
+.amrtf-amec p.indent {
+  text-indent: 2em !important;
+}
+.amrtf-amec table p:not(:last-child) {
+  margin: 0 0 1em 0;
+  text-indent: 0em;
+}
+.amrtf-amec th,
+.amrtf-amec .ck-content .table th {
+  font-weight: bold;
+  text-align: center;
+}
+.amrtf-amec td > figure.image {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.amrtf-amec td[style*="text-align:center;"] > figure.image {
+  display: inline-block;
+}
+.amrtf-amec p.text-center {
+  text-indent: 0em !important;
+  text-align: center;
+}
+.amrtf-amec table p:last-child {
+  margin: 0;
+  text-indent: 0em;
+}
+.amrtf-amec span.underline,
+.amrtf-amec .underline {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.amrtf-amec h4.title4 {
+  font-weight: bold;
+  font-size: 120%;
+}
+.amrtf-amec span.bold,
+.amrtf-amec .bold {
+  font-weight: bold !important;
+}
+.amrtf-amec span.italic,
+.amrtf-amec .italic {
+  font-style: italic;
+}
+.amrtf-amec .font-tibetan.super_ {
+  top: -0.4em !important;
+  font-size: calc(100% * 0.75) !important;
+}
+.amrtf-amec .font-tibetan.sub_ {
+  bottom: -0.15em !important;
+  font-size: calc(100% * 0.75) !important;
+}
+.amrtf-amec blockquote.ul-tree > ul:first-child {
+  padding-left: 0.75em;
+}
+.amrtf-amec blockquote.ul-tree > ul > li:first-child {
+  margin: 0;
+}
+.amrtf-amec blockquote.ul-tree > ul > li:first-child::before,
+.amrtf-amec blockquote.ul-tree > ul > li:first-child::after,
+.amrtf-amec blockquote.ul-tree ul li:last-child::after {
+  display: none;
+}
+.amrtf-amec blockquote.ul-tree ul li::after {
+  left: -1em;
+  bottom: -0.5em;
+  border-left: 0.1em solid #000;
+  display: block;
+  position: absolute;
+  content: "";
+  height: 100%;
+}
+.amrtf-amec blockquote.ul-tree ul li::before {
+  top: 0;
+  left: -1em;
+  border-left: 0.1em solid #000;
+  display: block;
+  width: 0.7em;
+  position: absolute;
+  content: "";
+  border-bottom: 0.1em solid #000;
+  height: 1em;
+}
+.amrtf-amec blockquote.ul-tree ul li {
+  margin: 0;
+  position: relative;
+}
+.amrtf-amec blockquote.ul-tree ul {
+  margin: 0;
+  line-height: 2em;
+  list-style: none;
+}
+.amrtf-amec blockquote.ul-tree {
+  margin: 0;
+  border-left: 0;
+  display: block;
+  font-size: 100%;
+}
+.amrtf-amec .font-sc-noto-sans,
+.amrtf-amec span.font-sc-noto-sans {
+  font-weight: 400;
+  font-family: "Noto Sans SC", sans-serif !important;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+.amrtf-amec .font-sc-noto-serif,
+.amrtf-amec span.font-sc-noto-serif {
+  font-weight: 400;
+  font-family: "Noto Serif SC", serif !important;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+.amrtf-amec .font-sc-yinglian,
+.amrtf-amec span.font-sc-yinglian {
+  font-weight: 400;
+  font-family: "Ma Shan Zheng", cursive !important;
+  font-style: normal;
+}
+.amrtf-amec .font-tc-lxgw-wenkai,
+.amrtf-amec span.font-tc-lxgw-wenkai {
+  font-weight: 400;
+  font-family: "LXGW WenKai TC", cursive !important;
+  font-style: normal;
+}
+.amrtf-amec .font-sc-noto-sans-bold,
+.amrtf-amec span.font-sc-noto-sans-bold {
+  font-weight: bold;
+  font-family: "Noto Sans SC", sans-serif !important;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+.amrtf-amec > :last-child {
+  margin-block-end: 5lh !important;
+}
+.amrtf-amec h2.title2,
+.amrtf-amec h3.title3 {
+  margin-block-start: 1lh;
+}
+.amrtf-amec h1.title1 .font-tibetan {
+  line-height: unset;
+}
+.amrtf-amec h1.title1 + *:not(h1.title1) {
+  margin-block-start: 1lh;
+}
+.amrtf-amec sup {
+  top: unset;
+  bottom: unset;
+  vertical-align: 0.4em;
+  font-size: 0.75em;
+  line-height: inherit;
+  position: initial;
+}
+.amrtf-amec sub {
+  top: unset;
+  bottom: unset;
+  vertical-align: -0.15em;
+  font-size: 0.75em;
+  line-height: inherit;
+  position: initial;
+}
+.amrtf-amec p.author {
+  margin: 0;
+  text-indent: 0em;
+  line-height: 2;
+  text-align: right;
+}
+.amrtf-amec p.author + *:not(p.author) {
+  margin-block-start: 1lh;
+}
+.amrtf-amec p.no-line-spacing {
+  margin: 0;
+}
+.amrtf-amec .no-line-spacing + *:not(.no-line-spacing),
+.amrtf-amec *:not(.no-line-spacing) + .no-line-spacing {
+  margin-block-start: 1em;
+}
+.amrtf-amec p.scripture-outline {
+  text-indent: 0 !important;
+}
+.amrtf-amec p.scripture-verse {
+  text-indent: 0;
+  margin-inline-start: 2em;
+  line-height: 1.4;
+}
+.amrtf-amec span.scripture-annotation {
+  font-size: 100%;
+  font-family: "cwTeXKai", "標楷體", "STKaitiTC-Regular", serif !important;
+  opacity: 0.9;
+}
+.amrtf-amec span.scripture-annotation-small {
+  font-size: calc(110% * 0.75);
+  font-family: "cwTeXKai", "標楷體", "STKaitiTC-Regular", serif !important;
+  opacity: 0.9;
+}
+.amrtf-amec span.quoting-sutra {
+  font-weight: bold;
+  font-family: "Noto Serif", "Noto Serif TC", "Source Han Serif TC", serif;
+}
+.amrtf-amec blockquote .scripture-verse {
+  font-size: inherit;
+}
+.amrtf-amec .scripture-classical,
+.amrtf-amec span.scripture-classical {
+  font-weight: bold;
+  font-size: 120%;
+  font-family: "cwTeXKai", "標楷體", "STKaitiTC-Regular", serif;
+}
+.amrtf-amec p.scripture-classical {
+  line-height: 1.6;
+}
+.amrtf-amec p.scripture-classical .font-tibetan {
+  line-height: unset;
+}
+.amrtf-amec .scripture-modern,
+.amrtf-amec span.scripture-modern {
+  font-weight: normal;
+  font-size: 110%;
+  font-family: "cwTeXFangSong", "STFangsong", "STKaitiTC-Regular", serif;
+}
+.amrtf-amec p.scripture-modern {
+  line-height: 1.4;
+}
+.amrtf-amec p.postscript {
+  text-indent: 0 !important;
+  font-size: 75%;
+  margin-block: 0;
+}
+.amrtf-amec :not(p.postscript) + p.postscript {
+  margin-block-start: 3lh;
+}
+.amrtf-amec p.postscript-right {
+  text-indent: 0;
+  font-size: 75%;
+  margin-block: 0;
+  text-align: right;
+}
+.amrtf-amec :not(p.postscript-right):not(p.postscript) + p.postscript-right {
+  margin-block-start: 3lh;
+}
+.amrtf-amec p.postscript + p.postscript-right {
+  margin-block-start: 1lh;
+}
+.amrtf-amec span.footnote-ref {
+  font-size: 0.75em;
+}
+.amrtf-amec p.footnote-text {
+  text-indent: -3em !important;
+  margin-inline-start: 3em;
+  font-size: 0.75em;
+}
+.amrtf-amec p.footnote-text span.footnote-ref {
+  display: inline-block;
+  font-size: 1em;
+  min-width: 3em;
+  text-align: right;
+}
+.amrtf-amec span.footnote-quotation {
+  font-weight: bold;
+}

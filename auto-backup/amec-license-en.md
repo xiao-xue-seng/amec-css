@@ -1,0 +1,14 @@
+Intellectual Property Rights Statement for Amrita Moonlight e-Collections
+2021/07/11
+
+1. All content published on this website, including but not limited to text, images, videos, audio recordings, research findings, editorial content, website architecture, page design, and website programs, is protected under the Copyright Act of Canada, applicable international copyright treaties, and other relevant laws. All associated intellectual property rights, including but not limited to copyrights, patents, trademarks, trade secrets, and other proprietary rights, are owned by the Amrita Translation Foundation (hereinafter referred to as “the Foundation”) or by other rights holders who have lawfully authorized the Foundation to use such rights.
+
+2. The use of this database is strictly limited to non-commercial purposes by individuals or organizations. Except for the aforementioned permitted use, no individual or entity may, without prior written consent from the Foundation or the lawful copyright holder, reproduce, adapt, edit, distribute, transmit, rent, sell, or otherwise use any content from this website for commercial purposes in any form. Any unauthorized use will result in full legal liability, and the Foundation reserves the right to seek damages to the fullest extent permitted by law.
+
+3. Where the use of this database complies with the above non-commercial purposes or is otherwise authorized by the Foundation or the relevant copyright holders, the integrity of the original work must be preserved. Users shall not intentionally add, delete, alter, or distort any content of this website, nor engage in malicious interpretation, misrepresentation, or any conduct that may damage the reputation of the Foundation. For transparency and to assist others in identifying any revisions, users must include this statement and version information when sharing or using materials derived from this database.
+
+4. The content and programs of this website constitute proprietary intellectual property of the Foundation. Without prior authorization from the Foundation, no person shall engage in reverse engineering, decompilation, disassembly, or any similar acts with respect to any functionalities or programs of this website. Any attempt to damage or interfere with the data or functions on this website, or to hack or compromise any system of this website, is strictly prohibited and will be subject to legal action to the fullest extent permitted by law.
+
+5. All copyright notices, trademarks, and other proprietary notices displayed on this website must not be altered, removed, or obscured in any manner.
+
+6. For questions or suggestions regarding system use, requests for scripture authorization, or to report errors in the content, please complete the form available at Issue Report.
