@@ -1,0 +1,17 @@
+@import url(https://cdn.amec.amrtf.org/asset/common/css/main.css);
+.amrtf-amec blockquote.gatha p{text-indent:0;font-weight:normal;margin-top:0;margin-bottom:0;margin-block-start:0;margin-block-end:0}
+.amrtf-amec .supannotation-miao,.amrtf-amec span.supannotation-miao{color:#00639E}
+.amrtf-amec span.super-supannotation-ba{--dummy:0}
+.amrtf-amec .super-supannotation-miao::before{background-color:#00639e;content:"\5999"}
+.amrtf-amec .super-supannotation-jha::before{background-color:#8c3d1f;content:"\672D"}
+.amrtf-amec .super-supannotation-yu::before{background-color:#007f3c;content:"\8a9e"}
+.amrtf-amec .supannotation-yu,.amrtf-amec span.supannotation-yu{color:#007f3c}
+.amrtf-amec .super-supannotation-ba::before{background-color:#950d43;content:"\5df4"}
+.amrtf-amec blockquote.gatha{padding:0;border-left:0;font-size:100%;margin-top:1em;margin-bottom:1em;margin-block-start:1em;margin-block-end:1em}
+.amrtf-amec .super-supannotation-miao::before,.amrtf-amec .super-supannotation-yu::before,.amrtf-amec .super-supannotation-ba::before,.amrtf-amec .super-supannotation-jha::before{margin:0 -0.4em 0 -0.1em;color:#fff;font-weight:normal;display:inline-block;line-height:1.35em;border-radius:50%;transform:translateY(-0.35em) scale(0.6);text-indent:0;width:1.3em;height:1.3em;text-align:center}
+.amrtf-amec span.super-supannotation-yu{--dummy:0}
+.amrtf-amec span.super-supannotation-miao{--dummy:0}
+.amrtf-amec .supannotation-ba,.amrtf-amec span.supannotation-ba{color:#950d43}
+.amrtf-amec span.super-supannotation-jha{--dummy:0}
+.amrtf-amec .super-supannotation-miao,.amrtf-amec .super-supannotation-yu,.amrtf-amec .super-supannotation-ba,.amrtf-amec .super-supannotation-jha{width:1.05em;font-size:100% !important;text-wrap:nowrap;text-indent:0;display:inline-block}
+.amrtf-amec .supannotation-jha,.amrtf-amec span.supannotation-jha{color:#8c3d1f}
