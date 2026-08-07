@@ -1,0 +1,60 @@
+name: Auto Backup CSS Assets
+
+on:
+  schedule:
+    # 每天 UTC 23:00 執行 (對應 PEI 夏令時間 19:00 / 冬令時間 18:00)
+    - cron: "0 23 * * *"
+  workflow_dispatch: # 允許在 GitHub 介面上手動點擊測試
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Fetch and store files
+        run: |
+          BACKUP_DIR="auto-backup"
+          URL_FILE="urls.txt"
+
+          if [ ! -f "$URL_FILE" ]; then
+            echo "找不到 $URL_FILE 檔案！"
+            exit 1
+          fi
+
+          # 讀取 urls.txt 並逐行處理
+          while IFS= read -r url || [ -n "$url" ]; do
+            # 忽略空行或以 # 開頭的註解行
+            [[ -z "$url" || "$url" =~ ^# ]] && continue
+
+            # 擷取 /asset/ 之後的路徑 (例如：work/B000035/css/dark.css)
+            rel_path=$(echo "$url" | sed -E 's|.*/asset/||')
+
+            # 組合最終目標路徑 (例如：auto-backup/work/B000035/css/dark.css)
+            target_file="${BACKUP_DIR}/${rel_path}"
+
+            echo "Fetching: $url"
+            echo "  --> Target: $target_file"
+
+            # 透過 curl 下載，--create-dirs 會自動建立目錄結構
+            curl -sSL --create-dirs -o "$target_file" "$url"
+          done < "$URL_FILE"
+
+      - name: Commit and Push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add auto-backup/
+
+          if git diff --staged --quiet; then
+            echo "所有檔案均無變化，跳過 Commit。"
+          else
+            git commit -m "chore: 自動備份 CSS 資產 [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+            git push
+          fi
