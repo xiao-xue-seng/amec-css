@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WCAG 2.1 色彩對比度檢查器 (含 Oklab 微調)</title>
+    <style>
+      :root {
+        --bg-main: #0f172a;
+        --bg-panel: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --focus-ring: #38bdf8;
+        --pass-color: #22c55e;
+        --fail-color: #f43f5e;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        background-color: var(--bg-main);
+        padding: 2rem 1rem;
+        color: var(--text-main);
+        line-height: 1.5;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+
+      main {
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      header {
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        margin-bottom: 0.5rem;
+        font-size: 1.75rem;
+      }
+
+      p.subtitle {
+        color: var(--text-muted);
+      }
+
+      .editor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      fieldset {
+        border: 1px solid var(--border-color);
+        border-radius: 0.75rem;
+        background-color: var(--bg-panel);
+        padding: 1.25rem;
+      }
+
+      legend {
+        padding: 0 0.5rem;
+        color: var(--text-main);
+        font-weight: 600;
+      }
+
+      .control-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .control-group:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.375rem;
+        font-weight: 500;
+        font-size: 0.875rem;
+      }
+
+      .input-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      input[type="color"] {
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 0.375rem;
+        background: transparent;
+        width: 2.75rem;
+        height: 2.5rem;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+        background-color: var(--bg-main);
+        padding: 0.5rem 0.75rem;
+        color: var(--text-main);
+        font-size: 1rem;
+        font-family: monospace;
+      }
+
+      input[type="range"] {
+        cursor: pointer;
+        width: 100%;
+        height: 0.5rem;
+        accent-color: var(--focus-ring);
+      }
+
+      button {
+        cursor: pointer;
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+        background-color: #334155;
+        padding: 0.5rem 0.75rem;
+        color: var(--text-main);
+        font-weight: 500;
+        font-size: 0.875rem;
+      }
+
+      button:hover {
+        background-color: #475569;
+      }
+
+      input:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--focus-ring);
+        outline-offset: 2px;
+      }
+
+      .preview-box {
+        transition:
+          background-color 0.15s,
+          color 0.15s;
+        margin-bottom: 2rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.75rem;
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+      }
+
+      .preview-box h2 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .results-panel {
+        border: 1px solid var(--border-color);
+        border-radius: 0.75rem;
+        background-color: var(--bg-panel);
+        padding: 1.5rem;
+      }
+
+      .ratio-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+      }
+
+      .ratio-number {
+        color: var(--focus-ring);
+        font-weight: 700;
+        font-size: 2.5rem;
+        font-family: monospace;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .status-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        background: var(--bg-main);
+        padding: 1rem;
+      }
+
+      .badge {
+        display: inline-block;
+        border-radius: 0.375rem;
+        padding: 0.25rem 0.625rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+
+      .badge.pass {
+        border: 1px solid var(--pass-color);
+        background-color: rgba(34, 197, 94, 0.15);
+        color: var(--pass-color);
+      }
+
+      .badge.fail {
+        border: 1px solid var(--fail-color);
+        background-color: rgba(244, 63, 94, 0.15);
+        color: var(--fail-color);
+      }
+    </style>
+    <!-- 引入輕量 Color.js (專門處理 Oklab 空間與 WCAG21 對比計算) -->
+    <script src="https://cdn.jsdelivr.net/npm/colorjs.io@0.5.2/dist/color.global.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>WCAG 2.1 色彩對比度檢查器</h1>
+        <p class="subtitle">
+          支援原生吸管（EyeDropper）取色與 Oklab 感知感知亮度微調
+        </p>
+      </header>
+
+      <!-- 編輯區 -->
+      <div class="editor-grid">
+        <!-- 前景色設定 -->
+        <fieldset>
+          <legend>前景色 (Text Color)</legend>
+
+          <div class="control-group">
+            <label for="fg-hex">HEX 色碼</label>
+            <div class="input-row">
+              <input
+                type="color"
+                id="fg-picker"
+                value="#ffffff"
+                aria-label="選取前景色"
+              />
+              <input
+                type="text"
+                id="fg-hex"
+                value="#ffffff"
+                spellcheck="false"
+              />
+              <button type="button" id="fg-eyedropper">吸管取色</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="fg-oklab-l"
+              >Oklab 亮度 (Lightness L): <span id="fg-l-val">100%</span></label
+            >
+            <input
+              type="range"
+              id="fg-oklab-l"
+              min="0"
+              max="1"
+              step="0.005"
+              value="1"
+            />
+          </div>
+        </fieldset>
+
+        <!-- 背景色設定 -->
+        <fieldset>
+          <legend>背景色 (Background Color)</legend>
+
+          <div class="control-group">
+            <label for="bg-hex">HEX 色碼</label>
+            <div class="input-row">
+              <input
+                type="color"
+                id="bg-picker"
+                value="#2563eb"
+                aria-label="選取背景色"
+              />
+              <input
+                type="text"
+                id="bg-hex"
+                value="#2563eb"
+                spellcheck="false"
+              />
+              <button type="button" id="bg-eyedropper">吸管取色</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="bg-oklab-l"
+              >Oklab 亮度 (Lightness L): <span id="bg-l-val">52%</span></label
+            >
+            <input
+              type="range"
+              id="bg-oklab-l"
+              min="0"
+              max="1"
+              step="0.005"
+              value="0.52"
+            />
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- 即時預覽區 -->
+      <section
+        class="preview-box"
+        id="preview-container"
+        aria-label="文字對比預覽"
+      >
+        <h2>範例標題 (Large Text 18pt+)</h2>
+        <p>
+          這是標準內文範例文字 (Normal Text 14pt)，用來測試閱讀舒適度與 WCAG
+          可存取性合規狀態。
+        </p>
+      </section>
+
+      <!-- WCAG 結果評估區 -->
+      <section class="results-panel" aria-live="polite">
+        <div class="ratio-header">
+          <h3>對比率 (Contrast Ratio)</h3>
+          <div class="ratio-number" id="contrast-ratio">1.00 : 1</div>
+        </div>
+
+        <div class="status-grid">
+          <div class="status-card">
+            <div>
+              <strong>AA 級 一般文字</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted)">
+                要求對比度 &ge; 4.5:1
+              </div>
+            </div>
+            <span id="aa-normal" class="badge fail">不通過</span>
+          </div>
+
+          <div class="status-card">
+            <div>
+              <strong>AA 級 大文字 / UI</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted)">
+                要求對比度 &ge; 3.0:1
+              </div>
+            </div>
+            <span id="aa-large" class="badge fail">不通過</span>
+          </div>
+
+          <div class="status-card">
+            <div>
+              <strong>AAA 級 一般文字</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted)">
+                要求對比度 &ge; 7.0:1
+              </div>
+            </div>
+            <span id="aaa-normal" class="badge fail">不通過</span>
+          </div>
+
+          <div class="status-card">
+            <div>
+              <strong>AAA 級 大文字</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted)">
+                要求對比度 &ge; 4.5:1
+              </div>
+            </div>
+            <span id="aaa-large" class="badge fail">不通過</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // 綁定 DOM DOM 元素
+      const fgPicker = document.getElementById("fg-picker");
+      const fgHex = document.getElementById("fg-hex");
+      const fgOklabL = document.getElementById("fg-oklab-l");
+      const fgLVal = document.getElementById("fg-l-val");
+      const fgEyedropper = document.getElementById("fg-eyedropper");
+
+      const bgPicker = document.getElementById("bg-picker");
+      const bgHex = document.getElementById("bg-hex");
+      const bgOklabL = document.getElementById("bg-oklab-l");
+      const bgLVal = document.getElementById("bg-l-val");
+      const bgEyedropper = document.getElementById("bg-eyedropper");
+
+      const previewContainer = document.getElementById("preview-container");
+      const contrastRatioEl = document.getElementById("contrast-ratio");
+
+      const aaNormal = document.getElementById("aa-normal");
+      const aaLarge = document.getElementById("aa-large");
+      const aaaNormal = document.getElementById("aaa-normal");
+      const aaaLarge = document.getElementById("aaa-large");
+
+      // 檢查瀏覽器對 EyeDropper API 的支援
+      if (!("EyeDropper" in window)) {
+        fgEyedropper.disabled = true;
+        bgEyedropper.disabled = true;
+        fgEyedropper.title = "您的瀏覽器不支援 EyeDropper API";
+        bgEyedropper.title = "您的瀏覽器不支援 EyeDropper API";
+      }
+
+      // 將 Color 物件導出 Hex 與 Oklab L 數值
+      function updateStateFromColor(colorObj, isForeground) {
+        const hexStr = colorObj.to("srgb").toString({ format: "hex" });
+        const oklabL = colorObj.to("oklab").l;
+
+        if (isForeground) {
+          fgHex.value = hexStr;
+          fgPicker.value = hexStr;
+          fgOklabL.value = Math.max(0, Math.min(1, oklabL));
+          fgLVal.textContent = `${Math.round(oklabL * 100)}%`;
+        } else {
+          bgHex.value = hexStr;
+          bgPicker.value = hexStr;
+          bgOklabL.value = Math.max(0, Math.min(1, oklabL));
+          bgLVal.textContent = `${Math.round(oklabL * 100)}%`;
+        }
+      }
+
+      // 核心對比度計算與UI更新邏輯
+      function recalculate() {
+        try {
+          const fg = new Color(fgHex.value);
+          const bg = new Color(bgHex.value);
+
+          // 更新預覽區樣式
+          previewContainer.style.color = fgHex.value;
+          previewContainer.style.backgroundColor = bgHex.value;
+
+          // 計算 WCAG 2.1 對比度
+          const ratio = fg.contrast(bg, "WCAG21");
+          contrastRatioEl.textContent = `${ratio.toFixed(2)} : 1`;
+
+          // 更新評估徽章
+          updateBadge(aaNormal, ratio >= 4.5);
+          updateBadge(aaLarge, ratio >= 3.0);
+          updateBadge(aaaNormal, ratio >= 7.0);
+          updateBadge(aaaLarge, ratio >= 4.5);
+        } catch (e) {
+          // 忽略無效的 Hex 輸入過程
+        }
+      }
+
+      function updateBadge(element, isPass) {
+        element.textContent = isPass ? "通過" : "不通過";
+        element.className = `badge ${isPass ? "pass" : "fail"}`;
+      }
+
+      // 事件監聽：Color Picker 與 Hex 文字框
+      function handleColorChange(e, isForeground) {
+        const val = e.target.value;
+        if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+          const c = new Color(val);
+          updateStateFromColor(c, isForeground);
+          recalculate();
+        }
+      }
+
+      fgPicker.addEventListener("input", (e) => handleColorChange(e, true));
+      fgHex.addEventListener("input", (e) => handleColorChange(e, true));
+      bgPicker.addEventListener("input", (e) => handleColorChange(e, false));
+      bgHex.addEventListener("input", (e) => handleColorChange(e, false));
+
+      // 事件監聽：Oklab L 亮度滑竿
+      function handleOklabLChange(e, isForeground) {
+        const targetHex = isForeground ? fgHex.value : bgHex.value;
+        try {
+          const c = new Color(targetHex).to("oklab");
+          c.l = parseFloat(e.target.value);
+          updateStateFromColor(c, isForeground);
+          recalculate();
+        } catch (err) {}
+      }
+
+      fgOklabL.addEventListener("input", (e) => handleOklabLChange(e, true));
+      bgOklabL.addEventListener("input", (e) => handleOklabLChange(e, false));
+
+      // 事件監聽：EyeDropper 取色器
+      async function pickColor(isForeground) {
+        if (!("EyeDropper" in window)) return;
+        const eyeDropper = new EyeDropper();
+        try {
+          const result = await eyeDropper.open();
+          const c = new Color(result.sRGBHex);
+          updateStateFromColor(c, isForeground);
+          recalculate();
+        } catch (e) {
+          // 使用者取消取色操作
+        }
+      }
+
+      fgEyedropper.addEventListener("click", () => pickColor(true));
+      bgEyedropper.addEventListener("click", () => pickColor(false));
+
+      // 初始化計算
+      recalculate();
+    </script>
+  </body>
+</html>
