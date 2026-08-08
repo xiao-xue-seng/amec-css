@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CSS 樣式比對 (正規化)",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "tools/diff-css.js",
+                "${relativeFile}",
+                "${input:file2}"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "file2",
+            "type": "promptString",
+            "description": "請輸入要比對的第二個 CSS 檔案路徑 (例如: style2.css 或 css/style2.css)"
+        }
+    ]
+}

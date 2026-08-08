@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 拖曳正規化工具</title>
+    <style>
+      #drop-zone {
+        width: 80%;
+        height: 200px;
+        border: 3px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #666;
+        margin: 50px auto;
+        border-radius: 10px;
+      }
+      #drop-zone.hover {
+        border-color: #007acc;
+        background: #f0f8ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="drop-zone">拖曳兩個 CSS 檔案到這裡，將自動下載正規化結果</div>
+
+    <script>
+      const dropZone = document.getElementById("drop-zone");
+
+      dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.classList.add("hover");
+      });
+      dropZone.addEventListener("dragleave", () =>
+        dropZone.classList.remove("hover"),
+      );
+
+      dropZone.addEventListener("drop", async (e) => {
+        e.preventDefault();
+        dropZone.classList.remove("hover");
+
+        const files = Array.from(e.dataTransfer.files).filter((f) =>
+          f.name.endsWith(".css"),
+        );
+        if (files.length === 0) return alert("請拖入 CSS 檔案！");
+
+        for (const file of files) {
+          const text = await file.text();
+          const normalized = normalizeCSSNative(text);
+          downloadFile(normalized, `norm_${file.name}`);
+        }
+      });
+
+      function normalizeCSSNative(cssText) {
+        const sheet = new CSSStyleSheet();
+        sheet.replaceSync(cssText);
+
+        function processRules(cssRules) {
+          const processed = [];
+          for (const rule of Array.from(cssRules)) {
+            if (rule.type === 1) {
+              const sortedSel = rule.selectorText
+                .split(",")
+                .map((s) => s.trim())
+                .sort()
+                .join(", ");
+              const props = [];
+              for (let i = 0; i < rule.style.length; i++) {
+                const p = rule.style[i];
+                props.push(
+                  `${p}: ${rule.style.getPropertyValue(p).trim()}${rule.style.getPropertyPriority(p) ? " !important" : ""};`,
+                );
+              }
+              props.sort();
+              processed.push({
+                key: sortedSel,
+                text: `${sortedSel} { ${props.join(" ")} }`,
+              });
+            } else if (rule.type === 4) {
+              const inner = processRules(rule.cssRules);
+              processed.push({
+                key: `@media ${rule.conditionText}`,
+                text: `@media ${rule.conditionText} {\n${inner
+                  .split("\n")
+                  .map((l) => "  " + l)
+                  .join("\n")}\n}`,
+              });
+            }
+          }
+          processed.sort((a, b) => a.key.localeCompare(b.key));
+          return processed.map((r) => r.text).join("\n");
+        }
+        return processRules(sheet.cssRules);
+      }
+
+      function downloadFile(content, filename) {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([content], { type: "text/css" }));
+        a.download = filename;
+        a.click();
+      }
+    </script>
+  </body>
+</html>
