@@ -11,7 +11,7 @@
 .amrtf-amec .super-supannotation-ba::before{background-color:#ff3384;content:"\5df4"}
 .amrtf-amec .super-supannotation-miao::before,.amrtf-amec .super-supannotation-yu::before,.amrtf-amec .super-supannotation-ba::before,.amrtf-amec .super-supannotation-jha::before{margin:0 -0.4em 0 -0.1em;color:#000;font-weight:normal;display:inline-block;line-height:1.25em;border-radius:50%;transform:translateY(-0.35em) scale(0.6);text-shadow:0.01em 0 0 var(--shadow-color),
     -0.01em 0 0 var(--shadow-color);--shadow-color:#00000080;text-indent:0;width:1.3em;height:1.3em;text-align:center}
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-family:"Noto Serif TC", "Source Han Serif TC", "Songti TC", serif;text-shadow:0.01em 0 0 var(--shadow-color), -0.01em 0 0 var(--shadow-color) !important;--shadow-color:#e0dbca80}
+.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-family:"AR PL UKai TW", "標楷體", "DFKai-SB", "BiauKai", "Kaiti TC", "STKaitiTC-Regular", "AR PL KaitiM Big5", "Noto Serif TC", serif;font-style:normal;font-weight:700;font-optical-sizing:auto}
 .amrtf-amec .super-supannotation-yu::before{background-color:#00b857;content:"\8a9e"}
 .amrtf-amec span.super-supannotation-miao{--dummy:0}
 .amrtf-amec span.super-supannotation-ba{--dummy:0}
