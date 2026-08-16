@@ -1,20 +1,18 @@
 @import url(https://cdn.amec.amrtf.org/asset/common/css/dark.css);
-.amrtf-amec .scripture-supannotation-yu,.amrtf-amec span.scripture-supannotation-yu{color:#00b857;--shadow-color:#00b85780}
+.amrtf-amec .scripture-supannotation-yu,.amrtf-amec span.scripture-supannotation-yu{color:#00b857}
 .amrtf-amec span.super-supannotation-jha{--dummy:0}
 .amrtf-amec .super-supannotation-miao,.amrtf-amec .super-supannotation-yu,.amrtf-amec .super-supannotation-ba,.amrtf-amec .super-supannotation-jha{width:1.05em;font-size:100% !important;text-wrap:nowrap;text-indent:0;display:inline-block}
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;line-height:calc(1.618 / 1.0)}
-.amrtf-amec .scripture-supannotation-jha,.amrtf-amec span.scripture-supannotation-jha{color:#d59301;--shadow-color:#d5930180}
-.amrtf-amec .scripture-supannotation-ba,.amrtf-amec span.scripture-supannotation-ba{color:#ff3384;--shadow-color:#ff338480}
-.amrtf-amec .scripture-supannotation-miao.sub_,.amrtf-amec .scripture-supannotation-miao.super_,.amrtf-amec .scripture-supannotation-ba.sub_,.amrtf-amec .scripture-supannotation-ba.super_,.amrtf-amec .scripture-supannotation-yu.sub_,.amrtf-amec .scripture-supannotation-yu.super_,.amrtf-amec .scripture-supannotation-jha.sub_,.amrtf-amec .scripture-supannotation-jha.super_{font-size:calc(100% * 0.75)}
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec span.scripture-supannotation-miao{color:#1aa9ff;--shadow-color:#1aa9ff80}
+.amrtf-amec .scripture-supannotation-jha,.amrtf-amec span.scripture-supannotation-jha{color:#d59301}
+.amrtf-amec .scripture-supannotation-ba,.amrtf-amec span.scripture-supannotation-ba{color:#ff3384}
+.amrtf-amec .scripture-supannotation-miao.sub_,.amrtf-amec .scripture-supannotation-miao.super_,.amrtf-amec .scripture-supannotation-ba.sub_,.amrtf-amec .scripture-supannotation-ba.super_,.amrtf-amec .scripture-supannotation-yu.sub_,.amrtf-amec .scripture-supannotation-yu.super_,.amrtf-amec .scripture-supannotation-jha.sub_,.amrtf-amec .scripture-supannotation-jha.super_{font-size:75%}
+.amrtf-amec .scripture-supannotation-miao,.amrtf-amec span.scripture-supannotation-miao{color:#1aa9ff}
 .amrtf-amec .super-supannotation-miao::before{background-color:#1aa9ff;content:"\5999"}
 .amrtf-amec .super-supannotation-ba::before{background-color:#ff3384;content:"\5df4"}
-.amrtf-amec .super-supannotation-miao::before,.amrtf-amec .super-supannotation-yu::before,.amrtf-amec .super-supannotation-ba::before,.amrtf-amec .super-supannotation-jha::before{margin:0 -0.4em 0 -0.1em;color:#000;font-weight:normal;display:inline-block;line-height:1.25em;border-radius:50%;transform:translateY(-0.35em) scale(0.6);text-shadow:0.01em 0 0 var(--shadow-color),
-    -0.01em 0 0 var(--shadow-color);--shadow-color:#00000080;text-indent:0;width:1.3em;height:1.3em;text-align:center}
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-family:"AR PL UKai TW", "標楷體", "DFKai-SB", "BiauKai", "Kaiti TC", "STKaitiTC-Regular", "AR PL KaitiM Big5", "Noto Serif TC", serif;font-style:normal;font-weight:700;font-optical-sizing:auto}
+.amrtf-amec .super-supannotation-miao::before,.amrtf-amec .super-supannotation-yu::before,.amrtf-amec .super-supannotation-ba::before,.amrtf-amec .super-supannotation-jha::before{margin:0 -0.4em 0 -0.1em;color:#000;display:inline-block;line-height:1.25em;border-radius:50%;transform:translateY(-0.35em) scale(0.6);text-indent:0;width:1.3em;height:1.3em;text-align:center}
+.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
 .amrtf-amec .super-supannotation-yu::before{background-color:#00b857;content:"\8a9e"}
 .amrtf-amec span.super-supannotation-miao{--dummy:0}
 .amrtf-amec span.super-supannotation-ba{--dummy:0}
 .amrtf-amec span.super-supannotation-yu{--dummy:0}
 .amrtf-amec .super-supannotation-jha::before{background-color:#d59301;content:"\672D"}
-.amrtf-amec span.seek-to[data-label$="*"]{border:0px!important;padding:0;margin:0;overflow:hidden;display:block;width:0;height:0}
+.amrtf-amec span.seek-to[data-label$="*"]{border:0 !important;padding:0;margin:0;overflow:hidden;display:block;width:0;height:0}

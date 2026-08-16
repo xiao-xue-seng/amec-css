@@ -6,7 +6,7 @@
 .amrtf-amec p.dialogue{text-indent:0;padding-left:3em;margin-top:0;margin-bottom:1em;margin-block:0 1em;padding-right:1em}
 .amrtf-amec .supannotation-jha,.amrtf-amec span.supannotation-jha{color:#8c3d1f}
 .amrtf-amec .supannotation-ba,.amrtf-amec span.supannotation-ba{color:#950d43}
-.amrtf-amec .super-supannotation-miao::before,.amrtf-amec .super-supannotation-yu::before,.amrtf-amec .super-supannotation-ba::before,.amrtf-amec .super-supannotation-jha::before{margin:0 -0.4em 0 -0.1em;color:#fff;font-weight:normal;display:inline-block;line-height:1.25em;border-radius:50%;transform:translateY(-0.35em) scale(0.6);text-indent:0;width:1.3em;height:1.3em;text-align:center}
+.amrtf-amec .super-supannotation-miao::before,.amrtf-amec .super-supannotation-yu::before,.amrtf-amec .super-supannotation-ba::before,.amrtf-amec .super-supannotation-jha::before{margin:0 -0.4em 0 -0.1em;color:#fff;display:inline-block;line-height:1.25em;border-radius:50%;transform:translateY(-0.35em) scale(0.6);text-indent:0;width:1.3em;height:1.3em;text-align:center}
 .amrtf-amec span.super-supannotation-miao{--dummy:0}
 .amrtf-amec .supannotation-yu,.amrtf-amec span.supannotation-yu{color:#007f3c}
 .amrtf-amec span.super-supannotation-yu{--dummy:0}
