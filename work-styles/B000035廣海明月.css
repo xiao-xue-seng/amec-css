@@ -1,72 +1,81 @@
-/* 【隱-四家-共用字型】 */
+/*
+label: 隱-四家-共用
+keystroke:
+show in menu: false
+*/
 .scripture-supannotation-miao,
 .scripture-supannotation-ba,
 .scripture-supannotation-yu,
 .scripture-supannotation-jha {
-  font-family: cwTeXKai, 標楷體, "STKaitiTC-Regular", serif;
-  --shadow-color: #0f0f0f80;
-  /*深色：--shadow-color: #e0dbca80;*/
-  text-shadow:
-    0.01em 0 0 var(--shadow-color),
-    -0.01em 0 0 var(--shadow-color) !important;
+  font-family:
+    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
+    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
+    serif;
+  font-size: 100%;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.618;
+
+  /* font-optical-sizing 屬性只對包含光學尺寸軸（Optical Size Axis，即 opsz）的可變字型（Variable Fonts）有效。
+  雖然 Noto Serif TC 有推出現代的可變字型版本，但它只支援「字重軸」（wght：100–900），並沒有包含 opsz 軸。
+  上述字型清單中，沒有一個字型具有 opsz 軸，所以，並不需要加：
+  font-optical-sizing: auto;
+  */
 }
 
-/* 【隱-四家-共用】 */
-.scripture-supannotation-miao,
-.scripture-supannotation-ba,
-.scripture-supannotation-yu,
-.scripture-supannotation-jha {
-  font-size: 110%;
-  line-height: calc(1.618 / 1.1);
-}
-
-/* 【四家-藍-妙音笑大師】 */
+/*
+label: 四家-藍-妙音笑大師
+keystroke: K
+show in menu: true
+*/
 .scripture-supannotation-miao,
 span.scripture-supannotation-miao {
-  color: #00639e;
-  --shadow-color: #00639e80;
-  /*深色*/
-  /* color: #1aa9ff;
-  --shadow-color: #1aa9ff80; */
+  color: #00639e; /* 深色  #1aa9ff; */
 }
 
-/* 【四家-紅-巴梭法王】 */
+/*
+label: 四家-紅-巴梭法王
+keystroke: 0
+show in menu: true
+*/
 .scripture-supannotation-ba,
 span.scripture-supannotation-ba {
-  color: #950d43;
-  --shadow-color: #950d4380;
-  /* 深色 */
-  /* color: #ff3384;
-  --shadow-color: #ff338480; */
+  color: #950d43; /* 深色 #ff3384; */
 }
 
-/* 【四家-綠-語王堅穩大師】 */
+/*
+label: 四家-綠-語王堅穩大師
+keystroke: O
+show in menu: true
+*/
 .scripture-supannotation-yu,
 span.scripture-supannotation-yu {
-  color: #007f3c;
-  --shadow-color: #007f3c80;
-  /* 深色 */
-  /* color: #00b857;
-  --shadow-color: #00b85780; */
+  color: #007f3c; /* 深色 #00b857; */
 }
 
-/* 【四家-褐-札帝格西】 */
+/*
+label: 四家-褐-札帝格西
+keystroke: M
+show in menu: true
+*/
 .scripture-supannotation-jha,
 span.scripture-supannotation-jha {
-  color: #8c3d1f;
-  --shadow-color: #8c3d1f80;
-  /* 深色 */
-  /* color: #d59301;
-  --shadow-color: #d5930180; */
+  color: #8c3d1f; /* 深色 #d59301; */
 }
 
-/* 【隱-四家箋註-共用】 */
+/*
+label: 隱-四家箋註-共用
+keystroke:
+show in menu: false
+*/
 .super-supannotation-miao,
 .super-supannotation-yu,
 .super-supannotation-ba,
 .super-supannotation-jha {
   display: inline-block;
-  width: 0.9em;
+
+  width: 1.05em;
+
   font-size: 100% !important;
   text-indent: 0;
   text-wrap: nowrap;
@@ -92,59 +101,75 @@ span.super-supannotation-jha {
   --dummy: 0;
 }
 
-/* 【隱-四家箋註-BEFORE-共用】 */
+/*
+label: 隱-四家箋註-BEFORE-共用
+keystroke:
+show in menu: false
+*/
 .super-supannotation-miao::before,
 .super-supannotation-yu::before,
 .super-supannotation-ba::before,
 .super-supannotation-jha::before {
-  display: inline-block;
   transform: translateY(-0.35em) scale(0.6);
-  margin: 0 -0.4em 0 -0.1em;
-  border-radius: 50%;
+
+  display: inline-block;
+
   width: 1.3em;
   height: 1.3em;
-  color: #fff;
-  font-weight: normal;
+  margin: 0 -0.4em 0 -0.1em;
+  border-radius: 50%;
+
   line-height: 1.25em;
+  color: #fff; /* 深色 #000;  */
   text-align: center;
   text-indent: 0;
-  --shadow-color: #ffffff80;
-  /* 深色 */
-  /* color: #000;
-  --shadow-color: #00000080;  */
-  text-shadow:
-    0.01em 0 0 var(--shadow-color),
-    -0.01em 0 0 var(--shadow-color);
 }
 
-/* 【四家箋註-藍-妙音笑大師-BEFORE】 */
+/*
+label: 四家箋註-藍-妙音笑大師-BEFORE
+keystroke:
+show in menu: false
+*/
 .super-supannotation-miao::before {
-  background-color: #00639e;
   content: "\5999";
-  /*深色：background-color: #1aa9ff;*/
+  background-color: #00639e; /* 深色 #1aa9ff; */
 }
 
-/* 【四家箋註-綠-語王堅穩大師-BEFORE】 */
+/*
+label: 四家箋註-綠-語王堅穩大師-BEFORE
+keystroke:
+show in menu: false
+*/
 .super-supannotation-yu::before {
-  background-color: #007f3c;
   content: "\8a9e";
-  /*深色：background-color: #00b857;*/
+  background-color: #007f3c; /* 深色 #00b857; */
 }
 
-/* 【四家箋註-紅-巴梭法王-BEFORE】 */
+/*
+label: 四家箋註-紅-巴梭法王-BEFORE
+keystroke:
+show in menu: false
+*/
 .super-supannotation-ba::before {
-  background-color: #950d43;
   content: "\5df4";
-  /*深色：background-color: #ff3384;*/
+  background-color: #950d43; /* 深色 #ff3384; */
 }
 
-/* 【四家箋註-褐-札帝格西-BEFORE】 */
+/*
+label: 四家箋註-褐-札帝格西-BEFORE
+keystroke:
+show in menu: true
+*/
 .super-supannotation-jha::before {
-  background-color: #8c3d1f; /*深色：#d59301;*/
   content: "\672D";
+  background-color: #8c3d1f; /* 深色 #d59301; */
 }
 
-/* 【四家上下標】 */
+/*
+label: 四家上下標
+keystroke:
+show in menu: false
+*/
 .scripture-supannotation-miao.sub_,
 .scripture-supannotation-miao.super_,
 .scripture-supannotation-ba.sub_,
@@ -153,16 +178,21 @@ span.super-supannotation-jha {
 .scripture-supannotation-yu.super_,
 .scripture-supannotation-jha.sub_,
 .scripture-supannotation-jha.super_ {
-  font-size: calc(110% * 0.75);
+  font-size: 75%;
 }
 
-/* 【隱藏式時間碼】 */
+/*
+label: 隱藏式時間碼
+keystroke:
+show in menu: false
+*/
 span.seek-to[data-label$="*"] {
+  overflow: hidden;
   display: block;
-  margin: 0;
-  border: 0px !important;
-  padding: 0;
+
   width: 0;
   height: 0;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
 }

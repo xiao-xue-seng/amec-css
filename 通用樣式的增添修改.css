@@ -1,4 +1,5 @@
 /* 未來可考慮用CSS變數，目前還沒。 */
+
 /* :root {
   --scripture-kai-font: 標楷體, "STKaitiTC-Regular", cwTeXKai, serif;
   --scripture-kai-size: 110%;
@@ -7,77 +8,101 @@
   --scripture-p-sapcing: 1em;
 } */
 
-/* TODO：新增Noto宋體 */
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap'); */
-/*
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 200 to 900
-.noto-serif-tc-<uniquifier> {
-  font-family: "Noto Serif TC", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-  */
-
 /* ------------------------------------------------------------------------------- */
 
 /* 修改原有的樣式 */
 
 /* 【B1.一級標題-書名】【轉A2-段落-書名】 */
+
+/*
+label: B1.一級標題-書名
+keystroke:
+show in menu: true
+*/
 h1.title1 {
-  font-weight: 900;
-  font-size: 2em;
+  /* Noto TC版的字碼範圍較小，會缺字，所以用SC版備援。 */
   font-family:
-    "Noto Serif", "Noto Serif SC", "Source Han Serif SC", serif; /* 這裡必須用SC版，因為TC版的字碼範圍較小，會缺字。 */
+    "Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體",
+    MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif;
+  font-size: 2em;
+  font-weight: 900;
   font-style: normal;
-  font-optical-sizing: auto;
   line-height: 1.618;
-  text-indent: 0;
   text-align: justify; /* 很長的藏文書名會需要 */
+  text-indent: 0;
+
+  /* font-optical-sizing 屬性只對包含光學尺寸軸（Optical Size Axis，即 opsz）的可變字型（Variable Fonts）有效。
+  雖然 Noto 有推出現代的可變字型版本，但它只支援「字重軸」（wght：100–900），並沒有包含 opsz 軸。
+  上述字型清單中，沒有一個字型具有 opsz 軸，所以，並不需要加：
+  font-optical-sizing: auto;
+  */
 }
 
-/* 【一級標題上下標】  */
+/*
+label: 一級標題上下標
+keystroke:
+show in menu: false
+*/
 .title1.sub_,
 .title1.super_ {
   font-size: calc(200% * 0.75);
 }
 
-/* 【B2.二級標題-章節/卷名】 */
+/*
+label: B2.二級標題-章節/卷名
+keystroke: 2
+show in menu: true
+*/
 .toc-title, /*目錄標題來共用*/
 h2.title2 {
-  font-weight: bold;
   font-size: 1.618em;
-}
-
-/* 【B3.三級標題-段落標題】 */
-h3.title3 {
   font-weight: bold;
-  font-size: 1.414em;
 }
 
-/* 【B4.四級標題】 */
+/*
+label: B3.三級標題-段落標題
+keystroke: 3
+show in menu: true
+*/
+h3.title3 {
+  font-size: 1.414em;
+  font-weight: bold;
+}
+
+/*
+label: B4.四級標題
+keystroke: 4
+show in menu: true
+*/
 h4.title4 {
   font-size: 1.309em;
   font-weight: bold;
 }
 
-/* 【B5.五級標題】 */
+/*
+label: B5.五級標題
+keystroke: 5
+show in menu: true
+*/
 h5.title5 {
   font-size: 1em;
   font-weight: bold;
 }
 
-/* 【一般內文段落】隱 */
+/*
+label: 一般內文段落
+keystroke:
+show in menu: false
+*/
 p {
-  text-indent: 2em;
+  margin-block: 1em;
   line-height: 1.618;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
   text-align: justify;
+  text-indent: 2em;
 }
 
 /* 【A1.經文-楷書】 */
+
 /*
   font-family:
     "cwTeXKai",
@@ -92,130 +117,211 @@ p {
     "Noto Serif TC",
     serif !important;
 */
+
+/*
+label: A1.經文-楷書
+keystroke: Q
+show in menu: true
+*/
 .homage, /*皈敬來共用*/
 .scripture-verse, /*偈頌*/
 /* -------------------------- */
 .scripture-kai,
 span.scripture-kai {
-  font-size: 110%;
-  font-family: "cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;
-  line-height: calc(1.618 / 1.1);
-  text-shadow:
-    0.01em 0 0 #0f0f0f80,
-    -0.01em 0 0 #0f0f0f80;
-  /* text-shadow: 0.01em 0 0 #e0dbca80, -0.01em 0 0 #e0dbca80; 深色 */
-}
-/* 【隱-不加陰影的粗體楷書】已經加粗過了，不再重複加陰影 */
-/* blockquote .scripture-kai, */
-.bold.scripture-kai,
-.bold .scripture-kai,
-.scripture-kai .bold,
-/* --- */
-h1 .scripture-kai,
-h2 .scripture-kai,
-h3 .scripture-kai,
-h4 .scripture-kai,
-/* --- */
-.scripture-outline.scripture-kai,
-.scripture-outline .scripture-kai,
-/* --- */
-th .scripture-kai {
-  text-shadow: none;
+  font-family:
+    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
+    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
+    serif !important;
+  font-size: 100%;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.618;
+
+  /* font-optical-sizing 屬性只對包含光學尺寸軸（Optical Size Axis，即 opsz）的可變字型（Variable Fonts）有效。
+  雖然 Noto Serif TC 有推出現代的可變字型版本，但它只支援「字重軸」（wght：100–900），並沒有包含 opsz 軸。
+  上述字型清單中，沒有一個字型具有 opsz 軸，所以，並不需要加：
+  font-optical-sizing: auto;
+  */
 }
 
-/* 【A2.經文-仿宋】 */
+/* 【隱-不加陰影的粗體楷書】已經加粗過了，不再重複加陰影 */
+
+/* blockquote .scripture-kai, */
+
+/* .bold.scripture-kai,
+.bold .scripture-kai,
+.scripture-kai .bold, */
+
+/* --- */
+
+/* h1 .scripture-kai,
+h2 .scripture-kai,
+h3 .scripture-kai,
+h4 .scripture-kai, */
+
+/* --- */
+
+/* .scripture-outline.scripture-kai,
+.scripture-outline .scripture-kai, */
+
+/* --- */
+
+/* th .scripture-kai {
+  text-shadow: none;
+} */
+
+/*
+label: A2.經文/師父手抄-仿宋
+keystroke: W
+show in menu: true
+*/
 .scripture-fangsong,
 span.scripture-fangsong {
-  font-weight: normal;
-  font-size: 110%;
-  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
-  line-height: calc(1.618 / 1.1);
+  /* 後台當 font-family 太長時，可能無法順利儲存。可在UI中，刪除多餘間隔空白。 */
+  font-family:
+    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
+    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
+    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
+    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-size: 100%;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.618;
 }
 
 /* 【E1.格式-底線】 */
+u,
 span.underline,
 .underline {
   text-decoration: underline;
-  text-underline-offset: 0.2em; /*新增*/
+  text-underline-offset: 0.2em;
 }
 
 /* 【側線引文內-段落】 */
 blockquote p {
-  text-indent: 0;
-  /* font-weight: bold; */
   line-height: 1.5;
   text-align: justify;
+  text-indent: 0;
 }
 
-/* 【時間、頁碼錨點】 */
+/*
+label: 時間、頁碼錨點
+show in menu: false
+*/
 span.seek-to,
 .seek-to,
 span.pagenum,
 .pagenum {
-  color: #2a6496;
-  font-weight: normal;
-  font-size: 100%;
   font-family: "Noto Sans TC", sans-serif;
-  text-shadow: none; /* 不要受楷書陰影加粗的影響 */
+  font-size: 100%;
+  font-weight: normal;
+  color: #2a6496; /* 深色 #69a3d5 */
+
+  /* text-shadow: none; 不要受楷書陰影加粗的影響 */
 }
 
-/* 【A3.經文-藏文】 */
+/*
+label: A3.經文-藏文
+keystroke: E
+show in menu: true
+*/
 .font-tibetan,
 span.font-tibetan {
-  bottom: 0.18em;
-  font-size: 100%;
-  font-family: "Monlam Uni OuChan2", serif !important;
-  line-height: 1;
   position: relative;
-  text-shadow: none; /* 不要受楷書陰影加粗的影響 */
+  bottom: 0.18em;
+
+  font-family: "Monlam Uni OuChan2", serif !important;
+  font-size: 100%;
+  line-height: 1;
+
+  /* text-shadow: none; 不要受楷書陰影加粗的影響 */
 }
+
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉A1-段落-前言介紹】有分深淺主題 */
+/*
+label: 轉A1-段落-前言介紹
+keystroke:
+show in menu: true
+*/
 p.intro {
-  background-color: #e0d8bf; /* 深色用：#272720; */
+  margin-block: 0 2lh;
+  padding: 1em;
   border-radius: 5px;
-  margin-block-start: 0;
-  margin-block-end: 2lh;
-  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
-  font-size: 110%;
+
+  font-family:
+    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
+    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
+    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
+    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-size: 100%;
   font-weight: normal;
   text-indent: 0;
-  padding: 1em;
+
+  background-color: #e0d8bf; /* 深色 #272720; */
 }
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉隱-書名-藏文行高】配合現有樣式：藏文不要縮小行高(不要強制1.0)，避免藏文書名太擠 */
+/* 配合現有樣式：藏文不要縮小行高(不要強制1.0)，避免藏文書名太擠 */
+
+/*
+label: 轉隱-書名-藏文行高
+keystroke:
+show in menu: false
+*/
 .title1 .font-tibetan {
   line-height: normal;
 }
-/* 【轉隱-書名-與後段距離】 */
+
+/*
+label: 轉隱-書名-與後段距離
+keystroke:
+show in menu: false
+*/
 .title1 + *:not(.title1) {
-  margin-block-start: 1lh; /* 與margin-top相比，這可適用於多種語言書寫方向，所以都盡可能用這種。 */
+  margin-block-start: 1lh;
 }
-/* 【轉隱-書名-與前段距離】 */
+
+/*
+label: 轉隱-書名-與前段距離
+keystroke:
+show in menu: false
+*/
 p + .title1 {
-  margin-block-start: 2lh; /* 與margin-top相比，這可適用於多種語言書寫方向，所以都盡可能用這種。 */
+  margin-block-start: 2lh;
 }
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉A3-段落-作者】 */
+/*
+label: 轉A3-段落-作者
+keystroke:
+show in menu: true
+*/
 p.author {
-  text-indent: 0;
-  text-align: right;
   margin: 0;
   line-height: 2;
+  text-align: right;
+  text-indent: 0;
 }
-/* 【轉隱-作者-與後段距離】 */
+
+/*
+label: 轉隱-作者-與後段距離
+keystroke:
+show in menu: false
+*/
 p.author + *:not(p.author) {
-  margin-block-start: 1lh; /* 與margin-top相比，這可適用於多種語言書寫方向。 */
+  margin-block-start: 1lh;
 }
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉A4-段落-皈敬】 */
+/*
+label: 轉A4-段落-皈敬
+keystroke:
+show in menu: true
+*/
 p.homage {
   /* = 以下 + 楷書 */
   text-indent: 0 !important;
@@ -223,22 +329,37 @@ p.homage {
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉B2-段落-無間距】 */
+/*
+label: 轉B2-段落-無間距
+keystroke:
+show in menu: true
+*/
 p.no-line-spacing {
   margin: 0;
 }
-/* 【轉隱-無間距-與前後段距離】：設定與前後不同樣式之間的距離。這是P的樣式，所以都只針對P定義。 */
+
+/* 設定與前後不同樣式之間的距離。這是P的樣式，所以都只針對P定義。 */
+
+/*
+label: 轉隱-無間距-與前後段距離
+keystroke:
+show in menu: false
+*/
 p.scripture-modern-nospacing + p:not(.scripture-modern-nospacing), /*白話無間距來共用*/
 p:not(.scripture-modern-nospacing) + p.scripture-modern-nospacing,
 /* --- */
 p.no-line-spacing + p:not(.no-line-spacing),
 p:not(.no-line-spacing) + p.no-line-spacing {
-  margin-block-start: 1em; /* 與margin-top相比，這可適用於多種語言書寫方向。 */
+  margin-block-start: 1em;
 }
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉B3-段落-科判】 */
+/*
+label: 轉B3-段落-科判
+keystroke:
+show in menu: true
+*/
 p.scripture-outline {
   text-indent: 0 !important;
 }
@@ -246,24 +367,35 @@ p.scripture-outline {
 /* ------------------------------------------------------------------------------- */
 
 /* 偈頌段落的字元會去共用楷書 */
+
 /* 【轉隱-偈頌字元】 */
+
 /* .scripture-verse {
   font-family: 標楷體, "STKaitiTC-Regular", cwTeXKai, serif;
   font-size: 110%;
 } */
-/* 【轉隱-偈頌段落共用】 */
+
+/*
+label: 轉隱-偈頌段落共用
+keystroke:
+show in menu: false
+*/
 .quoting-sutra-verse, /*引經偈頌來共用*/
 .quoting-treatise-verse, /*引論偈頌來共用*/
 .quoting-explanation-verse, /*引釋偈頌來共用*/
 .scripture-modern-verse, /*白話偈頌來共用*/
 .scripture-verse {
+  margin-inline-start: 2em;
   text-indent: 0 !important;
-  margin-inline-start: 2em; /* 這可適用於多種語言書寫方向。 */
 }
 
-/* 【轉B4-段落-偈頌段落】 */
+/*
+label: 轉B4-段落-偈頌段落
+keystroke:
+show in menu: true
+*/
 p.scripture-verse {
-  text-align: left; /*偈頌不做左右對齊*/
+  text-align: left; /* 偈頌不做左右對齊 */
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -271,65 +403,78 @@ p.scripture-verse {
 /* #region 箋注 ******************************************************************/
 
 /* 【轉隱-箋注共用】 */
+
 /* .annotation {
 } */
 
-/* 【轉B5-字元-箋注】。 */
+/*
+label: 轉B5-字元-箋注
+keystroke:
+show in menu: true
+*/
 .annotation-title, /*箋注標題來共用*/
 .annotation,
 span.annotation {
+  font-family:
+    InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC",
+    "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體",
+    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif;
   font-size: 0.707em !important;
-  font-family: "Noto Sans SC", "Source Han Sans SC", sans-serif;
   font-weight: 400;
+
   /* line-height: 1; 必須要這個，垂直對齊才會準。不能用normal，一定要用1 */
+
   /* 垂直對齊不要用text-bottom，因為對於不同字型會有差異很大的不同結果。 */
-  /* vertical-align: text-bottom; */
 }
 
-/* 【轉B5-字元-小箋注】 */
-/* span.scripture-annotation-small {
-  font-size: 0.707em;
-} */
-
-/* 【轉B5-段落-小箋注】 */
-/* p.scripture-annotation-small {
-  font-size: 0.707em;
-} */
-
-/* 【轉B5-段落-箋注段落】。要用P+SPAN方式，否則縮排會對不齊。 */
-/* p.scripture-annotation {
-} */
-
-/* 【轉B5-字元-箋注標題】。 */
+/*
+label: 轉B5-字元-箋注標題
+keystroke:
+show in menu: true
+*/
 span.annotation-title {
   font-weight: bold;
 }
 
-/* 【轉B5-段落-箋注標題】。要用P+SPAN方式，否則縮排會對不齊。 */
-/* p.annotation-title {
-  font-weight: bold;
-} */
+/*
+label: 轉隱-箋注藏文
+keystroke:
+show in menu: false
+*/
 
-/* 【轉隱-箋注藏文】 */
-/* 箋注是小字，藏文要對齊基線。只有當：在行首、前文是藏文時，才需要調整 */
-/* 目前雖然只放了垂直對齊，但其實這裡可以放任何「箋注藏文」相關樣式 */
-/*箋注標題來共用*/
+/*
+  箋注是小字，藏文要對齊基線。只有當：在行首、前文是藏文時，才需要調整
+  目前雖然只放了垂直對齊，但其實這裡可以放任何「箋注藏文」相關樣式
+*/
+
+/* 箋注標題來共用 */
 .annotation-title.font-tibetan:first-child, /*行首*/
 .font-tibetan + .annotation-title.font-tibetan, /*前文是藏文*/
 /* ----- */
 .annotation.font-tibetan:first-child, /*行首*/
 .font-tibetan + .annotation.font-tibetan /*前文是藏文*/ {
-  vertical-align: calc(0.18em / 0.707); /*配合先前的設定。對齊基線*/
+  vertical-align: calc(0.18em / 0.707); /* 配合先前的設定。對齊基線 */
 }
 
-/* 【轉隱-箋注藏文間距】 */
+/*
+label: 轉隱-箋注藏文間距
+keystroke:
+show in menu: false
+*/
+
 /* 藏文箋注前後一律加間隔 */
-.annotation-title.font-tibetan, /*箋注標題來共用*/
+
+/* 箋注標題來共用 */
+.annotation-title.font-tibetan,
 .annotation.font-tibetan {
   margin-inline: 0.5em;
 }
 
-/* 【轉隱-下標箋注間距】 */
+/*
+label: 轉隱-下標箋注間距
+keystroke:
+show in menu: false
+*/
 sub + .annotation-title, /*箋注標題來共用*/
 /* ----- */
 sub + .annotation {
@@ -341,19 +486,29 @@ sub + .annotation {
 /* ------------------------------------------------------------------------------- */
 
 /* #region 標題 */
+
 /* "標題"沿用原有的樣式 */
 
-/* 【隱-標題前間距】 */
+/*
+label: 隱-標題前間距
+keystroke:
+show in menu: false
+*/
 h2.title2,
 h3.title3 {
   margin-block-start: 1.618lh;
 }
 
-/* 【隱-標題同類間距】 */
+/*
+label: 隱-標題同類間距
+keystroke:
+show in menu: false
+*/
 h2.title2 + h2.title2,
 h3.title3 + h3.title3 {
   margin-block-start: 1em;
 }
+
 /* #endregion */
 
 /* ------------------------------------------------------------------------------- */
@@ -361,62 +516,105 @@ h3.title3 + h3.title3 {
 /* #region 引文區塊 */
 
 /*
-    引文部分，網頁中是包在blockquote裡面，所以只須設定段落、字元樣式，不需要額外設定"引文區塊"的樣式。
- */
+  引文部分，網頁中是包在blockquote裡面，所以只須設定段落、字元樣式，不需要額外設定"引文區塊"的樣式。
+*/
 
-/* 【轉C00-字元-引文科判通用】 */
+/*
+label: 轉C00-字元-引文科判通用
+keystroke:
+show in menu: true
+*/
 .quoting-outline,
 span.quoting-outline {
+  font-family:
+    InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC",
+    "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體",
+    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif;
   font-weight: bold;
-  font-family: "Noto Sans TC", "Source Han Sans TC", sans-serif;
 }
-/* 【轉C00-段落-引文科判通用】 */
+
+/*
+label: 轉C00-段落-引文科判通用
+keystroke:
+show in menu: true
+*/
 p.quoting-outline {
   text-indent: 0 !important;
 }
+
 /* ------------------------------------------------------------------------------- */
-/* 【轉C10-字元-引經】 */
+
+/*
+label: 轉C10-字元-引經
+keystroke:
+show in menu: true
+*/
 .quoting-sutra-verse, /*引經偈頌來共用*/
 .quoting-sutra-indent, /*引經縮排來共用*/
 .quoting-sutra, /*與 P 共用*/
 span.quoting-sutra {
   font-family:
-    "Noto Serif", "Noto Serif SC", "Source Han Serif SC", serif; /*用SC版，因為TC版缺字較多*/
+    "Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體",
+    MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif;
+
   /* 即使引文區塊已經加粗，也要考慮「不在引文區塊的字元套用」情況 */
   font-weight: 600;
 }
-/* 【轉C10-段落-引經】 */
+
+/*
+label: 轉C10-段落-引經
+keystroke:
+show in menu: true
+*/
 p.quoting-sutra {
   --dummy: 0;
 }
-/* 【轉C11-段落-引經偈頌】 */
+
+/*
+label: 轉C11-段落-引經偈頌
+keystroke:
+show in menu: true
+*/
 p.quoting-sutra-verse {
   /* = 偈頌段落 + 引經 + 以下 */
-  text-align: left; /*偈頌不做左右對齊*/
+  text-align: left; /* 偈頌不做左右對齊 */
 }
-/* 【轉C12-段落-引經縮排】 */
+
+/*
+label: 轉C12-段落-引經縮排
+keystroke:
+show in menu: true
+*/
 p.quoting-sutra-indent {
   /* = 以下 + 引經 */
   text-indent: 2em !important;
 }
+
 /* ------------------------------------------------------------------------------- */
-/* 【轉C20-字元-引論】 */
+
+/*
+label: 轉C20-字元-引論
+keystroke:
+show in menu: true
+*/
+
 /* 這裡雖然是用楷體，但是沒有去共用"經文楷"，讓它獨立出來，作為其他引論樣式的基礎，這樣應該會比較好維護。 */
 .quoting-treatise-verse, /*引論偈頌來共用*/
 .quoting-treatise-indent,
 /* --- */
 .quoting-treatise,
 span.quoting-treatise {
-  font-family: "cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;
-  font-size: 110%;
-  line-height: calc(1.618 / 1.1);
-  text-shadow:
-    0.01em 0 0 #0f0f0f80,
-    -0.01em 0 0 #0f0f0f80;
-  /* text-shadow: 0.01em 0 0 #e0dbca80, -0.01em 0 0 #e0dbca80; 深色 */
+  font-family:
+    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
+    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
+    serif !important;
+  font-size: 100%;
+  line-height: 1.618;
 }
+
 /* 【轉隱-粗體引論不加陰影】 */
-.bold.quoting-treatise-verse,
+
+/* .bold.quoting-treatise-verse,
 .bold .quoting-treatise-verse,
 .quoting-treatise-verse .bold,
 .bold.quoting-treatise-indent,
@@ -426,42 +624,82 @@ span.quoting-treatise {
 .bold .quoting-treatise,
 .quoting-treatise .bold {
   text-shadow: none;
-}
-/* 【轉C20-段落-引論】 */
+} */
+
+/*
+label: 轉C20-段落-引論
+keystroke:
+show in menu: true
+*/
 p.quoting-treatise {
   --dummy: 0;
 }
-/* 【轉C21-段落-引論偈頌】 */
+
+/*
+label: 轉C21-段落-引論偈頌
+keystroke:
+show in menu: true
+*/
 p.quoting-treatise-verse {
   /* = 偈頌段落 + 引論 + 以下 */
-  text-align: left; /*偈頌不做左右對齊*/
+  text-align: left; /* 偈頌不做左右對齊 */
 }
-/* 【轉C22-段落-引論縮排】 */
+
+/*
+label: 轉C22-段落-引論縮排
+keystroke:
+show in menu: true
+*/
 p.quoting-treatise-indent {
   /* = 以下 + 引論 */
   text-indent: 2em !important;
 }
+
 /* ------------------------------------------------------------------------------- */
-/* 【轉C30-字元-引釋】 */
+
+/*
+label: 轉C30-字元-引釋
+keystroke:
+show in menu: true
+*/
 .quoting-explanation-verse, /*引釋偈頌來共用*/
 .quoting-explanation-indent,
 .quoting-explanation,
 span.quoting-explanation {
-  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
-  font-size: 110%;
+  font-family:
+    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
+    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
+    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
+    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-size: 100%;
   font-weight: normal;
-  line-height: calc(1.618 / 1.1);
+  line-height: 1.618;
 }
-/* 【轉C30-段落-引釋】 */
+
+/*
+label: 轉C30-段落-引釋
+keystroke:
+show in menu: true
+*/
 p.quoting-explanation {
   --dummy: 0;
 }
-/* 【轉C31-段落-引釋偈頌】 */
+
+/*
+label: 轉C31-段落-引釋偈頌
+keystroke:
+show in menu: true
+*/
 p.quoting-explanation-verse {
   /* = 偈頌段落 + 引釋 + 以下 */
-  text-align: left; /*偈頌不做左右對齊*/
+  text-align: left; /* 偈頌不做左右對齊 */
 }
-/* 【轉C32-段落-引釋縮排】 */
+
+/*
+label: 轉C32-段落-引釋縮排
+keystroke:
+show in menu: true
+*/
 p.quoting-explanation-indent {
   text-indent: 2em !important;
 }
@@ -472,62 +710,120 @@ p.quoting-explanation-indent {
 
 /* #region 原文、古文、白話 */
 
-/* 【轉D1-字元-原文】 */
+/*
+label: 轉D1-字元-原文
+keystroke:
+show in menu: true
+*/
 .scripture-classical, /*讓P也共用這些設定*/
 span.scripture-classical {
-  font-family: "cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;
+  font-family:
+    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
+    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
+    serif !important;
   font-size: 120%;
   font-weight: bold;
   line-height: calc(1.618 / 1.2);
 }
-/* 【轉D1-段落-原文】 */
+
+/*
+label: 轉D1-段落-原文
+keystroke:
+show in menu: true
+*/
 p.scripture-classical {
   line-height: 1.618;
   text-indent: calc(2em / 1.2);
 }
-/* 【轉隱-原文-藏文調整】配合現有樣式：原文中的藏文不要縮小行高，避免太擠 */
+
+/*
+label: 轉隱-原文-藏文調整
+keystroke:
+show in menu: false
+*/
+
+/* 配合現有樣式：原文中的藏文不要縮小行高，避免太擠 */
 p.scripture-classical .font-tibetan {
   line-height: normal;
 }
-/* 【轉隱-偈頌-原文-藏文】 */
+
+/*
+label: 轉隱-偈頌-原文-藏文
+keystroke:
+show in menu: false
+*/
 .scripture-verse .scripture-classical.font-tibetan {
-  font-size: calc(100% / 1.1 * 1.2);
   font-family: "Monlam Uni OuChan2", serif !important;
+  font-size: calc(100% * 1.2);
 }
 
 /* ------------------------------------------------------------------------------- */
-/* 【轉D2-字元-白話語譯】 */
+
+/*
+label: 轉D2-字元-白話語譯
+keystroke:
+show in menu: true
+*/
 .scripture-modern-noindent, /*白話不縮排來共用*/
 .scripture-modern-nospacing, /*白話無間距來共用*/
 .scripture-modern-verse, /*白話偈頌來共用*/
 .scripture-modern-homage,
 .scripture-modern, /*與P共用*/
 span.scripture-modern {
-  font-family: "cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;
-  font-size: 110%;
+  font-family:
+    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
+    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
+    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
+    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-size: 100%;
   font-weight: normal;
-  line-height: calc(1.618 / 1.1);
+  line-height: 1.618;
 }
-/* 【轉D2-段落-白話語譯】 */
+
+/*
+label: 轉D2-段落-白話語譯
+keystroke:
+show in menu: true
+*/
 p.scripture-modern {
-  text-indent: calc(2em / 1.1);
+  text-indent: 2em;
 }
-/* 【轉-段落-D3白話不縮排】 */
+
+/*
+label: 轉D3-段落-白話不縮排
+keystroke:
+show in menu: true
+*/
 p.scripture-modern-noindent {
   /* = 以下 + 白話語譯(字元) */
   text-indent: 0 !important;
 }
-/* 【轉-段落-D4白話無間距】 */
+
+/*
+label: 轉D4-段落-白話無間距
+keystroke:
+show in menu: true
+*/
 p.scripture-modern-nospacing {
   /* = 以下 + 無間距設定 + 白話語譯(字元) */
   margin: 0;
 }
-/* 【轉-段落-D5白話偈頌】 */
+
+/*
+label: 轉D5-段落-白話偈頌
+keystroke:
+show in menu: true
+*/
 p.scripture-modern-verse {
   /* = 偈頌段落 + 白話語譯(字元) + 以下 */
-  text-align: left; /*偈頌不做左右對齊*/
+  text-align: left; /* 偈頌不做左右對齊 */
 }
-/* 【轉-段落-D6白話皈敬】 */
+
+/*
+label: 轉D6-段落-白話皈敬
+keystroke: .
+show in menu: true
+*/
 p.scripture-modern-homage {
   /* = 以下 + 白話語譯(字元) */
   text-indent: 0 !important;
@@ -539,28 +835,58 @@ p.scripture-modern-homage {
 
 /* #region 跋文 */
 
-/* 【轉-段落-E1跋文】 */
+/*
+label: 轉E1-段落-跋文
+keystroke:
+show in menu: true
+*/
 .postscript-right, /*跋文靠右來共用*/
 p.postscript {
-  text-indent: 0 !important;
-  font-size: 75%;
   /* 相同樣式之間無間距 */
   margin-block: 0;
+  font-size: 75%;
+  text-indent: 0 !important;
 }
-/* 【轉隱-跋文與前段間距】 */
+
+/*
+label: 轉隱-跋文與前段間距
+keystroke:
+show in menu: false
+*/
 p:not(.postscript) + p.postscript {
   margin-block-start: 2lh;
 }
+
 /* ------------------------------------------------------------------------------- */
-/* 【轉-段落-E2跋文靠右】 */
+
+/*
+label: 轉E2-段落-跋文靠右
+keystroke:
+show in menu: true
+*/
 p.postscript-right {
   text-align: right;
 }
-/* 【轉隱-跋文靠右-間距1】與前段間距 */
-:not(p.postscript-right):not(p.postscript) + p.postscript-right {
+
+
+/*
+label: 轉隱-跋文靠右-間距1
+keystroke:
+show in menu: false
+*/
+
+/* 與前段間距 */
+:not(p.postscript-right, p.postscript) + p.postscript-right {
   margin-block-start: 2lh;
 }
-/* 【轉隱-跋文靠右-間距2】前面是跋文時的距離 */
+
+/*
+label: 轉隱-跋文靠右-間距2
+keystroke:
+show in menu: false
+*/
+
+/* "前面是跋文"時的距離 */
 p.postscript + p.postscript-right {
   margin-block-start: 1lh;
 }
@@ -571,42 +897,68 @@ p.postscript + p.postscript-right {
 
 /* #region 註腳 */
 
-/* 【轉F1-字元-註腳原文】字元 */
+/*
+label: 轉F1-字元-註腳原文
+keystroke:
+show in menu: true
+*/
 span.footnote-quotation {
   font-weight: bold;
 }
 
-/* 【轉F2-段落-註腳文字】段落 */
+/*
+label: 轉F2-段落-註腳文字
+keystroke:
+show in menu: true
+*/
 p.footnote-text {
+  margin-inline-start: 3.5em;
   font-size: 0.75em;
+
   /* 凸排 */
   text-indent: -3.5em !important;
-  margin-inline-start: 3.5em;
 }
-/* 【轉隱-註腳文字前參照】 */
+
+/*
+label: 轉隱-註腳文字前參照
+keystroke:
+show in menu: false
+*/
 p.footnote-text span.footnote-ref {
   display: inline-block;
-  font-size: 1em;
+
   min-width: 3.5em;
+
+  font-size: 1em;
   text-align: right;
+
   opacity: 1;
 }
 
-/* 【轉F3-字元-註腳參照】 */
+/*
+label: 轉F3-字元-註腳參照
+keystroke:
+show in menu: true
+*/
 span.footnote-ref {
   font-size: 0.75em;
-  opacity: 0.707;
   text-wrap-mode: nowrap;
+  opacity: 0.707;
 }
 
-/* 【轉F9-段落-註腳分隔線】 */
+/*
+label: 轉F9-段落-註腳分隔線
+keystroke:
+show in menu: true
+*/
 p.footnote-hr {
   width: 33%;
   height: 5px;
-  border-width: 1px 0 0 0;
-  border-style: solid;
-  border-color: #808080;
   margin: 2em 0 1em;
+  border-color: #808080;
+  border-style: solid;
+  border-width: 1px 0 0;
+
   text-indent: 0;
 }
 
@@ -616,29 +968,47 @@ p.footnote-hr {
 
 /* #region 上下標 */
 
-/* 【轉隱-字元-上標】 */
+/*
+label: 轉-字元-上標
+keystroke: D
+show in menu: true
+*/
 sup {
-  font-size: 0.707em;
-  /* 用vertical-align效能會比top、bottom好 */
-  /* 不要用text-top，它與字體會有關係。 */
-  /* 0.05em是視覺優化量 */
-  vertical-align: calc(1em - 0.707em + 0.05em);
   position: static;
+  font-size: 0.707em;
+
   /* 讓行高不要變大 */
   line-height: 1;
+
+  /*
+  用vertical-align效能會比top、bottom好
+  不要用text-top，它與字體會有關係。
+
+  1em - 0.707em + 0.05em = 0.343em
+  0.05em是視覺優化量
+  */
+  vertical-align: 0.343em;
 }
 
-/* 【轉隱-字元-下標】 */
+/*
+label: 轉-字元-下標
+keystroke: C
+show in menu: true
+*/
 sub {
-  font-size: 0.707em;
-  /* 用vertical-align效能會比top、bottom好 */
-  /* 不要用text-bottom，它與字體會有關係。 */
-  vertical-align: -0.05em;
   position: static;
+  font-size: 0.707em;
   line-height: 1;
+
+  /*
+  用vertical-align效能會比top、bottom好
+  不要用text-bottom，它與字體會有關係。
+  */
+  vertical-align: -0.05em;
 }
 
 /* 底線位置調低，避免與文字緊黏：改為去修改現有的樣式 */
+
 /* u {
   text-underline-offset: 0.2em;
 } */
@@ -647,128 +1017,211 @@ sub {
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【文章底部留間距】輸入時，前面幾個字元刪除，後台會自動補 .amrtf-amec */
-/* 輸入時刪除我 > :last-child {
-  margin-block-end: 5lh !important;
-} */
-
-/* ------------------------------------------------------------------------------- */
 
 /* #region 目錄 */
 
-/* 【轉T00-段落-目錄標題】 */
+/*
+label: 轉T00-段落-目錄標題
+keystroke:
+show in menu: true
+*/
+
 /* 去共用title2 */
 p.toc-title {
-  text-indent: 0;
   text-align: center;
+  text-indent: 0;
 }
 
-/* 【轉T01-段落-目錄卷冊】 */
+/*
+label: 轉T01-段落-目錄卷冊
+keystroke:
+show in menu: true
+*/
 p.toc-volume {
+  margin-block: 2em 1em;
+  padding: 0 0.5em;
+
   font-weight: 600;
   text-indent: 0;
-  padding: 0 0.5em;
-  background-color: hsl(44, 30%, 61%); /*深色：hsl(44 30% 39%);*/
-  margin-block: 2em 1em;
+
+  background-color: hsl(44deg 30% 61%); /* 深色：hsl(44 30% 39%); */
 }
-/* 【轉隱-目錄卷冊-距離】 */
+
+/*
+label: 轉隱-目錄卷冊-距離
+keystroke:
+show in menu: false
+*/
 p.toc-volume + p.toc-volume {
   margin-block-start: -1em;
 }
 
-/* 【轉T02-字元-目錄點點】 */
+/*
+label: 轉T02-字元-目錄點點
+keystroke:
+show in menu: true
+*/
 span.toc-dots {
   /* 三個元素中，只有點點設定flex-grow。確保由它填滿空間。 */
   flex-grow: 10;
-  border-bottom: 3px dotted #80808040;
+
   /* 用下邊界控制高度，而不要用height控制 */
   margin-block-end: 0.4em;
+
   /* 與文字與頁碼的距離 */
   margin-inline: 0.5em;
+  border-bottom: 3px dotted #80808040;
+
   /* padding: 0 0.5em; 這無效 */
   line-height: 0.5;
 }
 
-/* 【轉T03-字元-目錄頁碼】 */
+/*
+label: 轉T03-字元-目錄頁碼
+keystroke:
+show in menu: true
+*/
 span.toc-page {
   --dummy: 0;
 }
 
-/* 【轉T04-段落-目錄欄標題】 */
+/*
+label: 轉T04-段落-目錄欄標題
+keystroke:
+show in menu: true
+*/
 p.toc-col-head {
   margin-block: 1em 0.5em;
 }
-/* 【轉隱-目錄欄標題-距離調整】 */
+
+/*
+label: 轉隱-目錄欄標題-距離調整
+keystroke:
+show in menu: false
+*/
 p.toc-col-head + p.toc-col-head {
   margin-block-start: -0.5em;
 }
 
-/* 【轉T05-字元-空白定位點】 */
+/*
+label: 轉T05-字元-空白定位點
+keystroke:
+show in menu: true
+*/
 span.toc-tab {
   flex-grow: 10;
 }
 
-/* 【轉隱-目錄條目-共用】 */
+/*
+label: 轉隱-目錄條目-共用
+keystroke:
+show in menu: false
+*/
 p.toc-col-head,
 p.toc-item1,
 p.toc-item2 {
   display: flex;
-  flex-wrap: wrap; /*太長時，可以變兩行*/
-  justify-content: space-between;
+  flex-wrap: wrap; /* 太長時，可以變兩行 */
   align-items: flex-end;
+  justify-content: space-between;
+
   padding: 0 0.5em;
+
   text-indent: 0 !important;
 }
 
-/* 【轉隱-目錄條目無後距-共用】 */
+/*
+label: 轉隱-目錄條目無後距-共用
+keystroke:
+show in menu: false
+*/
 p.toc-item1-br,
 p.toc-item2-br {
   padding: 0 0.5em;
   text-indent: 0 !important;
 }
 
-/* 【轉T10-段落-目錄條目1】 */
+/*
+label: 轉T10-段落-目錄條目1
+keystroke:
+show in menu: true
+*/
 p.toc-item1 {
   margin-block: 1em;
 }
 
-/* 【轉T11-段落-目錄條目1無後距】 */
+/*
+label: 轉T11-段落-目錄條目1無後距
+keystroke:
+show in menu: true
+*/
 p.toc-item1-br {
   margin-block-end: 0;
 }
-/* 【轉隱-目錄條目1無後距-距離調整】 */
+
+/*
+label: 轉隱-目錄條目1無後距-距離調整
+keystroke:
+show in menu: false
+*/
 p.toc-item1-br + p.toc-item1 {
   margin-block-start: 0;
 }
 
-/* 【轉T12-字元-目錄條目1字元】 */
+/*
+label: 轉T12-字元-目錄條目1字元
+keystroke:
+show in menu: true
+*/
 span.toc-item1-text {
   --dummy: 0;
 }
 
-/* 【轉T20-段落-目錄條目2】 */
+/*
+label: 轉T20-段落-目錄條目2
+keystroke:
+show in menu: true
+*/
 p.toc-item2 {
-  margin-inline-start: 2em;
   margin-block: 0.5em;
+  margin-inline-start: 2em;
 }
 
-/* 【轉T21-段落-目錄條目2無後距】 */
+/*
+label: 轉T21-段落-目錄條目2無後距
+keystroke:
+show in menu: true
+*/
 p.toc-item2-br {
-  margin-inline-start: 2em;
   margin-block-end: 0;
+  margin-inline-start: 2em;
 }
-/* 【轉隱-目錄條目2無後距-距離調整】 */
+
+/*
+label: 轉隱-目錄條目2無後距-距離調整
+keystroke:
+show in menu: false
+*/
 p.toc-item2-br + p.toc-item2 {
   margin-block-start: 0;
 }
 
-/* 【轉T22-字元-目錄條目2字元】 */
+/*
+label: 轉T22-字元-目錄條目2字元
+keystroke:
+show in menu: true
+*/
 span.toc-item2-text {
   /* padding-left: 2em;這相當於行首縮排效果，不是用這 */
   opacity: 0.707;
 }
 
-/* 【轉隱-目錄中藏字距】因為flex會讓原有的距離消失 */
+/*
+label: 轉隱-目錄中藏字距
+keystroke:
+show in menu: false
+*/
+
 /* 前中後藏 */
 p.toc-item1 > .toc-item1-text:not(.font-tibetan) + .toc-item1-text.font-tibetan,
 p.toc-item2 > .toc-item2-text:not(.font-tibetan) + .toc-item2-text.font-tibetan,
@@ -785,16 +1238,21 @@ p.toc-item2 > .toc-item2-text.font-tibetan + .toc-item2-text:not(.font-tibetan) 
 
 /* ------------------------------------------------------------------------------- */
 
-/* 【轉B6-段落-品末名】 */
+/*
+label: 轉B6-段落-品末名
+keystroke:
+show in menu: true
+*/
 p.chapter-end {
-  text-indent: 0 !important;
   font-weight: 500;
+  text-indent: 0 !important;
 }
 
 /* ------------------------------------------------------------------------------- */
 
 /* 復原段落樣式中的時間碼及頁碼大小。TODO：改用CSS變數 */
-p.quoting-explanation-indent .seek-to,
+
+/* p.quoting-explanation-indent .seek-to,
 p.quoting-explanation-indent .pagenum,
 p.quoting-explanation-verse .seek-to,
 p.quoting-explanation-verse .pagenum,
@@ -815,9 +1273,13 @@ p.scripture-modern-nospacing .pagenum,
 p.scripture-modern-verse .seek-to,
 p.scripture-modern-verse .pagenum {
   font-size: calc(100% / 1.1);
-}
+} */
 
-/* 復原 引文區塊+段落樣式 下的時間碼及頁碼大小 */
+/*
+label: 復原 引文區塊+段落樣式 下的時間碼及頁碼大小
+keystroke:
+show in menu: false
+*/
 blockquote p.quoting-explanation-indent .seek-to,
 blockquote p.quoting-explanation-indent .pagenum,
 blockquote p.quoting-explanation-verse .seek-to,
@@ -830,41 +1292,32 @@ blockquote p.quoting-treatise-verse .seek-to,
 blockquote p.quoting-treatise-verse .pagenum,
 blockquote p.quoting-treatise .seek-to,
 blockquote p.quoting-treatise .pagenum {
-  font-size: calc(100% / 1.125 / 1.1);
+  font-size: calc(100% / 1.125);
 }
 
-/* 復原 原文段落 中的時間碼及頁碼大小 */
+/*
+label: 復原 原文段落 中的時間碼及頁碼大小
+keystroke:
+show in menu: false
+*/
 p.scripture-classical .seek-to,
 p.scripture-classical .pagenum {
   font-size: calc(100% / 1.2);
 }
 
-/* 讓舊式「表格排版偈頌」的凸排部分，不要出現換行 */
+/*
+label: 讓舊式「表格排版偈頌」的凸排部分，不要出現換行
+keystroke:
+show in menu: false
+*/
 *:not(.title3) + .table td:first-of-type > span,
 blockquote .table td:first-of-type > span {
-  white-space: nowrap;
   display: inline-block;
+  white-space: nowrap;
 }
 
 /* ------------------------------------------------------------------------------- */
 
-/*
-label: 著重號-點
-keystroke:
-show in menu: true
-*/
-.emph-dot {
-  font-style: normal; /* 取消斜體 */
-}
-
-/*
-label: 著重號-圈
-keystroke:
-show in menu: true
-*/
-.emph-open-dot {
-  font-style: normal; /* 取消斜體 */
-}
 
 /*
 label: 著重號：基礎
@@ -873,8 +1326,8 @@ show in menu: false
 */
 .emph-dot,
 .emph-open-dot {
-  font-style: normal; /* 取消斜體 */
   position: relative;
+  font-style: normal; /* 取消斜體 */
   line-height: 2;
 }
 
@@ -888,14 +1341,20 @@ show in menu: false
   position: absolute;
   bottom: -0.65em; /* 修改此值即可調整與字元的垂直距離 */
   left: 50%;
+
   /* 用scale控制大小而不用font-size，以免受瀏覽器最小字元限制 */
   transform: translateX(-50%) scale(0.3);
+
+  font-family: ui-symbol, sans-serif;
   line-height: 1;
-  font-family: ui-symbol;
   text-indent: 0;
 }
 
-/* 著重號：點：偽元素 */
+/*
+label: 著重號：點：偽元素
+keystroke:
+show in menu: false
+*/
 .emph-dot::before {
   content: "●";
 }
@@ -908,8 +1367,8 @@ show in menu: false
 .emph-open-dot::before {
   content: "〇";
   text-shadow:
-    -2px -2px 2px currentColor,
-    2px -2px 2px currentColor,
-    -2px 2px 2px currentColor,
-    2px 2px 2px currentColor;
+    -2px -2px 2px currentcolor,
+    2px -2px 2px currentcolor,
+    -2px 2px 2px currentcolor,
+    2px 2px 2px currentcolor;
 }
