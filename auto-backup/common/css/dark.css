@@ -105,19 +105,22 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 }
 .amrtf-amec span.seek-to::after,.amrtf-amec seek-to::after{content:attr(data-label)}
 .amrtf-amec .image img{width:100%}
-.amrtf-amec p{line-height:1.618;text-indent:2em;margin-block-start:1em;text-align:justify;margin-block-end:1em}
+.amrtf-amec p{line-height:1.618;margin-block:1em;text-indent:2em;text-align:justify}
 .amrtf-amec blockquote p{line-height:1.5;text-indent:0;text-align:justify}
-.amrtf-amec span.seek-to,.amrtf-amec .seek-to,.amrtf-amec span.pagenum,.amrtf-amec .pagenum{color:#69A3D5;font-weight:normal;font-size:100%;text-shadow:none;font-family:'Noto Sans TC', sans-serif}
+.amrtf-amec span.seek-to,.amrtf-amec .seek-to,.amrtf-amec span.pagenum,.amrtf-amec .pagenum{color:#69A3D5;font-weight:normal;font-size:100%;font-family:'Noto Sans TC', sans-serif}
 .amrtf-amec table,.amrtf-amec th,.amrtf-amec td{border:1px solid #e0dbca;padding:0.3em;border-collapse:collapse}
 .amrtf-amec blockquote{font-size:112.5%;padding:0.01em 1.25em;margin:1em 0em;border-left:#EB975F solid 0.2em}
 .amrtf-amec span.sub_,.amrtf-amec .sub_{bottom:-0.15em;font-size:75%;position:relative}
 .amrtf-amec span.super_,.amrtf-amec .super_{top:-0.4em;font-size:75%;position:relative}
-.amrtf-amec h1.title1{text-indent:0;font-weight:900;font-size:2em;font-family:"Noto Serif", "Noto Serif SC", "Source Han Serif SC", serif;line-height:1.618;font-style:normal;font-optical-sizing:auto;text-align:justify}
+.amrtf-amec h1.title1{text-indent:0;font-weight:900;font-size:2em;line-height:1.618;font-family:"Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體",
+    MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif;font-style:normal;text-align:justify}
 .amrtf-amec .toc-title,.amrtf-amec h2.title2{font-size:1.618em;font-weight:bold}
 .amrtf-amec h3.title3{font-size:1.414em;font-weight:bold}
 .amrtf-amec .scripture-outline,.amrtf-amec span.scripture-outline{font-family:'Noto Sans TC', sans-serif!important;font-weight:bold}
-.amrtf-amec .homage,.amrtf-amec .scripture-verse,.amrtf-amec .scripture-kai,.amrtf-amec span.scripture-kai{font-weight:700;font-size:100%;font-family:"AR PL UKai TW", "標楷體", "DFKai-SB", "BiauKai", "Kaiti TC", "STKaitiTC-Regular", "AR PL KaitiM Big5", "Noto Serif TC", serif!important;line-height:calc(1.618 / 1.00);font-style:normal;font-optical-sizing:auto}
-.amrtf-amec .scripture-fangsong,.amrtf-amec span.scripture-fangsong{font-weight:400;font-size:100%;line-height:calc(1.618 / 1.00);font-style:normal;font-family:"TW-Sung-Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important}
+.amrtf-amec .homage,.amrtf-amec .scripture-verse,.amrtf-amec .scripture-kai,.amrtf-amec span.scripture-kai{font-weight:700;font-size:100%;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
+    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
+    serif !important;line-height:1.618;font-style:normal}
+.amrtf-amec .scripture-fangsong,.amrtf-amec span.scripture-fangsong{font-weight:400;font-size:100%;line-height:1.618;font-style:normal;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important}
 .amrtf-amec blockquote .scripture-outline{font-size:112%;line-height:1.4}
 .amrtf-amec .scripture-kai.sub_,.amrtf-amec .scripture-kai.super_,.amrtf-amec .scripture-fangsong.sub_,.amrtf-amec .scripture-fangsong.super_{font-size:calc(100% * 0.75)}
 .amrtf-amec table{width:100%}
@@ -127,7 +130,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .title2.sub_,.amrtf-amec .title2.super_{font-size:calc(155% * 0.75)}
 .amrtf-amec .title3.sub_,.amrtf-amec .title3.super_{font-size:calc(138% * 0.75)}
 .amrtf-amec blockquote .seek-to{font-size:calc(100% / 1.125)}
-.amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:0.18em;font-size:100%;line-height:1.0;text-shadow:none;font-family:'Monlam Uni OuChan2', serif!important;position:relative}
+.amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:0.18em;font-size:100%;line-height:1;font-family:"Monlam Uni OuChan2", serif !important;position:relative}
 .amrtf-amec p.no-indent{text-indent:0em!important}
 .amrtf-amec p.text-right{text-indent:0em;text-align:right}
 .amrtf-amec p.indent{text-indent:2em!important}
@@ -157,8 +160,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .font-tc-lxgw-wenkai,.amrtf-amec span.font-tc-lxgw-wenkai{font-weight:400;font-family:"LXGW WenKai TC", cursive!important;font-style:normal}
 .amrtf-amec .font-sc-noto-sans-bold,.amrtf-amec span.font-sc-noto-sans-bold{font-weight:bold;font-family:'Noto Sans SC', sans-serif!important;font-style:normal;font-optical-sizing:auto}
 .amrtf-amec h2.title2,.amrtf-amec h3.title3{margin-block-start:1.618lh}
-.amrtf-amec .bold.scripture-kai,.amrtf-amec .bold .scripture-kai,.amrtf-amec .scripture-kai .bold,.amrtf-amec h1 .scripture-kai,.amrtf-amec h2 .scripture-kai,.amrtf-amec h3 .scripture-kai,.amrtf-amec h4 .scripture-kai,.amrtf-amec .scripture-outline.scripture-kai,.amrtf-amec .scripture-outline .scripture-kai,.amrtf-amec th .scripture-kai{text-shadow:none}
-.amrtf-amec p.intro{border-radius:5px;background-color:#272720;padding:1em;text-indent:0;font-weight:normal;font-size:110%;font-family:"cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;margin-block-start:0;margin-block-end:2lh}
+.amrtf-amec p.intro{background-color:#272720;border-radius:5px;padding:1em;text-indent:0;font-weight:normal;font-size:100%;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;margin-block:0 2lh}
 .amrtf-amec .title1 .font-tibetan{line-height:normal}
 .amrtf-amec .title1 + *:not(.title1){margin-block-start:1lh}
 .amrtf-amec p + .title1{margin-block-start:2lh}
@@ -169,26 +171,25 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.scripture-modern-nospacing + p:not(.scripture-modern-nospacing),.amrtf-amec p:not(.scripture-modern-nospacing) + p.scripture-modern-nospacing,.amrtf-amec p.no-line-spacing + p:not(.no-line-spacing),.amrtf-amec p:not(.no-line-spacing) + p.no-line-spacing{margin-block-start:1em}
 .amrtf-amec p.scripture-outline{text-indent:0 !important}
 .amrtf-amec .quoting-sutra-verse,.amrtf-amec .quoting-treatise-verse,.amrtf-amec .quoting-explanation-verse,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-verse{text-indent:0 !important;margin-inline-start:2em}
-.amrtf-amec .quoting-outline,.amrtf-amec span.quoting-outline{font-family:"Noto Sans TC", "Source Han Sans TC", sans-serif;font-weight:bold}
+.amrtf-amec .quoting-outline,.amrtf-amec span.quoting-outline{font-family:InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC", "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體", "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif;font-weight:bold}
 .amrtf-amec p.quoting-outline{text-indent:0 !important}
-.amrtf-amec .quoting-sutra-verse,.amrtf-amec .quoting-sutra-indent,.amrtf-amec .quoting-sutra,.amrtf-amec span.quoting-sutra{font-weight:600;font-family:"Noto Serif", "Noto Serif SC", "Source Han Serif SC", serif}
+.amrtf-amec .quoting-sutra-verse,.amrtf-amec .quoting-sutra-indent,.amrtf-amec .quoting-sutra,.amrtf-amec span.quoting-sutra{font-weight:600;font-family:"Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體", MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif}
 .amrtf-amec p.quoting-sutra{--dummy:0}
 .amrtf-amec p.quoting-sutra-verse{text-align:left}
 .amrtf-amec p.quoting-sutra-indent{text-indent:2em !important}
-.amrtf-amec .quoting-treatise-verse,.amrtf-amec .quoting-treatise-indent,.amrtf-amec .quoting-treatise,.amrtf-amec span.quoting-treatise{font-size:110%;line-height:calc(1.618 / 1.1);text-shadow:0.01em 0 0 #e0dbca80, -0.01em 0 0 #e0dbca80;font-family:"cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important}
-.amrtf-amec .bold.quoting-treatise-verse,.amrtf-amec .bold .quoting-treatise-verse,.amrtf-amec .quoting-treatise-verse .bold,.amrtf-amec .bold.quoting-treatise-indent,.amrtf-amec .bold .quoting-treatise-indent,.amrtf-amec .quoting-treatise-indent .bold,.amrtf-amec .bold.quoting-treatise,.amrtf-amec .bold .quoting-treatise,.amrtf-amec .quoting-treatise .bold{text-shadow:none}
+.amrtf-amec .quoting-treatise-verse,.amrtf-amec .quoting-treatise-indent,.amrtf-amec .quoting-treatise,.amrtf-amec span.quoting-treatise{font-size:100%;line-height:1.618;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif !important}
 .amrtf-amec p.quoting-treatise{--dummy:0}
 .amrtf-amec p.quoting-treatise-verse{text-align:left}
 .amrtf-amec p.quoting-treatise-indent{text-indent:2em !important}
-.amrtf-amec .quoting-explanation-verse,.amrtf-amec .quoting-explanation-indent,.amrtf-amec .quoting-explanation,.amrtf-amec span.quoting-explanation{font-weight:normal;font-size:110%;line-height:calc(1.618 / 1.1);font-family:"cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important}
+.amrtf-amec .quoting-explanation-verse,.amrtf-amec .quoting-explanation-indent,.amrtf-amec .quoting-explanation,.amrtf-amec span.quoting-explanation{font-weight:normal;font-size:100%;line-height:1.618;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important}
 .amrtf-amec p.quoting-explanation{--dummy:0}
 .amrtf-amec p.quoting-explanation-verse{text-align:left}
 .amrtf-amec p.quoting-explanation-indent{text-indent:2em !important}
-.amrtf-amec .scripture-classical,.amrtf-amec span.scripture-classical{font-weight:bold;font-size:120%;font-family:"cwTeXKai", "標楷體", "DFKai-SB", "Kaiti TC", "STKaiti", "STKaitiTC-Regular", "KaiTi","KaiTi_GB2312", "AR PL KaitiM GB", "Noto Serif TC", serif !important;line-height:calc(1.618 / 1.2)}
+.amrtf-amec .scripture-classical,.amrtf-amec span.scripture-classical{font-weight:bold;font-size:120%;line-height:calc(1.618 / 1.2);font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif !important}
 .amrtf-amec p.scripture-classical{text-indent:calc(2em / 1.2);line-height:1.618}
 .amrtf-amec p.scripture-classical .font-tibetan{line-height:normal}
-.amrtf-amec .scripture-modern-noindent,.amrtf-amec .scripture-modern-nospacing,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-modern-homage,.amrtf-amec .scripture-modern,.amrtf-amec span.scripture-modern{font-weight:normal;font-size:110%;font-family:"cwTeXFangSong", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", serif !important;line-height:calc(1.618 / 1.1)}
-.amrtf-amec p.scripture-modern{text-indent:calc(2em / 1.1)}
+.amrtf-amec .scripture-modern-noindent,.amrtf-amec .scripture-modern-nospacing,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-modern-homage,.amrtf-amec .scripture-modern,.amrtf-amec span.scripture-modern{font-weight:normal;font-size:100%;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;line-height:1.618}
+.amrtf-amec p.scripture-modern{text-indent:2em}
 .amrtf-amec p.scripture-modern-noindent{text-indent:0 !important}
 .amrtf-amec p.scripture-modern-nospacing{margin:0}
 .amrtf-amec p.scripture-modern-verse{text-align:left}
@@ -201,7 +202,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.footnote-text{margin-inline-start:3.5em;font-size:0.75em;text-indent:-3.5em !important}
 .amrtf-amec p.footnote-text span.footnote-ref{font-size:1em;opacity:1;text-align:right;min-width:3.5em;display:inline-block}
 .amrtf-amec span.footnote-ref{text-wrap-mode:nowrap;font-size:0.75em;opacity:0.707}
-.amrtf-amec sup{vertical-align:calc(1em - 0.707em + 0.05em);font-size:0.707em;line-height:1;position:static}
+.amrtf-amec sup{vertical-align:0.343em;font-size:0.707em;line-height:1;position:static}
 .amrtf-amec sub{vertical-align:-0.05em;font-size:0.707em;line-height:1;position:static}
 .amrtf-amec p.toc-title{text-indent:0;text-align:center}
 .amrtf-amec p.toc-volume{background-color:hsl(44 30% 39%);padding:0 0.5em;margin-block:2em 1em;text-indent:0;font-weight:600}
@@ -222,26 +223,22 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.toc-item2-br + p.toc-item2{margin-block-start:0}
 .amrtf-amec span.toc-item2-text{opacity:0.707}
 .amrtf-amec p.toc-item1 > .toc-item1-text:not(.font-tibetan) + .toc-item1-text.font-tibetan,.amrtf-amec p.toc-item2 > .toc-item2-text:not(.font-tibetan) + .toc-item2-text.font-tibetan,.amrtf-amec p.toc-item1 > .toc-item1-text.font-tibetan + .toc-item1-text:not(.font-tibetan),.amrtf-amec p.toc-item2 > .toc-item2-text.font-tibetan + .toc-item2-text:not(.font-tibetan){margin-inline-start:0.25em}
-.amrtf-amec p.footnote-hr{margin:2em 0 1em;text-indent:0;width:33%;border-color:#808080;border-width:1px 0 0 0;border-style:solid;height:5px}
+.amrtf-amec p.footnote-hr{margin:2em 0 1em;text-indent:0;width:33%;border-width:1px 0 0;border-color:#808080;border-style:solid;height:5px}
 .amrtf-amec h2.title2 + h2.title2,.amrtf-amec h3.title3 + h3.title3{margin-block-start:1em}
 .amrtf-amec p.scripture-verse{text-align:left}
-.amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec span.annotation{font-weight:400;font-size:0.707em !important;font-family:"Noto Sans SC", "Source Han Sans SC", sans-serif}
+.amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec span.annotation{font-weight:400;font-size:0.707em !important;font-family:InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC", "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體", "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif}
 .amrtf-amec span.annotation-title{font-weight:bold}
 .amrtf-amec .annotation-title.font-tibetan:first-child,.amrtf-amec .font-tibetan + .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan:first-child,.amrtf-amec .font-tibetan + .annotation.font-tibetan{vertical-align:calc(0.18em / 0.707)}
 .amrtf-amec .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan{margin-inline:0.5em}
 .amrtf-amec p.chapter-end{text-indent:0 !important;font-weight:500}
 .amrtf-amec sub + .annotation-title,.amrtf-amec sub + .annotation{margin-inline-start:0.25em}
 .amrtf-amec h5.title5{font-size:1em;font-weight:bold}
-.amrtf-amec p.quoting-explanation-indent .seek-to,.amrtf-amec p.quoting-explanation-indent .pagenum,.amrtf-amec p.quoting-explanation-verse .seek-to,.amrtf-amec p.quoting-explanation-verse .pagenum,.amrtf-amec p.quoting-explanation .seek-to,.amrtf-amec p.quoting-explanation .pagenum,.amrtf-amec p.quoting-treatise-indent .seek-to,.amrtf-amec p.quoting-treatise-indent .pagenum,.amrtf-amec p.quoting-treatise-verse .seek-to,.amrtf-amec p.quoting-treatise-verse .pagenum,.amrtf-amec p.quoting-treatise .seek-to,.amrtf-amec p.quoting-treatise .pagenum,.amrtf-amec p.scripture-modern .seek-to,.amrtf-amec p.scripture-modern .pagenum,.amrtf-amec p.scripture-modern-noindent .seek-to,.amrtf-amec p.scripture-modern-noindent .pagenum,.amrtf-amec p.scripture-modern-nospacing .seek-to,.amrtf-amec p.scripture-modern-nospacing .pagenum,.amrtf-amec p.scripture-modern-verse .seek-to,.amrtf-amec p.scripture-modern-verse .pagenum{font-size:calc(100% / 1.1)}
-.amrtf-amec blockquote p.quoting-explanation-indent .seek-to,.amrtf-amec blockquote p.quoting-explanation-indent .pagenum,.amrtf-amec blockquote p.quoting-explanation-verse .seek-to,.amrtf-amec blockquote p.quoting-explanation-verse .pagenum,.amrtf-amec blockquote p.quoting-explanation .seek-to,.amrtf-amec blockquote p.quoting-explanation .pagenum,.amrtf-amec blockquote p.quoting-treatise-indent .seek-to,.amrtf-amec blockquote p.quoting-treatise-indent .pagenum,.amrtf-amec blockquote p.quoting-treatise-verse .seek-to,.amrtf-amec blockquote p.quoting-treatise-verse .pagenum,.amrtf-amec blockquote p.quoting-treatise .seek-to,.amrtf-amec blockquote p.quoting-treatise .pagenum{font-size:calc(100% / 1.125 / 1.1)}
+.amrtf-amec blockquote p.quoting-explanation-indent .seek-to,.amrtf-amec blockquote p.quoting-explanation-indent .pagenum,.amrtf-amec blockquote p.quoting-explanation-verse .seek-to,.amrtf-amec blockquote p.quoting-explanation-verse .pagenum,.amrtf-amec blockquote p.quoting-explanation .seek-to,.amrtf-amec blockquote p.quoting-explanation .pagenum,.amrtf-amec blockquote p.quoting-treatise-indent .seek-to,.amrtf-amec blockquote p.quoting-treatise-indent .pagenum,.amrtf-amec blockquote p.quoting-treatise-verse .seek-to,.amrtf-amec blockquote p.quoting-treatise-verse .pagenum,.amrtf-amec blockquote p.quoting-treatise .seek-to,.amrtf-amec blockquote p.quoting-treatise .pagenum{font-size:calc(100% / 1.125)}
 .amrtf-amec p.scripture-classical .seek-to,.amrtf-amec p.scripture-classical .pagenum{font-size:calc(100% / 1.2)}
-.amrtf-amec .scripture-verse .scripture-classical.font-tibetan{font-size:calc(100% / 1.1 * 1.2);font-family:"Monlam Uni OuChan2", serif !important}
+.amrtf-amec .scripture-verse .scripture-classical.font-tibetan{font-size:calc(100% * 1.2);font-family:"Monlam Uni OuChan2", serif !important}
 .amrtf-amec p.scripture-modern-homage{text-indent:0 !important}
 .amrtf-amec *:not(.title3) + .table td:first-of-type > span,.amrtf-amec blockquote .table td:first-of-type > span{white-space:nowrap;display:inline-block}
 .amrtf-amec .emph-dot,.amrtf-amec .emph-open-dot{line-height:2;position:relative;font-style:normal}
-.amrtf-amec .emph-dot::before,.amrtf-amec .emph-open-dot::before{bottom:-0.65em;line-height:1;transform:translateX(-50%) scale(0.3);text-indent:0;left:50%;font-family:ui-symbol;position:absolute}
+.amrtf-amec .emph-dot::before,.amrtf-amec .emph-open-dot::before{bottom:-0.65em;line-height:1;transform:translateX(-50%) scale(0.3);left:50%;text-indent:0;font-family:ui-symbol, sans-serif;position:absolute}
 .amrtf-amec .emph-dot::before{content:"●"}
-.amrtf-amec .emph-open-dot::before{content:"〇";text-shadow:-2px -2px 2px currentColor,
-    2px -2px 2px currentColor,
-    -2px 2px 2px currentColor,
-    2px 2px 2px currentColor}
+.amrtf-amec .emph-open-dot::before{content:"〇";text-shadow:-2px -2px 2px currentColor, 2px -2px 2px currentColor, -2px 2px 2px currentColor, 2px 2px 2px currentColor}
