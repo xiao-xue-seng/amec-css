@@ -78,22 +78,38 @@ show in menu: false
   text-wrap: nowrap;
 }
 
-/* 【四家箋註-藍-妙音笑大師】 */
+/*
+label: 四家箋註-藍-妙音笑大師
+keystroke: J
+show in menu: true
+*/
 span.super-supannotation-miao {
   --dummy: 0;
 }
 
-/* 【四家箋註-綠-語王堅穩大師】 */
+/*
+label: 四家箋註-綠-語王堅穩大師
+keystroke: I
+show in menu: true
+*/
 span.super-supannotation-yu {
   --dummy: 0;
 }
 
-/* 【四家箋註-紅-巴梭法王】 */
+/*
+label: 四家箋註-紅-巴梭法王
+keystroke: 9
+show in menu: true
+*/
 span.super-supannotation-ba {
   --dummy: 0;
 }
 
-/* 【四家箋註-褐-札帝格西】 */
+/*
+label: 四家箋註-褐-札帝格西
+keystroke:
+show in menu: true
+*/
 span.super-supannotation-jha {
   --dummy: 0;
 }
@@ -177,7 +193,7 @@ show in menu: false
 .supannotation-yu.super_,
 .supannotation-jha.sub_,
 .supannotation-jha.super_ {
-  font-size: calc(100% * 0.75);
+  font-size: 75%;
 }
 
 /*

@@ -189,7 +189,11 @@ span.scripture-fangsong {
   line-height: 1.618;
 }
 
-/* 【E1.格式-底線】 */
+/*
+label: E1.格式-底線
+keystroke:
+show in menu: false
+*/
 u,
 span.underline,
 .underline {
@@ -197,7 +201,11 @@ span.underline,
   text-underline-offset: 0.2em;
 }
 
-/* 【側線引文內-段落】 */
+/*
+label: 側線引文內-段落
+keystroke:
+show in menu: false
+*/
 blockquote p {
   line-height: 1.5;
   text-align: justify;
@@ -440,11 +448,8 @@ span.annotation-title {
 label: 轉隱-箋注藏文
 keystroke:
 show in menu: false
-*/
-
-/*
-  箋注是小字，藏文要對齊基線。只有當：在行首、前文是藏文時，才需要調整
-  目前雖然只放了垂直對齊，但其實這裡可以放任何「箋注藏文」相關樣式
+箋注是小字，藏文要對齊基線。只有當：在行首、前文是藏文時，才需要調整
+目前雖然只放了垂直對齊，但其實這裡可以放任何「箋注藏文」相關樣式
 */
 
 /* 箋注標題來共用 */
@@ -460,9 +465,8 @@ show in menu: false
 label: 轉隱-箋注藏文間距
 keystroke:
 show in menu: false
+藏文箋注前後一律加間隔
 */
-
-/* 藏文箋注前後一律加間隔 */
 
 /* 箋注標題來共用 */
 .annotation-title.font-tibetan,
@@ -596,9 +600,9 @@ p.quoting-sutra-indent {
 label: 轉C20-字元-引論
 keystroke:
 show in menu: true
+這裡雖然是用楷體，但是沒有去共用"經文楷"，讓它獨立出來，作為其他引論樣式的基礎，這樣應該會比較好維護。
 */
 
-/* 這裡雖然是用楷體，但是沒有去共用"經文楷"，讓它獨立出來，作為其他引論樣式的基礎，這樣應該會比較好維護。 */
 .quoting-treatise-verse, /*引論偈頌來共用*/
 .quoting-treatise-indent,
 /* --- */
@@ -868,14 +872,13 @@ p.postscript-right {
   text-align: right;
 }
 
-
 /*
 label: 轉隱-跋文靠右-間距1
 keystroke:
 show in menu: false
+與前段間距
 */
 
-/* 與前段間距 */
 :not(p.postscript-right, p.postscript) + p.postscript-right {
   margin-block-start: 2lh;
 }
@@ -884,9 +887,9 @@ show in menu: false
 label: 轉隱-跋文靠右-間距2
 keystroke:
 show in menu: false
+"前面是跋文"時的距離
 */
 
-/* "前面是跋文"時的距離 */
 p.postscript + p.postscript-right {
   margin-block-start: 1lh;
 }
@@ -1007,16 +1010,9 @@ sub {
   vertical-align: -0.05em;
 }
 
-/* 底線位置調低，避免與文字緊黏：改為去修改現有的樣式 */
-
-/* u {
-  text-underline-offset: 0.2em;
-} */
-
 /* #endregion */
 
 /* ------------------------------------------------------------------------------- */
-
 
 /* #region 目錄 */
 
@@ -1212,7 +1208,6 @@ keystroke:
 show in menu: true
 */
 span.toc-item2-text {
-  /* padding-left: 2em;這相當於行首縮排效果，不是用這 */
   opacity: 0.707;
 }
 
@@ -1317,7 +1312,6 @@ blockquote .table td:first-of-type > span {
 }
 
 /* ------------------------------------------------------------------------------- */
-
 
 /*
 label: 著重號：基礎
