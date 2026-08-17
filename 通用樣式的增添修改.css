@@ -719,15 +719,16 @@ label: 轉D1-字元-原文
 keystroke:
 show in menu: true
 */
+.scripture-classical-noindent, /*原文不縮排來共用*/
 .scripture-classical, /*讓P也共用這些設定*/
 span.scripture-classical {
   font-family:
     "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
     "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
     serif !important;
-  font-size: 120%;
+  font-size: 109%; /* Word 13點字 對 12點字 的比例值(108.333%)。考慮楷體會小一點，故取整數。 */
   font-weight: bold;
-  line-height: calc(1.618 / 1.2);
+  line-height: calc(1.618 / 1.09);
 }
 
 /*
@@ -737,17 +738,28 @@ show in menu: true
 */
 p.scripture-classical {
   line-height: 1.618;
-  text-indent: calc(2em / 1.2);
+  text-indent: calc(2em / 1.09);
+}
+
+/*
+label: 轉D1.1-段落-原文不縮排
+keystroke:
+show in menu: true
+*/
+p.scripture-classical-noindent {
+  /* = 以下 + 原文(字元) */
+  text-indent: 0 !important;
 }
 
 /*
 label: 轉隱-原文-藏文調整
 keystroke:
 show in menu: false
+配合現有樣式：原文中的藏文不要縮小行高，避免太擠
 */
 
-/* 配合現有樣式：原文中的藏文不要縮小行高，避免太擠 */
-p.scripture-classical .font-tibetan {
+p.scripture-classical .font-tibetan,
+p.scripture-classical-noindent .font-tibetan {
   line-height: normal;
 }
 
@@ -758,7 +770,7 @@ show in menu: false
 */
 .scripture-verse .scripture-classical.font-tibetan {
   font-family: "Monlam Uni OuChan2", serif !important;
-  font-size: calc(100% * 1.2);
+  font-size: calc(100% * 1.09);
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -1245,31 +1257,6 @@ p.chapter-end {
 
 /* ------------------------------------------------------------------------------- */
 
-/* 復原段落樣式中的時間碼及頁碼大小。TODO：改用CSS變數 */
-
-/* p.quoting-explanation-indent .seek-to,
-p.quoting-explanation-indent .pagenum,
-p.quoting-explanation-verse .seek-to,
-p.quoting-explanation-verse .pagenum,
-p.quoting-explanation .seek-to,
-p.quoting-explanation .pagenum,
-p.quoting-treatise-indent .seek-to,
-p.quoting-treatise-indent .pagenum,
-p.quoting-treatise-verse .seek-to,
-p.quoting-treatise-verse .pagenum,
-p.quoting-treatise .seek-to,
-p.quoting-treatise .pagenum,
-p.scripture-modern .seek-to,
-p.scripture-modern .pagenum,
-p.scripture-modern-noindent .seek-to,
-p.scripture-modern-noindent .pagenum,
-p.scripture-modern-nospacing .seek-to,
-p.scripture-modern-nospacing .pagenum,
-p.scripture-modern-verse .seek-to,
-p.scripture-modern-verse .pagenum {
-  font-size: calc(100% / 1.1);
-} */
-
 /*
 label: 復原 引文區塊+段落樣式 下的時間碼及頁碼大小
 keystroke:
@@ -1296,8 +1283,10 @@ keystroke:
 show in menu: false
 */
 p.scripture-classical .seek-to,
-p.scripture-classical .pagenum {
-  font-size: calc(100% / 1.2);
+p.scripture-classical .pagenum,
+p.scripture-classical-noindent .seek-to,
+p.scripture-classical-noindent .pagenum {
+  font-size: calc(100% / 1.09);
 }
 
 /*
