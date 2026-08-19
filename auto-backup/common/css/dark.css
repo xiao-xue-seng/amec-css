@@ -241,3 +241,4 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .emph-dot::before{content:"●"}
 .amrtf-amec .emph-open-dot::before{content:"〇";text-shadow:-2px -2px 2px currentColor, 2px -2px 2px currentColor, -2px 2px 2px currentColor, 2px 2px 2px currentColor}
 .amrtf-amec p.scripture-classical-noindent{text-indent:0 !important}
+.amrtf-amec td.nowrap,.amrtf-amec th.nowrap{white-space:nowrap}
