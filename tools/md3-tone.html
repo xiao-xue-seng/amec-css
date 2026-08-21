@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HCT 色階生成器</title>
+    <style>
+      :root {
+        --primary-color: #007bff;
+        --error-color: #dc3545;
+        --border-color: #e0e0e0;
+        --bg-color: #f8f9fa;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: #333;
+        line-height: 1.5;
+        padding: 2rem;
+        max-width: 95vw;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        position: sticky;
+        top: 0;
+        background: var(--bg-color);
+        padding: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .toolbar-btns {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      button {
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        background: white;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      button:hover {
+        background: #eee;
+      }
+
+      button.primary {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      button.primary:hover {
+        background: #0056b3;
+      }
+
+      /* 顏色模組樣式 */
+      #moduleContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .color-module {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+
+      .delete-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: transparent;
+        color: #999;
+        border: none;
+        font-size: 1.2rem;
+        padding: 0.2rem 0.5rem;
+      }
+
+      .delete-btn:hover {
+        color: var(--error-color);
+        background: #fff5f5;
+      }
+
+      .input-row-1 {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+
+      .input-hct-group {
+        display: flex;
+        gap: 1rem;
+        background: #f1f3f5;
+        border-radius: 8px;
+        padding: 0 1rem;
+        /* margin-bottom: 1.5rem; */
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0.25rem;
+      }
+
+      .input-group label {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #666;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+
+      input.error {
+        border-color: var(--error-color) !important;
+        box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+      }
+
+      .picker-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 0.5rem;
+      }
+
+      input[type="color"] {
+        width: 48px;
+        height: 48px;
+        border: none;
+        cursor: pointer;
+        background: none;
+      }
+
+      /* 色階條樣式 */
+      .tone-row {
+        display: flex;
+        height: 60px;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .tone-step {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.1s;
+      }
+
+      .tone-step:hover {
+        transform: scaleY(1.1);
+        z-index: 1;
+      }
+
+      .low-tone {
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      }
+      .high-tone {
+        color: black;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+      }
+
+      /* 底部區域 */
+      .add-area {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+      }
+
+      /* 預覽大色塊區域樣式 */
+      .preview-section {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+      }
+
+      .preview-header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .preview-title-group {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+      }
+
+      .preview-title-group h3 {
+        margin: 0;
+      }
+
+      .preview-tone-label {
+        font-size: 0.95rem;
+        color: #555;
+        white-space: nowrap;
+        margin-left: auto;
+      }
+
+      .preview-tone-label strong {
+        color: var(--primary-color);
+        font-size: 1.15rem;
+        font-family: monospace;
+      }
+
+      .slider-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex: 1;
+        max-width: 500px;
+        min-width: 260px;
+      }
+
+      .slider-wrapper input[type="range"] {
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .preview-blocks {
+        width: 100%;
+        height: 70vh;
+        min-height: 200px;
+        display: flex;
+        gap: 2px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #e9ecef;
+        box-sizing: border-box;
+      }
+
+      .preview-color-block {
+        flex: 1;
+        min-width: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          opacity 0.15s;
+        user-select: none;
+      }
+
+      .preview-color-block:hover {
+        opacity: 0.92;
+        filter: brightness(1.05);
+      }
+
+      .preview-block-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        margin-bottom: 0.25rem;
+      }
+
+      .preview-block-hex {
+        font-family: monospace;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      .preview-block-tone {
+        font-size: 0.7rem;
+        opacity: 0.75;
+        margin-top: 0.25rem;
+      }
+
+      .output-section {
+        margin-top: 2rem;
+      }
+
+      .output-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      #outputArea {
+        width: 95%;
+        height: 300px;
+        font-family: "Cascadia Code", "Fira Code", monospace;
+        font-size: 0.9rem;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #272822;
+        color: #f8f8f2;
+        resize: vertical;
+      }
+
+      .keyboard-hint {
+        font-size: 0.7rem;
+        color: #888;
+        font-weight: normal;
+        margin-left: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>HCT 色階生成器</h1>
+      <div class="toolbar-btns">
+        <button id="alignCtBtn">對齊 C、T</button>
+        <button id="generateBtn" class="primary">生成 CSS 變數</button>
+        <button id="downloadBtn">下載 SCSS</button>
+      </div>
+    </header>
+
+    <main id="moduleContainer"></main>
+
+    <div class="add-area">
+      <button id="addModuleBtn" style="padding: 1rem 3rem">
+        + 新增色階模組
+      </button>
+    </div>
+
+    <!-- 顏色大區塊視覺效果區段 -->
+    <section class="preview-section">
+      <div class="preview-header">
+        <div class="preview-title-group">
+          <h3>視覺預覽</h3>
+        </div>
+        <span class="preview-tone-label">
+          色階 (Tone): <strong id="previewToneValue">50</strong>
+        </span>
+        <div class="slider-wrapper">
+          <span style="font-size: 0.8rem; color: #888">2</span>
+          <input
+            type="range"
+            id="toneSlider"
+            min="0"
+            max="22"
+            value="12"
+            step="1"
+          />
+          <span style="font-size: 0.8rem; color: #888">98</span>
+        </div>
+      </div>
+      <div id="previewBlocks" class="preview-blocks"></div>
+    </section>
+
+    <section class="output-section">
+      <div class="output-header">
+        <h3>輸出結果 (SCSS)</h3>
+      </div>
+      <textarea
+        id="outputArea"
+        readonly
+        placeholder="// 點擊「生成 SCSS 變數」以顯示結果..."
+      ></textarea>
+    </section>
+
+    <script type="module">
+      import {
+        argbFromHex,
+        hexFromArgb,
+        Hct,
+        TonalPalette,
+      } from "https://cdn.jsdelivr.net/npm/@material/material-color-utilities/+esm";
+
+      const TONES = [
+        2, 4, 5, 6, 8, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 85, 90, 92,
+        94, 95, 96, 98,
+      ];
+
+      let modules = [];
+
+      class ColorModule {
+        constructor(id, initialHex = "#ffd28d") {
+          this.id = id;
+          this.name = `color-${id}`;
+          this.hex = initialHex;
+          this.hct = Hct.fromInt(argbFromHex(initialHex));
+          this.dom = this.createDOM();
+          this.updateUI();
+        }
+
+        createDOM() {
+          const div = document.createElement("div");
+          div.className = "color-module";
+          div.id = `module-${this.id}`;
+          div.innerHTML = `
+    <button class="delete-btn" title="刪除">✕</button>
+    <div class="input-row-1">
+      <div class="input-group">
+        <label>名稱</label>
+        <input
+          type="text"
+          class="name-input"
+          value="${this.name}"
+          placeholder="例如: primary"
+        />
+      </div>
+      <div class="input-group">
+        <label>HEX</label>
+        <input
+          type="text"
+          class="hex-input"
+          value="${this.hex}"
+          maxlength="7"
+          style="width: 100px"
+        />
+      </div>
+      <div class="picker-wrapper">
+        <input type="color" class="color-picker" value="${this.hex}" />
+      </div>
+      <div class="input-hct-group">
+        <div class="input-group">
+          <label>H <span class="keyboard-hint">PgUp/Dn (±15)</span></label>
+          <input
+            type="number"
+            class="hct-h"
+            step="0.1"
+            value="${this.hct.hue.toFixed(3)}"
+          />
+        </div>
+        <div class="input-group">
+          <label>C <span class="keyboard-hint">PgUp/Dn (±10)</span></label>
+          <input
+            type="number"
+            class="hct-c"
+            step="0.1"
+            value="${this.hct.chroma.toFixed(3)}"
+          />
+        </div>
+        <div class="input-group">
+          <label>T <span class="keyboard-hint">PgUp/Dn (±5)</span></label>
+          <input
+            type="number"
+            class="hct-t"
+            step="0.1"
+            value="${this.hct.tone.toFixed(3)}"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="tone-row"></div>
+          `;
+
+          // 事件綁定
+          const nameInp = div.querySelector(".name-input");
+          nameInp.addEventListener("input", (e) => {
+            this.name = e.target.value;
+            validateNames();
+            updateComparisonPreview();
+          });
+
+          const hexInp = div.querySelector(".hex-input");
+          const picker = div.querySelector(".color-picker");
+
+          const updateFromHex = (val, source = "hex") => {
+            if (/^#[0-9A-F]{6}$/i.test(val)) {
+              this.hex = val.toUpperCase();
+              this.hct = Hct.fromInt(argbFromHex(val));
+              this.updateUI(source === "picker" ? ["picker"] : ["hex"]);
+            }
+          };
+
+          hexInp.addEventListener("change", (e) =>
+            updateFromHex(e.target.value, "hex"),
+          );
+          picker.addEventListener("input", (e) =>
+            updateFromHex(e.target.value, "picker"),
+          );
+
+          // HCT 輸入
+          const hInp = div.querySelector(".hct-h");
+          const cInp = div.querySelector(".hct-c");
+          const tInp = div.querySelector(".hct-t");
+
+          const updateFromHctInputs = () => {
+            let rawH = parseFloat(hInp.value);
+            if (isNaN(rawH)) rawH = 0;
+            // 循環箝制在 0~360 之間
+            let h = ((rawH % 360) + 360) % 360;
+
+            let rawC = parseFloat(cInp.value);
+            if (isNaN(rawC)) rawC = 0;
+            let c = Math.max(0, rawC);
+
+            let rawT = parseFloat(tInp.value);
+            if (isNaN(rawT)) rawT = 0;
+            // 不循環箝制在 0~100 之間
+            let t = Math.min(100, Math.max(0, rawT));
+
+            this.hct = Hct.from(h, c, t);
+            this.hex = hexFromArgb(this.hct.toInt());
+
+            hInp.value = h.toFixed(3);
+            cInp.value = c.toFixed(3);
+            tInp.value = t.toFixed(3);
+
+            this.updateUI(["hct"]);
+          };
+
+          hInp.addEventListener("change", updateFromHctInputs);
+          cInp.addEventListener("change", updateFromHctInputs);
+          tInp.addEventListener("change", updateFromHctInputs);
+
+          hInp.addEventListener("keydown", (e) => {
+            if (e.key === "PageUp" || e.key === "PageDown") {
+              e.preventDefault();
+              let val = parseFloat(hInp.value) || 0;
+              val += e.key === "PageUp" ? 15 : -15;
+              hInp.value = val.toFixed(3);
+              updateFromHctInputs();
+            }
+          });
+
+          cInp.addEventListener("keydown", (e) => {
+            if (e.key === "PageUp" || e.key === "PageDown") {
+              e.preventDefault();
+              let val = parseFloat(cInp.value) || 0;
+              val += e.key === "PageUp" ? 10 : -10;
+              cInp.value = val.toFixed(3);
+              updateFromHctInputs();
+            }
+          });
+
+          tInp.addEventListener("keydown", (e) => {
+            if (e.key === "PageUp" || e.key === "PageDown") {
+              e.preventDefault();
+              let val = parseFloat(tInp.value) || 0;
+              val += e.key === "PageUp" ? 5 : -5;
+              tInp.value = val.toFixed(3);
+              updateFromHctInputs();
+            }
+          });
+
+          div.querySelector(".delete-btn").addEventListener("click", () => {
+            removeModule(this.id);
+          });
+
+          return div;
+        }
+
+        updateUI(exclude = []) {
+          if (!exclude.includes("hex"))
+            this.dom.querySelector(".hex-input").value = this.hex;
+          if (!exclude.includes("picker"))
+            this.dom.querySelector(".color-picker").value = this.hex;
+          if (!exclude.includes("hct")) {
+            this.dom.querySelector(".hct-h").value = this.hct.hue.toFixed(3);
+            this.dom.querySelector(".hct-c").value = this.hct.chroma.toFixed(3);
+            this.dom.querySelector(".hct-t").value = this.hct.tone.toFixed(3);
+          }
+
+          // 更新色階條
+          const palette = TonalPalette.fromHueAndChroma(
+            this.hct.hue,
+            this.hct.chroma,
+          );
+          const row = this.dom.querySelector(".tone-row");
+          row.innerHTML = "";
+
+          TONES.forEach((tone) => {
+            const hex = hexFromArgb(palette.tone(tone));
+            const step = document.createElement("div");
+            step.className = `tone-step ${tone <= 50 ? "low-tone" : "high-tone"}`;
+            step.style.backgroundColor = hex;
+            step.textContent = tone;
+            step.title = `${hex} (HCT Tone ${tone})`;
+            step.onclick = () => {
+              navigator.clipboard.writeText(hex);
+              showToast(`已複製 ${hex}`);
+            };
+            row.appendChild(step);
+          });
+
+          updateComparisonPreview();
+        }
+      }
+
+      function getSelectedTone() {
+        const slider = document.getElementById("toneSlider");
+        const idx = parseInt(slider ? slider.value : "10", 10);
+        return TONES[idx] !== undefined ? TONES[idx] : 35;
+      }
+
+      function updateComparisonPreview() {
+        const previewContainer = document.getElementById("previewBlocks");
+        const toneValLabel = document.getElementById("previewToneValue");
+        if (!previewContainer) return;
+
+        const currentTone = getSelectedTone();
+        if (toneValLabel) {
+          toneValLabel.textContent = currentTone;
+        }
+
+        previewContainer.innerHTML = "";
+
+        if (modules.length === 0) {
+          previewContainer.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;width:100%;color:#888;">尚未加入任何顏色模組</div>`;
+          return;
+        }
+
+        modules.forEach((mod) => {
+          const palette = TonalPalette.fromHueAndChroma(
+            mod.hct.hue,
+            mod.hct.chroma,
+          );
+          const hex = hexFromArgb(palette.tone(currentTone));
+          const block = document.createElement("div");
+          block.className = `preview-color-block ${currentTone <= 50 ? "low-tone" : "high-tone"}`;
+          block.style.backgroundColor = hex;
+          block.title = `${mod.name}: ${hex} (T=${currentTone}) - 點擊複製`;
+
+          const nameSpan = document.createElement("div");
+          nameSpan.className = "preview-block-name";
+          nameSpan.textContent = mod.name || "未命名";
+
+          const hexSpan = document.createElement("div");
+          hexSpan.className = "preview-block-hex";
+          hexSpan.textContent = hex;
+
+          const toneSpan = document.createElement("div");
+          toneSpan.className = "preview-block-tone";
+          toneSpan.textContent = `T=${currentTone}`;
+
+          block.appendChild(nameSpan);
+          block.appendChild(hexSpan);
+          block.appendChild(toneSpan);
+
+          block.onclick = () => {
+            navigator.clipboard.writeText(hex);
+            showToast(`已複製 ${mod.name} (T=${currentTone}): ${hex}`);
+          };
+
+          previewContainer.appendChild(block);
+        });
+      }
+
+      // 管理全域狀態
+      function addModule(hex = "#ffd28d") {
+        const id = Date.now();
+        const mod = new ColorModule(id, hex);
+        modules.push(mod);
+        document.getElementById("moduleContainer").appendChild(mod.dom);
+        validateNames();
+        updateComparisonPreview();
+      }
+
+      function removeModule(id) {
+        if (modules.length <= 1) return;
+        modules = modules.filter((m) => m.id !== id);
+        document.getElementById(`module-${id}`).remove();
+        validateNames();
+        updateComparisonPreview();
+      }
+
+      function alignChromaAndTone() {
+        if (modules.length <= 1) {
+          showToast("至少需要兩個顏色模組才能對齊");
+          return;
+        }
+
+        const baseMod = modules[0];
+        const baseChroma = baseMod.hct.chroma;
+        const baseTone = baseMod.hct.tone;
+
+        for (let i = 1; i < modules.length; i++) {
+          const mod = modules[i];
+          mod.hct = Hct.from(mod.hct.hue, baseChroma, baseTone);
+          mod.hex = hexFromArgb(mod.hct.toInt());
+          mod.updateUI();
+        }
+
+        showToast(
+          `已將所有顏色的 C (${baseChroma.toFixed(1)}) 與 T (${baseTone.toFixed(1)}) 對齊至第一個顏色`,
+        );
+      }
+
+      function validateNames() {
+        const names = modules.map((m) => m.name);
+        modules.forEach((m) => {
+          const input = m.dom.querySelector(".name-input");
+          const isDuplicate = names.filter((n) => n === m.name).length > 1;
+          if (isDuplicate || m.name.trim() === "") {
+            input.classList.add("error");
+          } else {
+            input.classList.remove("error");
+          }
+        });
+      }
+
+      function generateSCSS() {
+        const now = new Date().toLocaleString();
+        let scss = `// HCT Color Scales Generated at ${now}\n\n:root {\n`;
+
+        modules.forEach((mod) => {
+          const palette = TonalPalette.fromHueAndChroma(
+            mod.hct.hue,
+            mod.hct.chroma,
+          );
+          const safeName = mod.name.replace(/\s+/g, "-");
+          scss += `  // ${mod.name} (Source: ${mod.hex}, HCT: ${mod.hct.hue.toFixed(3)} ${mod.hct.chroma.toFixed(3)} ${mod.hct.tone.toFixed(3)})\n`;
+
+          TONES.forEach((tone) => {
+            const hex = hexFromArgb(palette.tone(tone));
+            scss += `  --color-${safeName}-${tone}: ${hex};\n`;
+          });
+          scss += `\n`;
+        });
+
+        scss += `}`;
+        document.getElementById("outputArea").value = scss;
+      }
+
+      function downloadSCSS() {
+        const content = document.getElementById("outputArea").value;
+        if (!content) {
+          alert("請先生成 SCSS 變數");
+          return;
+        }
+        const blob = new Blob([content], { type: "text/scss" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "color-variables.scss";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function showToast(msg) {
+        // 簡易提示
+        const toast = document.createElement("div");
+        toast.style = `position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 4px; z-index: 1000; font-size: 14px;`;
+        toast.textContent = msg;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+      }
+
+      // 初始化
+      document
+        .getElementById("addModuleBtn")
+        .addEventListener("click", () => addModule());
+      document
+        .getElementById("alignCtBtn")
+        .addEventListener("click", alignChromaAndTone);
+      document
+        .getElementById("generateBtn")
+        .addEventListener("click", generateSCSS);
+      document
+        .getElementById("downloadBtn")
+        .addEventListener("click", downloadSCSS);
+
+      const toneSlider = document.getElementById("toneSlider");
+      if (toneSlider) {
+        toneSlider.addEventListener("input", () => {
+          updateComparisonPreview();
+        });
+      }
+
+      // 預設第一個模組
+      addModule("#ffd28d");
+    </script>
+  </body>
+</html>
