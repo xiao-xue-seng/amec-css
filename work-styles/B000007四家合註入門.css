@@ -7,10 +7,7 @@ show in menu: false
 .supannotation-ba,
 .supannotation-yu,
 .supannotation-jha {
-  font-family:
-    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
-    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
-    serif;
+  font-family: var(--font-kai-tc);
   font-size: 100%;
   font-weight: 700;
   font-style: normal;

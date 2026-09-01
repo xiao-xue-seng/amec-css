@@ -1,12 +1,56 @@
-/* 未來可考慮用CSS變數，目前還沒。 */
 
-/* :root {
-  --scripture-kai-font: 標楷體, "STKaitiTC-Regular", cwTeXKai, serif;
-  --scripture-kai-size: 110%;
-  --scripture-kai-line-height: 1.4;
-  --scripture-kai-subsize: calc(110% * 0.75);
-  --scripture-p-sapcing: 1em;
-} */
+/*
+label: 設定CSS變數
+keystroke:
+show in menu: false
+*/
+
+/* 於後台輸入時，不要輸入 ":root" 只複製 {} 中的內容。 */
+:root {
+  /* 黑體 */
+
+  /* --font-sans-sc:
+    "Instrument Sans Subset", "Noto Sans SC", "TW-Sung-Aligned-Ext-B",
+    "TW-Sung-Aligned-Plus", sans-serif; */
+  --font-sans-tc:
+    "Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC",
+    "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", sans-serif;
+
+  /* 宋體 */
+
+  /* --font-serif-sc:
+    "Noto Serif SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif; */
+  --font-serif-tc:
+    "Noto Serif TC", "Noto Serif SC", "TW-Sung-Aligned-Ext-B",
+    "TW-Sung-Aligned-Plus", serif;
+
+  /* 仿宋 */
+  --font-fangsong-tc:
+    "TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)",
+    "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4",
+    "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC",
+    "Songti TC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;
+
+  /* --font-fangsong-sc:
+    "Zhuque Fangsong (technical preview)", "DFPFangSong-W4-GB", "华康P仿宋体W4",
+    "DFFangSong-W4-GB", "华康仿宋体W4", "FangSong", "STFangsong",
+    "Noto Serif SC", "Source Han Serif SC", "Songti SC",
+    "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif; */
+
+  /* 楷體 */
+  --font-kai-tc:
+    "AR PL UKai TW", "TW-Kai-Aligned", "Kaiti TC", "楷體-繁", "DFKai-SB",
+    "標楷體", "AR PL KaitiM Big5", "TW-Kai-Aligned-Ext-B",
+    "TW-Kai-Aligned-Plus", serif;
+
+  /* --font-kai-sc:
+    "Noto Serif SC Punct", "AR PL UKai CN", "TW-Kai-Aligned", "Kaiti SC",
+    "楷体-简", "STKaiti", "华文楷体", "KaiTi", "楷体", "KaiTi_GB2312",
+    "AR PL KaitiM GB", "TW-Kai-Aligned-Ext-B", "TW-Kai-Aligned-Plus", serif; */
+
+  --font-tibetan: "Monlam Uni OuChan2", serif;
+  --font-timecode: "Tahoma", "Verdana", "Geneva", sans-serif;
+}
 
 /* ------------------------------------------------------------------------------- */
 
@@ -20,10 +64,7 @@ keystroke:
 show in menu: true
 */
 h1.title1 {
-  /* Noto TC版的字碼範圍較小，會缺字，所以用SC版備援。 */
-  font-family:
-    "Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體",
-    MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif;
+  font-family: var(--font-serif-tc);
   font-size: 2em;
   font-weight: 900;
   font-style: normal;
@@ -104,21 +145,6 @@ p {
 /* 【A1.經文-楷書】 */
 
 /*
-  font-family:
-    "cwTeXKai",
-    "標楷體",
-    "DFKai-SB",           標楷體的正式字體名稱
-    "Kaiti TC",           macOS 內建楷體
-    "STKaiti",            win / 舊版 macOS 的楷體
-    "STKaitiTC-Regular",  win / 舊版 macOS 的楷體
-    "KaiTi",              Windows 大陸版
-    "KaiTi_GB2312",       Windows 大陸版
-    "AR PL KaitiM GB",    Linux 常見的楷體
-    "Noto Serif TC",
-    serif !important;
-*/
-
-/*
 label: A1.經文-楷書
 keystroke: Q
 show in menu: true
@@ -128,10 +154,8 @@ show in menu: true
 /* -------------------------- */
 .scripture-kai,
 span.scripture-kai {
-  font-family:
-    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
-    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
-    serif !important;
+  /* 優先使用對齊過的"全字齊楷"備援，而非偏低的"標楷體"。 */
+  font-family: var(--font-kai-tc) !important;
   font-size: 100%;
   font-weight: 700;
   font-style: normal;
@@ -151,11 +175,7 @@ show in menu: true
 */
 .scripture-fangsong,
 span.scripture-fangsong {
-  font-family:
-    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
-    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
-    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
-    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-family: var(--font-fangsong-tc) !important;
   font-size: 100%;
   font-weight: 400;
   font-style: normal;
@@ -193,7 +213,7 @@ span.seek-to,
 .seek-to,
 span.pagenum,
 .pagenum {
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: var(--font-timecode);
   font-size: 100%;
   font-weight: normal;
   color: #2a6496; /* 深色 #69a3d5 */
@@ -211,7 +231,7 @@ span.font-tibetan {
   position: relative;
   bottom: 0.18em;
 
-  font-family: "Monlam Uni OuChan2", serif !important;
+  font-family: var(--font-tibetan) !important;
   font-size: 100%;
   line-height: 1;
 
@@ -230,11 +250,7 @@ p.intro {
   padding: 1em;
   border-radius: 5px;
 
-  font-family:
-    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
-    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
-    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
-    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-family: var(--font-fangsong-tc) !important;
   font-size: 100%;
   font-weight: normal;
   text-indent: 0;
@@ -396,10 +412,7 @@ show in menu: true
 .annotation-title, /*箋注標題來共用*/
 .annotation,
 span.annotation {
-  font-family:
-    InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC",
-    "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體",
-    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif;
+  font-family: var(--font-sans-tc);
   font-size: 0.707em !important;
   font-weight: 400;
 
@@ -503,10 +516,7 @@ show in menu: true
 */
 .quoting-outline,
 span.quoting-outline {
-  font-family:
-    InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC",
-    "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體",
-    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif;
+  font-family: var(--font-sans-tc);
   font-weight: bold;
 }
 
@@ -530,9 +540,7 @@ show in menu: true
 .quoting-sutra-indent, /*引經縮排來共用*/
 .quoting-sutra, /*與 P 共用*/
 span.quoting-sutra {
-  font-family:
-    "Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體",
-    MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif;
+  font-family: var(--font-serif-tc);
 
   /* 即使引文區塊已經加粗，也要考慮「不在引文區塊的字元套用」情況 */
   font-weight: 600;
@@ -581,10 +589,7 @@ show in menu: true
 /* --- */
 .quoting-treatise,
 span.quoting-treatise {
-  font-family:
-    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
-    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
-    serif !important;
+  font-family: var(--font-kai-tc) !important;
   font-size: 100%;
   line-height: 1.618;
 }
@@ -630,11 +635,7 @@ show in menu: true
 .quoting-explanation-indent,
 .quoting-explanation,
 span.quoting-explanation {
-  font-family:
-    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
-    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
-    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
-    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-family: var(--font-fangsong-tc) !important;
   font-size: 100%;
   font-weight: normal;
   line-height: 1.618;
@@ -682,11 +683,8 @@ show in menu: true
 .scripture-classical-noindent, /*原文不縮排來共用*/
 .scripture-classical, /*讓P也共用這些設定*/
 span.scripture-classical {
-  font-family:
-    "AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular,
-    "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B,
-    serif !important;
-  font-size: 109%; /* Word 13點字 對 12點字 的比例值(108.333%)。考慮楷體會小一點，故取整數。 */
+  font-family: var(--font-kai-tc) !important;
+  font-size: 109%; /* Word 13點字 對 12點字 的比例值(108.333%)。考慮楷體會小一點，故取進位整數。 */
   font-weight: bold;
   line-height: calc(1.618 / 1.09);
 }
@@ -728,7 +726,7 @@ keystroke:
 show in menu: false
 */
 .scripture-verse .scripture-classical.font-tibetan {
-  font-family: "Monlam Uni OuChan2", serif !important;
+  font-family: var(--font-tibetan) !important;
   font-size: calc(100% * 1.09);
 }
 
@@ -745,11 +743,7 @@ show in menu: true
 .scripture-modern-homage,
 .scripture-modern, /*與P共用*/
 span.scripture-modern {
-  font-family:
-    TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4",
-    "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong,
-    "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB,
-    "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;
+  font-family: var(--font-fangsong-tc) !important;
   font-size: 100%;
   font-weight: normal;
   line-height: 1.618;
