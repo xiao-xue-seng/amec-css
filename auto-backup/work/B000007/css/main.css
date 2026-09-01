@@ -15,5 +15,5 @@
 .amrtf-amec .super-supannotation-yu::before{background-color:#007f3c;content:"\8a9e"}
 .amrtf-amec span.super-supannotation-jha{--dummy:0}
 .amrtf-amec span.super-supannotation-ba{--dummy:0}
-.amrtf-amec .supannotation-miao,.amrtf-amec .supannotation-ba,.amrtf-amec .supannotation-yu,.amrtf-amec .supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
+.amrtf-amec .supannotation-miao,.amrtf-amec .supannotation-ba,.amrtf-amec .supannotation-yu,.amrtf-amec .supannotation-jha{font-size:100%;font-family:var(--font-kai-tc);line-height:1.618;font-style:normal;font-weight:700}
 .amrtf-amec .super-supannotation-ba::before{background-color:#950d43;content:"\5df4"}

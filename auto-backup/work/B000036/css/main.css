@@ -7,7 +7,7 @@
 .amrtf-amec .scripture-supannotation-miao.sub_,.amrtf-amec .scripture-supannotation-miao.super_,.amrtf-amec .scripture-supannotation-ba.sub_,.amrtf-amec .scripture-supannotation-ba.super_,.amrtf-amec .scripture-supannotation-yu.sub_,.amrtf-amec .scripture-supannotation-yu.super_,.amrtf-amec .scripture-supannotation-jha.sub_,.amrtf-amec .scripture-supannotation-jha.super_{font-size:75%}
 .amrtf-amec p.margin-indent-quoted{margin-left:2em !important;text-indent:-1em !important}
 .amrtf-amec .scripture-supannotation-jha,.amrtf-amec span.scripture-supannotation-jha{color:#8c3d1f}
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
+.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:var(--font-kai-tc);line-height:1.618;font-style:normal;font-weight:700}
 .amrtf-amec p.margin-indent-unquoted{margin-left:2em !important;text-indent:0 !important}
 .amrtf-amec span.seek-to[data-label$="*"]{border:0 !important;padding:0;margin:0;overflow:hidden;display:block;width:0;height:0}
 .amrtf-amec .super-supannotation-jha::before{background-color:#8c3d1f;content:"\672D"}
