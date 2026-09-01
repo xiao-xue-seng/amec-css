@@ -112,13 +112,12 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec blockquote{font-size:112.5%;padding:0.01em 1.25em;margin:1em 0em;border-left:#A04B14 solid 0.2em}
 .amrtf-amec span.sub_,.amrtf-amec .sub_{bottom:-0.15em;font-size:75%;position:relative}
 .amrtf-amec span.super_,.amrtf-amec .super_{top:-0.4em;font-size:75%;position:relative}
-.amrtf-amec h1.title1{text-indent:0;font-weight:900;font-size:2em;line-height:1.618;font-family:"Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體",
-    MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif;font-style:normal;text-align:justify}
+.amrtf-amec h1.title1{text-indent:0;font-weight:900;font-size:2em;font-family:"Noto Serif TC", "Noto Serif SC", TW-Sung-Aligned, "Songti TC", TW-Sung-Aligned-Ext-B, serif;line-height:1.618;font-style:normal;text-align:justify}
 .amrtf-amec .toc-title,.amrtf-amec h2.title2{font-size:1.618em;font-weight:bold}
 .amrtf-amec h3.title3{font-size:1.414em;font-weight:bold}
 .amrtf-amec .scripture-outline,.amrtf-amec span.scripture-outline{font-family:'Noto Sans TC', sans-serif!important;font-weight:bold}
-.amrtf-amec .homage,.amrtf-amec .scripture-verse,.amrtf-amec .scripture-kai,.amrtf-amec span.scripture-kai{font-weight:700;font-size:100%;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif !important;line-height:1.618;font-style:normal}
-.amrtf-amec .scripture-fangsong,.amrtf-amec span.scripture-fangsong{font-weight:400;font-size:100%;line-height:1.618;font-style:normal;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important}
+.amrtf-amec .homage,.amrtf-amec .scripture-verse,.amrtf-amec .scripture-kai,.amrtf-amec span.scripture-kai{font-weight:700;font-size:100%;font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif !important;line-height:1.618;font-style:normal}
+.amrtf-amec .scripture-fangsong,.amrtf-amec span.scripture-fangsong{font-weight:400;font-size:100%;line-height:1.618;font-style:normal;font-family:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", TW-Sung-Aligned-Ext-B, serif !important}
 .amrtf-amec blockquote .scripture-outline{font-size:112%;line-height:1.4}
 .amrtf-amec .scripture-kai.sub_,.amrtf-amec .scripture-kai.super_,.amrtf-amec .scripture-fangsong.sub_,.amrtf-amec .scripture-fangsong.super_{font-size:calc(100% * 0.75)}
 .amrtf-amec table{width:100%}
@@ -158,7 +157,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .font-tc-lxgw-wenkai,.amrtf-amec span.font-tc-lxgw-wenkai{font-weight:400;font-family:"LXGW WenKai TC", cursive!important;font-style:normal}
 .amrtf-amec .font-sc-noto-sans-bold,.amrtf-amec span.font-sc-noto-sans-bold{font-weight:bold;font-family:'Noto Sans SC', sans-serif!important;font-style:normal;font-optical-sizing:auto}
 .amrtf-amec h2.title2,.amrtf-amec h3.title3{margin-block-start:1.618lh}
-.amrtf-amec p.intro{background-color:#e0d8bf;border-radius:5px;padding:1em;text-indent:0;font-weight:normal;font-size:100%;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;margin-block:0 2lh}
+.amrtf-amec p.intro{border-radius:5px;background-color:#e0d8bf;padding:1em;text-indent:0;font-weight:normal;font-size:100%;font-family:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", TW-Sung-Aligned-Ext-B, serif !important;margin-block:0 2lh}
 .amrtf-amec .title1 .font-tibetan{line-height:normal}
 .amrtf-amec .title1 + *:not(.title1){margin-block-start:1lh}
 .amrtf-amec p + .title1{margin-block-start:2lh}
@@ -169,24 +168,24 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.scripture-modern-nospacing + p:not(.scripture-modern-nospacing),.amrtf-amec p:not(.scripture-modern-nospacing) + p.scripture-modern-nospacing,.amrtf-amec p.no-line-spacing + p:not(.no-line-spacing),.amrtf-amec p:not(.no-line-spacing) + p.no-line-spacing{margin-block-start:1em}
 .amrtf-amec p.scripture-outline{text-indent:0 !important}
 .amrtf-amec .quoting-sutra-verse,.amrtf-amec .quoting-treatise-verse,.amrtf-amec .quoting-explanation-verse,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-verse{text-indent:0 !important;margin-inline-start:2em}
-.amrtf-amec .quoting-outline,.amrtf-amec span.quoting-outline{font-family:InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC", "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體", "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif;font-weight:bold}
+.amrtf-amec .quoting-outline,.amrtf-amec span.quoting-outline{font-family:"Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC", "PingFang TC", "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體", TW-Sung-Aligned-Ext-B, sans-serif;font-weight:bold}
 .amrtf-amec p.quoting-outline{text-indent:0 !important}
-.amrtf-amec .quoting-sutra-verse,.amrtf-amec .quoting-sutra-indent,.amrtf-amec .quoting-sutra,.amrtf-amec span.quoting-sutra{font-weight:600;font-family:"Noto Serif TC", "Noto Serif SC", "Songti TC", PMingLiU, "新細明體", MingLiU, "細明體", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif}
+.amrtf-amec .quoting-sutra-verse,.amrtf-amec .quoting-sutra-indent,.amrtf-amec .quoting-sutra,.amrtf-amec span.quoting-sutra{font-weight:600;font-family:"Noto Serif TC", "Noto Serif SC", "Songti TC", TW-Sung-Aligned, TW-Sung-Aligned-Ext-B, serif}
 .amrtf-amec p.quoting-sutra{--dummy:0}
 .amrtf-amec p.quoting-sutra-verse{text-align:left}
 .amrtf-amec p.quoting-sutra-indent{text-indent:2em !important}
-.amrtf-amec .quoting-treatise-verse,.amrtf-amec .quoting-treatise-indent,.amrtf-amec .quoting-treatise,.amrtf-amec span.quoting-treatise{font-size:100%;line-height:1.618;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif !important}
+.amrtf-amec .quoting-treatise-verse,.amrtf-amec .quoting-treatise-indent,.amrtf-amec .quoting-treatise,.amrtf-amec span.quoting-treatise{font-size:100%;line-height:1.618;font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif !important}
 .amrtf-amec p.quoting-treatise{--dummy:0}
 .amrtf-amec p.quoting-treatise-verse{text-align:left}
 .amrtf-amec p.quoting-treatise-indent{text-indent:2em !important}
-.amrtf-amec .quoting-explanation-verse,.amrtf-amec .quoting-explanation-indent,.amrtf-amec .quoting-explanation,.amrtf-amec span.quoting-explanation{font-weight:normal;font-size:100%;line-height:1.618;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important}
+.amrtf-amec .quoting-explanation-verse,.amrtf-amec .quoting-explanation-indent,.amrtf-amec .quoting-explanation,.amrtf-amec span.quoting-explanation{font-weight:normal;font-size:100%;line-height:1.618;font-family:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", TW-Sung-Aligned-Ext-B, serif !important}
 .amrtf-amec p.quoting-explanation{--dummy:0}
 .amrtf-amec p.quoting-explanation-verse{text-align:left}
 .amrtf-amec p.quoting-explanation-indent{text-indent:2em !important}
-.amrtf-amec .scripture-classical-noindent,.amrtf-amec .scripture-classical,.amrtf-amec span.scripture-classical{font-weight:bold;font-size:109%;line-height:calc(1.618 / 1.09);font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif !important}
+.amrtf-amec .scripture-classical-noindent,.amrtf-amec .scripture-classical,.amrtf-amec span.scripture-classical{font-weight:bold;font-size:109%;line-height:calc(1.618 / 1.09);font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif !important}
 .amrtf-amec p.scripture-classical{text-indent:calc(2em / 1.09);line-height:1.618}
 .amrtf-amec p.scripture-classical .font-tibetan,.amrtf-amec p.scripture-classical-noindent .font-tibetan{line-height:normal}
-.amrtf-amec .scripture-modern-noindent,.amrtf-amec .scripture-modern-nospacing,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-modern-homage,.amrtf-amec .scripture-modern,.amrtf-amec span.scripture-modern{font-weight:normal;font-size:100%;font-family:TW-Sung-Punct, "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", PMingLiU-ExtB, "全字庫正宋體 Ext-B", TW-Sung-Ext-B, serif !important;line-height:1.618}
+.amrtf-amec .scripture-modern-noindent,.amrtf-amec .scripture-modern-nospacing,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-modern-homage,.amrtf-amec .scripture-modern,.amrtf-amec span.scripture-modern{font-weight:normal;font-size:100%;font-family:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", fangsong, STFangsong, "Noto Serif TC", "Source Han Serif TC", "Songti TC", TW-Sung-Aligned-Ext-B, serif !important;line-height:1.618}
 .amrtf-amec p.scripture-modern{text-indent:2em}
 .amrtf-amec p.scripture-modern-noindent{text-indent:0 !important}
 .amrtf-amec p.scripture-modern-nospacing{margin:0}
@@ -224,7 +223,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.footnote-hr{margin:2em 0 1em;text-indent:0;width:33%;border-width:1px 0 0;border-color:#808080;border-style:solid;height:5px}
 .amrtf-amec h2.title2 + h2.title2,.amrtf-amec h3.title3 + h3.title3{margin-block-start:1em}
 .amrtf-amec p.scripture-verse{text-align:left}
-.amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec span.annotation{font-weight:400;font-size:0.707em !important;font-family:InstrumentSansLatinSubset, "Noto Sans TC", "Noto Sans SC", "PingFang TC", "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體", "全字庫正宋體 Ext-B", TW-Sung-Ext-B, sans-serif}
+.amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec span.annotation{font-weight:400;font-size:0.707em !important;font-family:"Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC", "PingFang TC", "Heiti TC", "LiHei Pro", "Microsoft JhengHei", "微軟正黑體", TW-Sung-Aligned-Ext-B, sans-serif}
 .amrtf-amec span.annotation-title{font-weight:bold}
 .amrtf-amec .annotation-title.font-tibetan:first-child,.amrtf-amec .font-tibetan + .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan:first-child,.amrtf-amec .font-tibetan + .annotation.font-tibetan{vertical-align:calc(0.18em / 0.707)}
 .amrtf-amec .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan{margin-inline:0.5em}

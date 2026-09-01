@@ -5,7 +5,7 @@
 .amrtf-amec p.margin-indent-quoted{margin-left:2em !important;text-indent:-1em !important}
 .amrtf-amec .super-supannotation-miao,.amrtf-amec .super-supannotation-yu,.amrtf-amec .super-supannotation-ba,.amrtf-amec .super-supannotation-jha{width:1.05em;font-size:100% !important;text-wrap:nowrap;text-indent:0;display:inline-block}
 .amrtf-amec span.super-supannotation-yu{--dummy:0}
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
+.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
 .amrtf-amec span.seek-to[data-label$="*"]{border:0 !important;padding:0;margin:0;overflow:hidden;display:block;width:0;height:0}
 .amrtf-amec span.super-supannotation-ba{--dummy:0}
 .amrtf-amec span.super-supannotation-jha{--dummy:0}
