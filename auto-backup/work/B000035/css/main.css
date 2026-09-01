@@ -1,5 +1,5 @@
 @import url(https://cdn.amec.amrtf.org/asset/common/css/main.css);
-.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", "標楷體", DFKai-SB, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", "Noto Serif TC", "全字庫正楷體 Ext-B", TW-Kai-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
+.amrtf-amec .scripture-supannotation-miao,.amrtf-amec .scripture-supannotation-ba,.amrtf-amec .scripture-supannotation-yu,.amrtf-amec .scripture-supannotation-jha{font-size:100%;font-family:"AR PL UKai TW", TW-Kai-Aligned, BiauKai, "Kaiti TC", STKaitiTC-Regular, "AR PL KaitiM Big5", TW-Kai-Aligned-Ext-B, serif;line-height:1.618;font-style:normal;font-weight:700}
 .amrtf-amec .scripture-supannotation-yu,.amrtf-amec span.scripture-supannotation-yu{color:#007f3c}
 .amrtf-amec .super-supannotation-jha::before{background-color:#8c3d1f;content:"\672D"}
 .amrtf-amec .super-supannotation-ba::before{background-color:#950d43;content:"\5df4"}
