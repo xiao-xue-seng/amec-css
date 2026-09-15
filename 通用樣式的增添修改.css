@@ -1,4 +1,3 @@
-
 /*
 label: 設定CSS變數
 keystroke:
@@ -51,6 +50,8 @@ show in menu: false
   --font-tibetan: "Monlam Uni OuChan2", serif;
   --font-timecode: "Tahoma", "Verdana", "Geneva", sans-serif;
 }
+
+/* 備忘：目前評估先不在這裡加 text-autospace、text-spacing-trim 等，因為那似乎屬於網站層級的風格，可由網站決定。 */
 
 /* ------------------------------------------------------------------------------- */
 
@@ -236,6 +237,45 @@ span.font-tibetan {
   line-height: 1;
 
   /* text-shadow: none; 不要受楷書陰影加粗的影響 */
+}
+
+/*
+label: C3.段落-靠右對齊-作譯者名
+show in menu: true
+*/
+.text-right,
+p.text-right {
+  text-align: right;
+  text-indent: 0 !important;
+}
+
+/*
+label: C4.段落-置中對齊
+keystroke:
+show in menu: true
+*/
+.text-center,
+p.text-center {
+  text-align: center;
+  text-indent: 0 !important;
+}
+
+/*
+label: 通用-文字靠左
+keystroke:
+show in menu: false
+*/
+
+/* .text-left {
+  text-align: left !important;
+} */
+
+/*
+label: 通用-文字左右對齊
+show in menu: false
+*/
+.text-justify {
+  text-align: justify !important;
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -1318,3 +1358,189 @@ td.nowrap,
 th.nowrap {
   white-space: nowrap;
 }
+
+/* ------------------------------------------------------------------------------- */
+
+/* Composable Utilities 參考 Tailwind CSS 設計成通用可混搭的樣式 */
+
+/*
+label: 通用-垂直靠上
+keystroke:
+show in menu: false
+*/
+.align-top {
+  vertical-align: top !important;
+}
+
+/*
+label: 通用-垂直靠中
+keystroke:
+show in menu: false
+*/
+.align-middle {
+  vertical-align: middle !important;
+}
+
+/*
+label: 通用-垂直靠下
+keystroke:
+show in menu: false
+*/
+.align-bottom {
+  vertical-align: bottom !important;
+}
+
+/* .align-baseline {
+  vertical-align: baseline !important;
+}
+
+.align-text-top {
+  vertical-align: text-top !important;
+}
+
+.align-text-bottom {
+  vertical-align: text-bottom !important;
+} */
+
+/* --------- */
+
+/* 1. 摺疊模式：現代表格的預設最佳實踐 (等同 cellspacing="0") */
+
+/*
+label: 表格-儲存格外距-無
+keystroke:
+show in menu: false
+*/
+.table-collapse {
+  border-collapse: collapse;
+}
+
+/* 2. 分離模式：允許單元格間距 (配合 border-spacing 使用) */
+
+/* .table-separate {
+  border-collapse: separate;
+} */
+
+/* 間距大小 (可依需求調整數值) */
+
+/* .table-spacing-0 {
+  border-spacing: 0;
+}
+
+.table-spacing-sm {
+  border-spacing: 0.25rem;
+}
+
+.table-spacing-md {
+  border-spacing: 0.5rem;
+}
+
+.table-spacing-lg {
+  border-spacing: 0.75rem;
+} */
+
+/* --- 表格層級 (快速全開或全關) --- */
+
+/*
+label: 表格-有框
+keystroke:
+show in menu: false
+*/
+.table-bordered,
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid currentcolor;
+}
+
+/* 僅有水平分隔線 (現代網頁常見樣式) */
+
+/* .table-row-bordered th,
+.table-row-bordered td {
+  border-bottom: 1px solid currentcolor;
+} */
+
+/*
+label: 表格-無框
+keystroke:
+show in menu: false
+*/
+.table-borderless,
+.table-borderless th,
+.table-borderless td {
+  border: 0 !important;
+}
+
+/* --- 儲存格／原子層級 --- */
+
+/* .border {
+  border: 1px solid #ccc !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.border-top {
+  border-top: 1px solid #ccc !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #ccc !important;
+} */
+
+/* --- 表格層級控制所有單元格內距 --- */
+
+/* 無內距 (等同 cellpadding="0") */
+
+/*
+label: 表格-儲存格內距-無
+keystroke:
+show in menu: false
+*/
+.table-p-0 th,
+.table-p-0 td {
+  padding: 0;
+}
+
+/*
+label: 表格-儲存格內距-緊湊
+keystroke:
+show in menu: false
+緊湊型 (適合排版空間有限的字典、古籍)
+*/
+.table-compact th,
+.table-compact td {
+  padding: 0.25rem 0.5rem;
+}
+
+/*
+label: 表格-儲存格內距-標準
+keystroke:
+show in menu: false
+標準間距 (一般閱讀)
+*/
+.table-normal th,
+.table-normal td {
+  padding: 0.5rem 0.75rem;
+}
+
+/*
+label: 表格-儲存格內距-寬鬆
+keystroke:
+show in menu: false
+寬鬆型
+*/
+.table-relaxed th,
+.table-relaxed td {
+  padding: 0.75rem 1rem;
+}
+
+/* --- 單一單元格覆寫 (原子 class) --- */
+
+/* .p-0 {
+  padding: 0 !important;
+}
+
+.p-sm {
+  padding: 0.25rem 0.5rem !important;
+} */
