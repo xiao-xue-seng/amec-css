@@ -264,11 +264,11 @@ p.text-center {
 label: 通用-文字靠左
 keystroke:
 show in menu: false
+對於表格儲存格而言，雖然是預設值，但明確的樣式設定可確保更穩定、不受父層影響。
 */
-
-/* .text-left {
+.text-left {
   text-align: left !important;
-} */
+}
 
 /*
 label: 通用-文字左右對齊
