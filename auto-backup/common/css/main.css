@@ -253,3 +253,4 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .table-compact th,.amrtf-amec .table-compact td{padding:0.25rem 0.5rem}
 .amrtf-amec .table-normal th,.amrtf-amec .table-normal td{padding:0.5rem 0.75rem}
 .amrtf-amec .table-relaxed th,.amrtf-amec .table-relaxed td{padding:0.75rem 1rem}
+.amrtf-amec .text-left{text-align:left !important}
