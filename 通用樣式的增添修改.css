@@ -65,6 +65,9 @@ keystroke:
 show in menu: true
 */
 h1.title1 {
+  /* 相對於正文字體大小是：前距 1，後距 2。所以是 1/2、2/2。 */
+  margin-block: 0.5em 1em;
+
   font-family: var(--font-serif-tc);
   font-size: 2em;
   font-weight: 900;
@@ -97,6 +100,8 @@ show in menu: true
 */
 .toc-title, /*目錄標題來共用*/
 h2.title2 {
+  /* 相對於正文字體大小是：前距 3，後距 1。所以是 3/1.618、1/1.618。 */
+  margin-block: 1.854em 0.618em;
   font-size: 1.618em;
   font-weight: bold;
 }
@@ -107,6 +112,8 @@ keystroke: 3
 show in menu: true
 */
 h3.title3 {
+  /* 相對於正文字體大小是：前距 2，後距 1。所以是 2/1.414、1/1.414。 */
+  margin-block: 1.414em 0.707em;
   font-size: 1.414em;
   font-weight: bold;
 }
@@ -117,6 +124,8 @@ keystroke: 4
 show in menu: true
 */
 h4.title4 {
+  /* 相對於正文字體大小是：前距 1，後距 1。所以是 1/1.309。 */
+  margin-block: 0.764em;
   font-size: 1.309em;
   font-weight: bold;
 }
@@ -127,6 +136,8 @@ keystroke: 5
 show in menu: true
 */
 h5.title5 {
+  /* 相對於正文字體大小是：前距 1，後距 1。所以是 1/1。 */
+  margin-block: 1em;
   font-size: 1em;
   font-weight: bold;
 }
@@ -524,10 +535,11 @@ label: 隱-標題前間距
 keystroke:
 show in menu: false
 */
-h2.title2,
+
+/* h2.title2,
 h3.title3 {
   margin-block-start: 1.618lh;
-}
+} */
 
 /*
 label: 隱-標題同類間距
