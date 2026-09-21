@@ -112,9 +112,9 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec blockquote{font-size:112.5%;padding:0.01em 1.25em;margin:1em 0em;border-left:#A04B14 solid 0.2em}
 .amrtf-amec span.sub_,.amrtf-amec .sub_{bottom:-0.15em;font-size:75%;position:relative}
 .amrtf-amec span.super_,.amrtf-amec .super_{top:-0.4em;font-size:75%;position:relative}
-.amrtf-amec h1.title1{text-indent:0;font-weight:900;font-size:2em;line-height:1.618;font-family:var(--font-serif-tc);font-style:normal;text-align:justify}
-.amrtf-amec .toc-title,.amrtf-amec h2.title2{font-size:1.618em;font-weight:bold}
-.amrtf-amec h3.title3{font-size:1.414em;font-weight:bold}
+.amrtf-amec h1.title1{text-indent:0;font-weight:900;font-size:2em;font-family:var(--font-serif-tc);line-height:1.618;font-style:normal;margin-block:0.5em 1em;text-align:justify}
+.amrtf-amec .toc-title,.amrtf-amec h2.title2{font-weight:bold;font-size:1.618em;margin-block:1.854em 0.618em}
+.amrtf-amec h3.title3{font-size:1.414em;margin-block:1.414em 0.707em;font-weight:bold}
 .amrtf-amec .scripture-outline,.amrtf-amec span.scripture-outline{font-family:'Noto Sans TC', sans-serif!important;font-weight:bold}
 .amrtf-amec .homage,.amrtf-amec .scripture-verse,.amrtf-amec .scripture-kai,.amrtf-amec span.scripture-kai{font-weight:700;font-size:100%;font-family:var(--font-kai-tc) !important;line-height:1.618;font-style:normal}
 .amrtf-amec .scripture-fangsong,.amrtf-amec span.scripture-fangsong{font-weight:400;font-size:100%;line-height:1.618;font-style:normal;font-family:var(--font-fangsong-tc) !important}
@@ -138,7 +138,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .text-center,.amrtf-amec p.text-center{text-indent:0 !important;text-align:center}
 .amrtf-amec table p:last-child{text-indent:0em;margin:0}
 .amrtf-amec u,.amrtf-amec span.underline,.amrtf-amec .underline{text-decoration:underline;text-underline-offset:0.2em}
-.amrtf-amec h4.title4{font-size:1.309em;font-weight:bold}
+.amrtf-amec h4.title4{font-size:1.309em;margin-block:0.764em;font-weight:bold}
 .amrtf-amec span.bold,.amrtf-amec .bold{font-weight:bold!important}
 .amrtf-amec span.italic,.amrtf-amec .italic{font-style:italic}
 .amrtf-amec .font-tibetan.super_{top:-0.4em!important;font-size:calc(100% * 0.75)!important}
@@ -156,7 +156,6 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .font-sc-yinglian,.amrtf-amec span.font-sc-yinglian{font-weight:400;font-family:'Ma Shan Zheng', cursive!important;font-style:normal}
 .amrtf-amec .font-tc-lxgw-wenkai,.amrtf-amec span.font-tc-lxgw-wenkai{font-weight:400;font-family:"LXGW WenKai TC", cursive!important;font-style:normal}
 .amrtf-amec .font-sc-noto-sans-bold,.amrtf-amec span.font-sc-noto-sans-bold{font-weight:bold;font-family:'Noto Sans SC', sans-serif!important;font-style:normal;font-optical-sizing:auto}
-.amrtf-amec h2.title2,.amrtf-amec h3.title3{margin-block-start:1.618lh}
 .amrtf-amec p.intro{background-color:#e0d8bf;border-radius:5px;padding:1em;text-indent:0;font-weight:normal;font-size:100%;font-family:var(--font-fangsong-tc) !important;margin-block:0 2lh}
 .amrtf-amec .title1 .font-tibetan{line-height:normal}
 .amrtf-amec .title1 + *:not(.title1){margin-block-start:1lh}
@@ -229,7 +228,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan{margin-inline:0.5em}
 .amrtf-amec p.chapter-end{text-indent:0 !important;font-weight:500}
 .amrtf-amec sub + .annotation-title,.amrtf-amec sub + .annotation{margin-inline-start:0.25em}
-.amrtf-amec h5.title5{font-size:1em;font-weight:bold}
+.amrtf-amec h5.title5{font-size:1em;margin-block:1em;font-weight:bold}
 .amrtf-amec blockquote p.quoting-explanation-indent .seek-to,.amrtf-amec blockquote p.quoting-explanation-indent .pagenum,.amrtf-amec blockquote p.quoting-explanation-verse .seek-to,.amrtf-amec blockquote p.quoting-explanation-verse .pagenum,.amrtf-amec blockquote p.quoting-explanation .seek-to,.amrtf-amec blockquote p.quoting-explanation .pagenum,.amrtf-amec blockquote p.quoting-treatise-indent .seek-to,.amrtf-amec blockquote p.quoting-treatise-indent .pagenum,.amrtf-amec blockquote p.quoting-treatise-verse .seek-to,.amrtf-amec blockquote p.quoting-treatise-verse .pagenum,.amrtf-amec blockquote p.quoting-treatise .seek-to,.amrtf-amec blockquote p.quoting-treatise .pagenum{font-size:calc(100% / 1.125)}
 .amrtf-amec p.scripture-classical .seek-to,.amrtf-amec p.scripture-classical .pagenum,.amrtf-amec p.scripture-classical-noindent .seek-to,.amrtf-amec p.scripture-classical-noindent .pagenum{font-size:calc(100% / 1.09)}
 .amrtf-amec .scripture-verse .scripture-classical.font-tibetan{font-size:calc(100% * 1.09);font-family:var(--font-tibetan) !important}
