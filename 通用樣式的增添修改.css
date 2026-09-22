@@ -1371,6 +1371,17 @@ th.nowrap {
   white-space: nowrap;
 }
 
+/*
+label: 轉TD2-儲存格貼合內容
+keystroke:
+show in menu: true
+*/
+td.cell-shrink,
+th.cell-shrink {
+  width: 1%; /* 保持緊縮，不擴展 */
+  white-space: nowrap;
+}
+
 /* ------------------------------------------------------------------------------- */
 
 /* Composable Utilities 參考 Tailwind CSS 設計成通用可混搭的樣式 */
