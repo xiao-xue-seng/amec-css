@@ -239,7 +239,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .emph-dot::before{content:"●"}
 .amrtf-amec .emph-open-dot::before{content:"〇";text-shadow:-2px -2px 2px currentColor, 2px -2px 2px currentColor, -2px 2px 2px currentColor, 2px 2px 2px currentColor}
 .amrtf-amec p.scripture-classical-noindent{text-indent:0 !important}
-.amrtf-amec td.nowrap,.amrtf-amec th.nowrap{white-space:nowrap}
+.amrtf-amec td.nowrap,.amrtf-amec th.nowrap{width:1%;white-space:nowrap}
 .amrtf-amec {--font-serif-tc:"Noto Serif TC", "Noto Serif SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-kai-tc:"AR PL UKai TW", "TW-Kai-Aligned", "Kaiti TC", "楷體-繁", "DFKai-SB", "標楷體", "AR PL KaitiM Big5", "TW-Kai-Aligned-Ext-B", "TW-Kai-Aligned-Plus", serif;--font-timecode:"Tahoma", "Verdana", "Geneva", sans-serif;--font-fangsong-tc:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-sans-tc:"Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", sans-serif;--font-tibetan:"Monlam Uni OuChan2", serif}
 .amrtf-amec .text-justify{text-align:justify !important}
 .amrtf-amec .align-top{vertical-align:top !important}
