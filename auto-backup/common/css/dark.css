@@ -129,13 +129,13 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec blockquote .seek-to{font-size:calc(100% / 1.125)}
 .amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:0.18em;font-size:100%;line-height:1;font-family:var(--font-tibetan) !important;position:relative}
 .amrtf-amec p.no-indent{text-indent:0em!important}
-.amrtf-amec .text-right,.amrtf-amec p.text-right{text-indent:0 !important;text-align:right}
+.amrtf-amec .text-right{text-indent:0 !important;text-align:right !important}
 .amrtf-amec p.indent{text-indent:2em!important}
 .amrtf-amec table p:not(:last-child){text-indent:0em;margin:0 0 1em 0}
 .amrtf-amec th,.amrtf-amec .ck-content .table th{font-weight:bold;text-align:center}
 .amrtf-amec td>figure.image{margin-inline-end:0;margin-inline-start:0;margin-block-start:0;margin-block-end:0}
 .amrtf-amec td[style*="text-align:center;"]>figure.image{display:inline-block}
-.amrtf-amec .text-center,.amrtf-amec p.text-center{text-indent:0 !important;text-align:center}
+.amrtf-amec .text-center{text-indent:0 !important;text-align:center !important}
 .amrtf-amec table p:last-child{text-indent:0em;margin:0}
 .amrtf-amec u,.amrtf-amec span.underline,.amrtf-amec .underline{text-decoration:underline;text-underline-offset:0.2em}
 .amrtf-amec h4.title4{font-size:1.309em;margin-block:0.764em;font-weight:bold}
