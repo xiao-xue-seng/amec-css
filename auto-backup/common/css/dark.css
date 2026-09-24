@@ -127,7 +127,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .title2.sub_,.amrtf-amec .title2.super_{font-size:calc(155% * 0.75)}
 .amrtf-amec .title3.sub_,.amrtf-amec .title3.super_{font-size:calc(138% * 0.75)}
 .amrtf-amec blockquote .seek-to{font-size:calc(100% / 1.125)}
-.amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:0.18em;font-size:100%;line-height:1;font-family:var(--font-tibetan) !important;position:relative}
+.amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:var(--tibetan-bottom);font-size:100%;line-height:1;font-family:var(--font-tibetan) !important;position:relative}
 .amrtf-amec p.no-indent{text-indent:0em!important}
 .amrtf-amec .text-right{text-indent:0 !important;text-align:right !important}
 .amrtf-amec p.indent{text-indent:2em!important}
@@ -198,8 +198,8 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.footnote-text{margin-inline-start:3.5em;font-size:0.75em;text-indent:-3.5em !important}
 .amrtf-amec p.footnote-text span.footnote-ref{font-size:1em;opacity:1;text-align:right;min-width:3.5em;display:inline-block}
 .amrtf-amec span.footnote-ref{text-wrap-mode:nowrap;font-size:0.75em;opacity:0.707}
-.amrtf-amec sup{vertical-align:0.343em;font-size:0.707em;line-height:1;position:static}
-.amrtf-amec sub{vertical-align:-0.05em;font-size:0.707em;line-height:1;position:static}
+.amrtf-amec sup{top:-0.4em}
+.amrtf-amec sub{bottom:-0.15em}
 .amrtf-amec p.toc-title{text-indent:0;text-align:center}
 .amrtf-amec p.toc-volume{background-color:hsl(44 30% 39%);padding:0 0.5em;margin-block:2em 1em;text-indent:0;font-weight:600}
 .amrtf-amec p.toc-volume + p.toc-volume{margin-block-start:-1em}
@@ -222,25 +222,25 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.footnote-hr{margin:2em 0 1em;text-indent:0;width:33%;border-width:1px 0 0;border-color:#808080;border-style:solid;height:5px}
 .amrtf-amec h2.title2 + h2.title2,.amrtf-amec h3.title3 + h3.title3{margin-block-start:1em}
 .amrtf-amec p.scripture-verse{text-align:left}
-.amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec span.annotation{font-weight:400;font-size:0.707em !important;font-family:var(--font-sans-tc)}
+.amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec span.annotation{font-weight:400;font-size:var(--annotation-font-size) !important;font-family:var(--font-sans-tc)}
 .amrtf-amec span.annotation-title{font-weight:bold}
-.amrtf-amec .annotation-title.font-tibetan:first-child,.amrtf-amec .font-tibetan + .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan:first-child,.amrtf-amec .font-tibetan + .annotation.font-tibetan{vertical-align:calc(0.18em / 0.707)}
+.amrtf-amec .annotation-title.font-tibetan:first-child,.amrtf-amec .font-tibetan+.annotation-title.font-tibetan,.amrtf-amec .annotation-title.font-tibetan:has(+ .font-tibetan),.amrtf-amec .annotation.font-tibetan:first-child,.amrtf-amec .font-tibetan+.annotation.font-tibetan,.amrtf-amec .annotation.font-tibetan:has(+ .font-tibetan){--tibetan-head-stroke:0.4em;--height-compensation:calc( (1 - var(--annotation-scale)) * var(--tibetan-head-stroke) );bottom:calc( (var(--tibetan-bottom) + var(--height-compensation)) / var(--annotation-scale) )}
 .amrtf-amec .annotation-title.font-tibetan,.amrtf-amec .annotation.font-tibetan{margin-inline:0.5em}
 .amrtf-amec p.chapter-end{text-indent:0 !important;font-weight:500}
 .amrtf-amec sub + .annotation-title,.amrtf-amec sub + .annotation{margin-inline-start:0.25em}
 .amrtf-amec h5.title5{font-size:1em;margin-block:1em;font-weight:bold}
 .amrtf-amec blockquote p.quoting-explanation-indent .seek-to,.amrtf-amec blockquote p.quoting-explanation-indent .pagenum,.amrtf-amec blockquote p.quoting-explanation-verse .seek-to,.amrtf-amec blockquote p.quoting-explanation-verse .pagenum,.amrtf-amec blockquote p.quoting-explanation .seek-to,.amrtf-amec blockquote p.quoting-explanation .pagenum,.amrtf-amec blockquote p.quoting-treatise-indent .seek-to,.amrtf-amec blockquote p.quoting-treatise-indent .pagenum,.amrtf-amec blockquote p.quoting-treatise-verse .seek-to,.amrtf-amec blockquote p.quoting-treatise-verse .pagenum,.amrtf-amec blockquote p.quoting-treatise .seek-to,.amrtf-amec blockquote p.quoting-treatise .pagenum{font-size:calc(100% / 1.125)}
 .amrtf-amec p.scripture-classical .seek-to,.amrtf-amec p.scripture-classical .pagenum,.amrtf-amec p.scripture-classical-noindent .seek-to,.amrtf-amec p.scripture-classical-noindent .pagenum{font-size:calc(100% / 1.09)}
-.amrtf-amec .scripture-verse .scripture-classical.font-tibetan{font-size:calc(100% * 1.09);font-family:var(--font-tibetan) !important}
+.amrtf-amec .scripture-verse .scripture-classical.font-tibetan{font-size:109%;font-family:var(--font-tibetan) !important}
 .amrtf-amec p.scripture-modern-homage{text-indent:0 !important}
 .amrtf-amec *:not(.title3) + .table td:first-of-type > span,.amrtf-amec blockquote .table td:first-of-type > span{white-space:nowrap;display:inline-block}
-.amrtf-amec .emph-dot,.amrtf-amec .emph-open-dot{line-height:2;position:relative;font-style:normal}
-.amrtf-amec .emph-dot::before,.amrtf-amec .emph-open-dot::before{bottom:-0.65em;line-height:1;transform:translateX(-50%) scale(0.3);left:50%;text-indent:0;font-family:ui-symbol, sans-serif;position:absolute}
-.amrtf-amec .emph-dot::before{content:"●"}
-.amrtf-amec .emph-open-dot::before{content:"〇";text-shadow:-2px -2px 2px currentColor, 2px -2px 2px currentColor, -2px 2px 2px currentColor, 2px 2px 2px currentColor}
+.amrtf-amec .emph-dot,.amrtf-amec .emph-open-dot{text-indent:0;display:inline-block;font-style:normal;position:relative}
+.amrtf-amec .emph-dot::before,.amrtf-amec .emph-open-dot::before{bottom:0;box-sizing:border-box;content:"";border-radius:50%;transform:translateX(-50%);left:50%;width:0.22em;position:absolute;height:0.22em}
+.amrtf-amec .emph-dot::before{background-color:currentcolor}
+.amrtf-amec .emph-open-dot::before{background-color:transparent;border:0.06em solid currentcolor}
 .amrtf-amec p.scripture-classical-noindent{text-indent:0 !important}
 .amrtf-amec td.nowrap,.amrtf-amec th.nowrap{white-space:nowrap}
-.amrtf-amec {--font-serif-tc:"Noto Serif TC", "Noto Serif SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-kai-tc:"AR PL UKai TW", "TW-Kai-Aligned", "Kaiti TC", "楷體-繁", "DFKai-SB", "標楷體", "AR PL KaitiM Big5", "TW-Kai-Aligned-Ext-B", "TW-Kai-Aligned-Plus", serif;--font-timecode:"Tahoma", "Verdana", "Geneva", sans-serif;--font-fangsong-tc:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-sans-tc:"Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", sans-serif;--font-tibetan:"Monlam Uni OuChan2", serif}
+.amrtf-amec {--tibetan-bottom:0.18em;--font-serif-tc:"Noto Serif TC", "Noto Serif SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--annotation-font-size:calc(var(--annotation-scale) * 1em);--font-kai-tc:"AR PL UKai TW", "TW-Kai-Aligned", "Kaiti TC", "楷體-繁", "DFKai-SB", "標楷體", "AR PL KaitiM Big5", "TW-Kai-Aligned-Ext-B", "TW-Kai-Aligned-Plus", serif;--font-timecode:"Tahoma", "Verdana", "Geneva", sans-serif;--annotation-scale:0.707;--font-fangsong-tc:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-sans-tc:"Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", sans-serif;--font-tibetan:"Monlam Uni OuChan2", serif}
 .amrtf-amec .text-justify{text-align:justify !important}
 .amrtf-amec .align-top{vertical-align:top !important}
 .amrtf-amec .align-middle{vertical-align:middle !important}
@@ -254,3 +254,4 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .table-relaxed th,.amrtf-amec .table-relaxed td{padding:0.75rem 1rem}
 .amrtf-amec .text-left{text-align:left !important}
 .amrtf-amec td.cell-shrink,.amrtf-amec th.cell-shrink{width:1%;white-space:nowrap}
+.amrtf-amec sup,.amrtf-amec sub{vertical-align:baseline;font-size:0.707em;line-height:0;font-variant-position:normal;position:relative}
