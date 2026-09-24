@@ -129,13 +129,13 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec blockquote .seek-to{font-size:calc(100% / 1.125)}
 .amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:0.18em;font-size:100%;line-height:1;font-family:var(--font-tibetan) !important;position:relative}
 .amrtf-amec p.no-indent{text-indent:0em!important}
-.amrtf-amec .text-right,.amrtf-amec p.text-right{text-indent:0 !important;text-align:right}
+.amrtf-amec .text-right{text-indent:0 !important;text-align:right !important}
 .amrtf-amec p.indent{text-indent:2em!important}
 .amrtf-amec table p:not(:last-child){text-indent:0em;margin:0 0 1em 0}
 .amrtf-amec th,.amrtf-amec .ck-content .table th{font-weight:bold;text-align:center}
 .amrtf-amec td>figure.image{margin-inline-end:0;margin-inline-start:0;margin-block-start:0;margin-block-end:0}
 .amrtf-amec td[style*="text-align:center;"]>figure.image{display:inline-block}
-.amrtf-amec .text-center,.amrtf-amec p.text-center{text-indent:0 !important;text-align:center}
+.amrtf-amec .text-center{text-indent:0 !important;text-align:center !important}
 .amrtf-amec table p:last-child{text-indent:0em;margin:0}
 .amrtf-amec u,.amrtf-amec span.underline,.amrtf-amec .underline{text-decoration:underline;text-underline-offset:0.2em}
 .amrtf-amec h4.title4{font-size:1.309em;margin-block:0.764em;font-weight:bold}
@@ -239,7 +239,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .emph-dot::before{content:"●"}
 .amrtf-amec .emph-open-dot::before{content:"〇";text-shadow:-2px -2px 2px currentColor, 2px -2px 2px currentColor, -2px 2px 2px currentColor, 2px 2px 2px currentColor}
 .amrtf-amec p.scripture-classical-noindent{text-indent:0 !important}
-.amrtf-amec td.nowrap,.amrtf-amec th.nowrap{width:1%;white-space:nowrap}
+.amrtf-amec td.nowrap,.amrtf-amec th.nowrap{white-space:nowrap}
 .amrtf-amec {--font-serif-tc:"Noto Serif TC", "Noto Serif SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-kai-tc:"AR PL UKai TW", "TW-Kai-Aligned", "Kaiti TC", "楷體-繁", "DFKai-SB", "標楷體", "AR PL KaitiM Big5", "TW-Kai-Aligned-Ext-B", "TW-Kai-Aligned-Plus", serif;--font-timecode:"Tahoma", "Verdana", "Geneva", sans-serif;--font-fangsong-tc:"TW-Kai-Aligned Punct", "Zhuque Fangsong (technical preview)", "DFPFangSong-W4", "華康P仿宋體W4", "DFFangSong-W4", "華康仿宋體W4", "FangSong", "STFangsong", "Noto Serif TC", "Source Han Serif TC", "Songti TC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", serif;--font-sans-tc:"Instrument Sans Subset", "Noto Sans TC", "Noto Sans SC", "TW-Sung-Aligned-Ext-B", "TW-Sung-Aligned-Plus", sans-serif;--font-tibetan:"Monlam Uni OuChan2", serif}
 .amrtf-amec .text-justify{text-align:justify !important}
 .amrtf-amec .align-top{vertical-align:top !important}
@@ -253,3 +253,4 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .table-normal th,.amrtf-amec .table-normal td{padding:0.5rem 0.75rem}
 .amrtf-amec .table-relaxed th,.amrtf-amec .table-relaxed td{padding:0.75rem 1rem}
 .amrtf-amec .text-left{text-align:left !important}
+.amrtf-amec td.cell-shrink,.amrtf-amec th.cell-shrink{width:1%;white-space:nowrap}
