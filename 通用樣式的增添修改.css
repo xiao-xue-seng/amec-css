@@ -1,6 +1,5 @@
 /*
 label: 設定CSS變數
-keystroke:
 show in menu: false
 */
 
@@ -49,6 +48,14 @@ show in menu: false
 
   --font-tibetan: "Monlam Uni OuChan2", serif;
   --font-timecode: "Tahoma", "Verdana", "Geneva", sans-serif;
+
+  /* ----------------- */
+
+  --tibetan-bottom: 0.18em;
+
+  /* 基礎數值（純數字，相容所有歷史版本瀏覽器） */
+  --annotation-scale: 0.707;
+  --annotation-font-size: calc(var(--annotation-scale) * 1em);
 }
 
 /* 備忘：目前評估先不在這裡加 text-autospace、text-spacing-trim 等，因為那似乎屬於網站層級的風格，可由網站決定。 */
@@ -166,7 +173,6 @@ show in menu: true
 /* -------------------------- */
 .scripture-kai,
 span.scripture-kai {
-  /* 優先使用對齊過的"全字齊楷"備援，而非偏低的"標楷體"。 */
   font-family: var(--font-kai-tc) !important;
   font-size: 100%;
   font-weight: 700;
@@ -241,11 +247,11 @@ show in menu: true
 .font-tibetan,
 span.font-tibetan {
   position: relative;
-  bottom: 0.18em;
+  bottom: var(--tibetan-bottom);
 
   font-family: var(--font-tibetan) !important;
   font-size: 100%;
-  line-height: 1;
+  line-height: 1; /* 不要影響段落行高 */
 
   /* text-shadow: none; 不要受楷書陰影加粗的影響 */
 }
@@ -311,12 +317,10 @@ p.intro {
 
 /* ------------------------------------------------------------------------------- */
 
-/* 配合現有樣式：藏文不要縮小行高(不要強制1.0)，避免藏文書名太擠 */
-
 /*
 label: 轉隱-書名-藏文行高
-keystroke:
 show in menu: false
+藏文不要縮小行高(不要強制1.0)，避免藏文書名太擠
 */
 .title1 .font-tibetan {
   line-height: normal;
@@ -324,7 +328,6 @@ show in menu: false
 
 /*
 label: 轉隱-書名-與後段距離
-keystroke:
 show in menu: false
 */
 .title1 + *:not(.title1) {
@@ -333,7 +336,6 @@ show in menu: false
 
 /*
 label: 轉隱-書名-與前段距離
-keystroke:
 show in menu: false
 */
 p + .title1 {
@@ -356,7 +358,6 @@ p.author {
 
 /*
 label: 轉隱-作者-與後段距離
-keystroke:
 show in menu: false
 */
 p.author + *:not(p.author) {
@@ -386,11 +387,10 @@ p.no-line-spacing {
   margin: 0;
 }
 
-/* 設定與前後不同樣式之間的距離。這是P的樣式，所以都只針對P定義。 */
+/* 設定與前後其他樣式之間的距離。這是P的樣式，所以都只針對P定義。 */
 
 /*
 label: 轉隱-無間距-與前後段距離
-keystroke:
 show in menu: false
 */
 p.scripture-modern-nospacing+p:not(.scripture-modern-nospacing), /*白話無間距來共用*/
@@ -416,16 +416,8 @@ p.scripture-outline {
 
 /* 偈頌段落的字元會去共用楷書 */
 
-/* 【轉隱-偈頌字元】 */
-
-/* .scripture-verse {
-  font-family: 標楷體, "STKaitiTC-Regular", cwTeXKai, serif;
-  font-size: 110%;
-} */
-
 /*
 label: 轉隱-偈頌段落共用
-keystroke:
 show in menu: false
 */
 .quoting-sutra-verse, /*引經偈頌來共用*/
@@ -450,26 +442,18 @@ p.scripture-verse {
 
 /* #region 箋注 ******************************************************************/
 
-/* 【轉隱-箋注共用】 */
-
-/* .annotation {
-} */
-
 /*
 label: 轉B5-字元-箋注
 keystroke:
 show in menu: true
+垂直對齊不要用text-bottom，因為對於不同字型會有差異很大的不同結果。
 */
 .annotation-title, /*箋注標題來共用*/
 .annotation,
 span.annotation {
   font-family: var(--font-sans-tc);
-  font-size: 0.707em !important;
+  font-size: var(--annotation-font-size) !important;
   font-weight: 400;
-
-  /* line-height: 1; 必須要這個，垂直對齊才會準。不能用normal，一定要用1 */
-
-  /* 垂直對齊不要用text-bottom，因為對於不同字型會有差異很大的不同結果。 */
 }
 
 /*
@@ -483,7 +467,6 @@ span.annotation-title {
 
 /*
 label: 轉隱-箋注藏文
-keystroke:
 show in menu: false
 箋注是小字，藏文要對齊基線。只有當：在行首、前文是藏文時，才需要調整
 目前雖然只放了垂直對齊，但其實這裡可以放任何「箋注藏文」相關樣式
@@ -492,32 +475,39 @@ show in menu: false
 /* 箋注標題來共用 */
 .annotation-title.font-tibetan:first-child, /*行首*/
 .font-tibetan+.annotation-title.font-tibetan, /*前文是藏文*/
-/* ----- */
+.annotation-title.font-tibetan:has(+ .font-tibetan), /*後方是藏文*//* ----- */
 .annotation.font-tibetan:first-child, /*行首*/
-.font-tibetan+.annotation.font-tibetan /*前文是藏文*/ {
-  vertical-align: calc(0.18em / 0.707); /* 配合先前的設定。對齊基線 */
+.font-tibetan+.annotation.font-tibetan, /*前文是藏文*/
+.annotation.font-tibetan:has(+ .font-tibetan) /*後方是藏文*/ {
+  /* 藏文字母頂部水平天頭線位置 */
+  --tibetan-head-stroke: 0.4em;
+
+  /* 大字與小字的高差補償 */
+  --height-compensation: calc(
+    (1 - var(--annotation-scale)) * var(--tibetan-head-stroke)
+  );
+
+  bottom: calc(
+    (var(--tibetan-bottom) + var(--height-compensation)) /
+      var(--annotation-scale)
+  );
 }
 
 /*
 label: 轉隱-箋注藏文間距
-keystroke:
 show in menu: false
 藏文箋注前後一律加間隔
 */
-
-/* 箋注標題來共用 */
-.annotation-title.font-tibetan,
+.annotation-title.font-tibetan, /* 箋注標題來共用 */
 .annotation.font-tibetan {
   margin-inline: 0.5em;
 }
 
 /*
 label: 轉隱-下標箋注間距
-keystroke:
 show in menu: false
 */
 sub+.annotation-title, /*箋注標題來共用*/
-/* ----- */
 sub+.annotation {
   margin-inline-start: 0.25em;
 }
@@ -528,22 +518,8 @@ sub+.annotation {
 
 /* #region 標題 */
 
-/* "標題"沿用原有的樣式 */
-
-/*
-label: 隱-標題前間距
-keystroke:
-show in menu: false
-*/
-
-/* h2.title2,
-h3.title3 {
-  margin-block-start: 1.618lh;
-} */
-
 /*
 label: 隱-標題同類間距
-keystroke:
 show in menu: false
 */
 h2.title2 + h2.title2,
@@ -682,8 +658,7 @@ label: 轉C30-字元-引釋
 keystroke:
 show in menu: true
 */
-.quoting-explanation-verse,
-/*引釋偈頌來共用*/
+.quoting-explanation-verse, /*引釋偈頌來共用*/
 .quoting-explanation-indent,
 .quoting-explanation,
 span.quoting-explanation {
@@ -774,12 +749,11 @@ p.scripture-classical-noindent .font-tibetan {
 
 /*
 label: 轉隱-偈頌-原文-藏文
-keystroke:
 show in menu: false
 */
 .scripture-verse .scripture-classical.font-tibetan {
   font-family: var(--font-tibetan) !important;
-  font-size: calc(100% * 1.09);
+  font-size: 109%;
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -861,8 +835,7 @@ label: 轉E1-段落-跋文
 keystroke:
 show in menu: true
 */
-.postscript-right,
-/*跋文靠右來共用*/
+.postscript-right, /*跋文靠右來共用*/
 p.postscript {
   /* 相同樣式之間無間距 */
   margin-block: 0;
@@ -872,7 +845,6 @@ p.postscript {
 
 /*
 label: 轉隱-跋文與前段間距
-keystroke:
 show in menu: false
 */
 p:not(.postscript) + p.postscript {
@@ -892,7 +864,6 @@ p.postscript-right {
 
 /*
 label: 轉隱-跋文靠右-間距1
-keystroke:
 show in menu: false
 與前段間距
 */
@@ -902,7 +873,6 @@ show in menu: false
 
 /*
 label: 轉隱-跋文靠右-間距2
-keystroke:
 show in menu: false
 "前面是跋文"時的距離
 */
@@ -940,7 +910,6 @@ p.footnote-text {
 
 /*
 label: 轉隱-註腳文字前參照
-keystroke:
 show in menu: false
 */
 p.footnote-text span.footnote-ref {
@@ -988,25 +957,32 @@ p.footnote-hr {
 /* #region 上下標 */
 
 /*
+label: 轉-字元-上下標共用
+show in menu: false
+關於垂直位置調整的最佳做法可參考 doc/ 文件說明。
+*/
+sup,
+sub {
+  /* 啟用純視覺位移 */
+  position: relative;
+
+  font-size: 0.707em;
+
+  /* 防禦性確保不啟用不可控的字型原生偏移 */
+  font-variant-position: normal;
+
+  /* 核心防禦：高度歸零，絕對不破壞段落行距 */
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+/*
 label: 轉-字元-上標
 keystroke: D
 show in menu: true
 */
 sup {
-  position: static;
-  font-size: 0.707em;
-
-  /* 讓行高不要變大 */
-  line-height: 1;
-
-  /*
-  用vertical-align效能會比top、bottom好
-  不要用text-top，它與字體會有關係。
-
-  1em - 0.707em + 0.05em = 0.343em
-  0.05em是視覺優化量
-  */
-  vertical-align: 0.343em;
+  top: -0.4em;
 }
 
 /*
@@ -1015,15 +991,7 @@ keystroke: C
 show in menu: true
 */
 sub {
-  position: static;
-  font-size: 0.707em;
-  line-height: 1;
-
-  /*
-  用vertical-align效能會比top、bottom好
-  不要用text-bottom，它與字體會有關係。
-  */
-  vertical-align: -0.05em;
+  bottom: -0.15em;
 }
 
 /* #endregion */
@@ -1060,7 +1028,6 @@ p.toc-volume {
 
 /*
 label: 轉隱-目錄卷冊-距離
-keystroke:
 show in menu: false
 */
 p.toc-volume + p.toc-volume {
@@ -1107,7 +1074,6 @@ p.toc-col-head {
 
 /*
 label: 轉隱-目錄欄標題-距離調整
-keystroke:
 show in menu: false
 */
 p.toc-col-head + p.toc-col-head {
@@ -1125,7 +1091,6 @@ span.toc-tab {
 
 /*
 label: 轉隱-目錄條目-共用
-keystroke:
 show in menu: false
 */
 p.toc-col-head,
@@ -1143,7 +1108,6 @@ p.toc-item2 {
 
 /*
 label: 轉隱-目錄條目無後距-共用
-keystroke:
 show in menu: false
 */
 p.toc-item1-br,
@@ -1172,7 +1136,6 @@ p.toc-item1-br {
 
 /*
 label: 轉隱-目錄條目1無後距-距離調整
-keystroke:
 show in menu: false
 */
 p.toc-item1-br + p.toc-item1 {
@@ -1210,7 +1173,6 @@ p.toc-item2-br {
 
 /*
 label: 轉隱-目錄條目2無後距-距離調整
-keystroke:
 show in menu: false
 */
 p.toc-item2-br + p.toc-item2 {
@@ -1228,7 +1190,6 @@ span.toc-item2-text {
 
 /*
 label: 轉隱-目錄中藏字距
-keystroke:
 show in menu: false
 */
 
@@ -1262,7 +1223,6 @@ p.chapter-end {
 
 /*
 label: 復原 引文區塊+段落樣式 下的時間碼及頁碼大小
-keystroke:
 show in menu: false
 */
 blockquote p.quoting-explanation-indent .seek-to,
@@ -1282,7 +1242,6 @@ blockquote p.quoting-treatise .pagenum {
 
 /*
 label: 復原 原文段落 中的時間碼及頁碼大小
-keystroke:
 show in menu: false
 */
 p.scripture-classical .seek-to,
@@ -1294,7 +1253,6 @@ p.scripture-classical-noindent .pagenum {
 
 /*
 label: 讓舊式「表格排版偈頌」的凸排部分，不要出現換行
-keystroke:
 show in menu: false
 */
 *:not(.title3) + .table td:first-of-type > span,
@@ -1307,14 +1265,14 @@ blockquote .table td:first-of-type > span {
 
 /*
 label: 著重號：基礎
-keystroke:
 show in menu: false
 */
 .emph-dot,
 .emph-open-dot {
   position: relative;
+  display: inline-block; /* 確保定位基基準穩定 */
   font-style: normal; /* 取消斜體 */
-  line-height: 2;
+  text-indent: 0;
 }
 
 /*
@@ -1324,16 +1282,19 @@ show in menu: false
 */
 .emph-dot::before,
 .emph-open-dot::before {
+  content: "";
+
   position: absolute;
-  bottom: -0.65em; /* 修改此值即可調整與字元的垂直距離 */
+
+  /* 用 em 控制大小與距離，隨字級等比縮放 */
+  bottom: 0; /* 控制與文字的垂直距離 */
   left: 50%;
+  transform: translateX(-50%);
 
-  /* 用scale控制大小而不用font-size，以免受瀏覽器最小字元限制 */
-  transform: translateX(-50%) scale(0.3);
-
-  font-family: ui-symbol, sans-serif;
-  line-height: 1;
-  text-indent: 0;
+  box-sizing: border-box;
+  width: 0.22em; /* 控制點的大小（寬） */
+  height: 0.22em; /* 控制點的大小（高） */
+  border-radius: 50%; /* 轉為正圓 */
 }
 
 /*
@@ -1342,21 +1303,18 @@ keystroke:
 show in menu: false
 */
 .emph-dot::before {
-  content: "●";
+  background-color: currentcolor;
 }
 
 /*
 label: 著重號：圈：偽元素
 keystroke:
 show in menu: false
+用真實向量 border 繪製，邊緣極度銳利不模糊
 */
 .emph-open-dot::before {
-  content: "〇";
-  text-shadow:
-    -2px -2px 2px currentcolor,
-    2px -2px 2px currentcolor,
-    -2px 2px 2px currentcolor,
-    2px 2px 2px currentcolor;
+  border: 0.06em solid currentcolor; /* 控制圓圈的線條粗細 */
+  background-color: transparent;
 }
 
 /* ------------------------------------------------------------------------------- */
@@ -1388,7 +1346,6 @@ th.cell-shrink {
 
 /*
 label: 通用-垂直靠上
-keystroke:
 show in menu: false
 */
 .align-top {
@@ -1397,7 +1354,6 @@ show in menu: false
 
 /*
 label: 通用-垂直靠中
-keystroke:
 show in menu: false
 */
 .align-middle {
@@ -1406,7 +1362,6 @@ show in menu: false
 
 /*
 label: 通用-垂直靠下
-keystroke:
 show in menu: false
 */
 .align-bottom {
@@ -1431,7 +1386,6 @@ show in menu: false
 
 /*
 label: 表格-儲存格外距-無
-keystroke:
 show in menu: false
 */
 .table-collapse {
@@ -1466,7 +1420,6 @@ show in menu: false
 
 /*
 label: 表格-有框
-keystroke:
 show in menu: false
 */
 .table-bordered,
@@ -1484,7 +1437,6 @@ show in menu: false
 
 /*
 label: 表格-無框
-keystroke:
 show in menu: false
 */
 .table-borderless,
@@ -1517,7 +1469,6 @@ show in menu: false
 
 /*
 label: 表格-儲存格內距-無
-keystroke:
 show in menu: false
 */
 .table-p-0 th,
@@ -1527,7 +1478,6 @@ show in menu: false
 
 /*
 label: 表格-儲存格內距-緊湊
-keystroke:
 show in menu: false
 緊湊型 (適合排版空間有限的字典、古籍)
 */
@@ -1538,7 +1488,6 @@ show in menu: false
 
 /*
 label: 表格-儲存格內距-標準
-keystroke:
 show in menu: false
 標準間距 (一般閱讀)
 */
@@ -1549,7 +1498,6 @@ show in menu: false
 
 /*
 label: 表格-儲存格內距-寬鬆
-keystroke:
 show in menu: false
 寬鬆型
 */
