@@ -251,30 +251,9 @@ span.font-tibetan {
 }
 
 /*
-label: C3.段落-靠右對齊-作譯者名
-show in menu: true
-*/
-.text-right,
-p.text-right {
-  text-align: right;
-  text-indent: 0 !important;
-}
-
-/*
-label: C4.段落-置中對齊
-keystroke:
-show in menu: true
-*/
-.text-center,
-p.text-center {
-  text-align: center;
-  text-indent: 0 !important;
-}
-
-/*
 label: 通用-文字靠左
-keystroke:
 show in menu: false
+這是對齊專用樣式，必須"不顯示"於選單、不加tag，否則會被加入"文字樣式白名單"而導致衝突。
 對於表格儲存格而言，雖然是預設值，但明確的樣式設定可確保更穩定、不受父層影響。
 */
 .text-left {
@@ -282,8 +261,29 @@ show in menu: false
 }
 
 /*
+label: C4.段落-置中對齊
+show in menu: false
+這是對齊專用樣式，必須"不顯示"於選單、不加tag，否則會被加入"文字樣式白名單"而導致衝突。
+*/
+.text-center {
+  text-align: center !important;
+  text-indent: 0 !important;
+}
+
+/*
+label: C3.段落-靠右對齊-作譯者名
+show in menu: false
+這是對齊專用樣式，必須"不顯示"於選單、不加tag，否則會被加入"文字樣式白名單"而導致衝突。
+*/
+.text-right {
+  text-align: right !important;
+  text-indent: 0 !important;
+}
+
+/*
 label: 通用-文字左右對齊
 show in menu: false
+這是對齊專用樣式，必須"不顯示"於選單、不加tag，否則會被加入"文字樣式白名單"而導致衝突。
 */
 .text-justify {
   text-align: justify !important;
