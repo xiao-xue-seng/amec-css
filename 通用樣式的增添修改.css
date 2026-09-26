@@ -257,6 +257,23 @@ span.font-tibetan {
 }
 
 /*
+label: 中藏混排時的行高設定：藏文不要影響行高。
+show in menu: false
+:lang() 選擇器具備層級繼承感知，只要祖先節點有 lang="bo"，底下都能自動生效
+*/
+.zh-bo-mixed :lang(bo) {
+  line-height: 1;
+}
+
+/*
+label: 純藏文時的行高設定
+show in menu: false
+*/
+.bo-only:lang(bo), .bo-only :lang(bo), {
+  line-height: inherit;
+}
+
+/*
 label: 通用-文字靠左
 show in menu: false
 這是對齊專用樣式，必須"不顯示"於選單、不加tag，否則會被加入"文字樣式白名單"而導致衝突。
@@ -323,7 +340,7 @@ show in menu: false
 藏文不要縮小行高(不要強制1.0)，避免藏文書名太擠
 */
 .title1 .font-tibetan {
-  line-height: normal;
+  line-height: inherit;
 }
 
 /*
@@ -741,10 +758,11 @@ label: 轉隱-原文-藏文調整
 show in menu: false
 配合現有樣式：原文中的藏文不要縮小行高，避免太擠
 */
-p.scripture-classical .font-tibetan,
+
+/* p.scripture-classical .font-tibetan,
 p.scripture-classical-noindent .font-tibetan {
-  line-height: normal;
-}
+  line-height: inherit;
+} */
 
 /*
 label: 轉隱-偈頌-原文-藏文
@@ -1469,7 +1487,6 @@ show in menu: false
   padding: 0.25rem 0.5rem !important;
 } */
 
-
 /*
 label: 讓舊式「表格排版偈頌」的凸排部分，不要出現換行
 show in menu: false
@@ -1523,4 +1540,3 @@ show in menu: false
 } */
 
 /* --------- */
-
