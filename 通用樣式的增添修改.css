@@ -738,7 +738,6 @@ p.scripture-classical-noindent {
 
 /*
 label: 轉隱-原文-藏文調整
-keystroke:
 show in menu: false
 配合現有樣式：原文中的藏文不要縮小行高，避免太擠
 */
@@ -1251,17 +1250,9 @@ p.scripture-classical-noindent .pagenum {
   font-size: calc(100% / 1.09);
 }
 
-/*
-label: 讓舊式「表格排版偈頌」的凸排部分，不要出現換行
-show in menu: false
-*/
-*:not(.title3) + .table td:first-of-type > span,
-blockquote .table td:first-of-type > span {
-  display: inline-block;
-  white-space: nowrap;
-}
-
 /* ------------------------------------------------------------------------------- */
+
+/* #region 著重號 */
 
 /*
 label: 著重號：基礎
@@ -1317,7 +1308,11 @@ show in menu: false
   background-color: transparent;
 }
 
+/* #endregion */
+
 /* ------------------------------------------------------------------------------- */
+
+/* #region 表格 */
 
 /*
 label: 轉TD1-儲存格不換行
@@ -1339,48 +1334,6 @@ th.cell-shrink {
   width: 1%; /* 保持緊縮，不擴展 */
   white-space: nowrap;
 }
-
-/* ------------------------------------------------------------------------------- */
-
-/* Composable Utilities 參考 Tailwind CSS 設計成通用可混搭的樣式 */
-
-/*
-label: 通用-垂直靠上
-show in menu: false
-*/
-.align-top {
-  vertical-align: top !important;
-}
-
-/*
-label: 通用-垂直靠中
-show in menu: false
-*/
-.align-middle {
-  vertical-align: middle !important;
-}
-
-/*
-label: 通用-垂直靠下
-show in menu: false
-*/
-.align-bottom {
-  vertical-align: bottom !important;
-}
-
-/* .align-baseline {
-  vertical-align: baseline !important;
-}
-
-.align-text-top {
-  vertical-align: text-top !important;
-}
-
-.align-text-bottom {
-  vertical-align: text-bottom !important;
-} */
-
-/* --------- */
 
 /* 1. 摺疊模式：現代表格的預設最佳實踐 (等同 cellspacing="0") */
 
@@ -1445,24 +1398,6 @@ show in menu: false
   border: 0 !important;
 }
 
-/* --- 儲存格／原子層級 --- */
-
-/* .border {
-  border: 1px solid #ccc !important;
-}
-
-.border-0 {
-  border: 0 !important;
-}
-
-.border-top {
-  border-top: 1px solid #ccc !important;
-}
-
-.border-bottom {
-  border-bottom: 1px solid #ccc !important;
-} */
-
 /* --- 表格層級控制所有單元格內距 --- */
 
 /* 無內距 (等同 cellpadding="0") */
@@ -1506,6 +1441,24 @@ show in menu: false
   padding: 0.75rem 1rem;
 }
 
+/* --- 儲存格／原子層級 --- */
+
+/* .border {
+  border: 1px solid #ccc !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.border-top {
+  border-top: 1px solid #ccc !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #ccc !important;
+} */
+
 /* --- 單一單元格覆寫 (原子 class) --- */
 
 /* .p-0 {
@@ -1515,3 +1468,59 @@ show in menu: false
 .p-sm {
   padding: 0.25rem 0.5rem !important;
 } */
+
+
+/*
+label: 讓舊式「表格排版偈頌」的凸排部分，不要出現換行
+show in menu: false
+*/
+*:not(.title3) + .table td:first-of-type > span,
+blockquote .table td:first-of-type > span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* #endregion */
+
+/* ------------------------------------------------------------------------------- */
+
+/* Composable Utilities 參考 Tailwind CSS 設計成通用可混搭的樣式 */
+
+/*
+label: 通用-垂直靠上
+show in menu: false
+*/
+.align-top {
+  vertical-align: top !important;
+}
+
+/*
+label: 通用-垂直靠中
+show in menu: false
+*/
+.align-middle {
+  vertical-align: middle !important;
+}
+
+/*
+label: 通用-垂直靠下
+show in menu: false
+*/
+.align-bottom {
+  vertical-align: bottom !important;
+}
+
+/* .align-baseline {
+  vertical-align: baseline !important;
+}
+
+.align-text-top {
+  vertical-align: text-top !important;
+}
+
+.align-text-bottom {
+  vertical-align: text-bottom !important;
+} */
+
+/* --------- */
+
