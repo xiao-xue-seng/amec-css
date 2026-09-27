@@ -157,7 +157,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .font-tc-lxgw-wenkai,.amrtf-amec span.font-tc-lxgw-wenkai{font-weight:400;font-family:"LXGW WenKai TC", cursive!important;font-style:normal}
 .amrtf-amec .font-sc-noto-sans-bold,.amrtf-amec span.font-sc-noto-sans-bold{font-weight:bold;font-family:'Noto Sans SC', sans-serif!important;font-style:normal;font-optical-sizing:auto}
 .amrtf-amec p.intro{background-color:#272720;border-radius:5px;padding:1em;text-indent:0;font-weight:normal;font-size:100%;font-family:var(--font-fangsong-tc) !important;margin-block:0 2lh}
-.amrtf-amec .title1 .font-tibetan{line-height:normal}
+.amrtf-amec .title1 .font-tibetan{line-height:inherit}
 .amrtf-amec .title1 + *:not(.title1){margin-block-start:1lh}
 .amrtf-amec p + .title1{margin-block-start:2lh}
 .amrtf-amec p.author{line-height:2;margin:0;text-indent:0;text-align:right}
@@ -183,7 +183,6 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.quoting-explanation-indent{text-indent:2em !important}
 .amrtf-amec .scripture-classical-noindent,.amrtf-amec .scripture-classical,.amrtf-amec span.scripture-classical{font-weight:bold;font-size:109%;line-height:calc(1.618 / 1.09);font-family:var(--font-kai-tc) !important}
 .amrtf-amec p.scripture-classical{text-indent:calc(2em / 1.09);line-height:1.618}
-.amrtf-amec p.scripture-classical .font-tibetan,.amrtf-amec p.scripture-classical-noindent .font-tibetan{line-height:normal}
 .amrtf-amec .scripture-modern-noindent,.amrtf-amec .scripture-modern-nospacing,.amrtf-amec .scripture-modern-verse,.amrtf-amec .scripture-modern-homage,.amrtf-amec .scripture-modern,.amrtf-amec span.scripture-modern{font-weight:normal;font-size:100%;font-family:var(--font-fangsong-tc) !important;line-height:1.618}
 .amrtf-amec p.scripture-modern{text-indent:2em}
 .amrtf-amec p.scripture-modern-noindent{text-indent:0 !important}
@@ -255,3 +254,5 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .text-left{text-align:left !important}
 .amrtf-amec td.cell-shrink,.amrtf-amec th.cell-shrink{width:1%;white-space:nowrap}
 .amrtf-amec sup,.amrtf-amec sub{vertical-align:baseline;font-size:0.707em;line-height:0;font-variant-position:normal;position:relative}
+.amrtf-amec .zh-bo-mixed :lang(bo){line-height:1}
+.amrtf-amec .bo-only:lang(bo),.amrtf-amec .bo-only :lang(bo){line-height:inherit}
