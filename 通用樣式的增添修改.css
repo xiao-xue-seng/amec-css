@@ -257,9 +257,10 @@ span.font-tibetan {
 }
 
 /*
-label: 中藏混排時的行高設定：藏文不要影響行高。
+label: 中藏混排時的行高設定
 show in menu: false
-:lang() 選擇器具備層級繼承感知，只要祖先節點有 lang="bo"，底下都能自動生效
+中藏混排時的行高設定：藏文不要影響行高。
+:lang() 選擇器具備層級繼承感知，只要祖先節點有 lang="bo"，底下都能自動生效。
 */
 .zh-bo-mixed :lang(bo) {
   line-height: 1;
@@ -268,8 +269,11 @@ show in menu: false
 /*
 label: 純藏文時的行高設定
 show in menu: false
+純藏文時，行高可以繼承文章的設定值，不需要縮限為1。
 */
-.bo-only:lang(bo), .bo-only :lang(bo), {
+.bo-only:lang(bo),
+.bo-only :lang(bo) {
+  /* position: static; 不調整垂直高度❌👉由於"箋注"需要調整高度對齊頭線，所以此處若未固定，計算會變得太複雜。 */
   line-height: inherit;
 }
 
