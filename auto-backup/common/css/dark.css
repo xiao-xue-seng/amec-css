@@ -255,4 +255,4 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec td.cell-shrink,.amrtf-amec th.cell-shrink{width:1%;white-space:nowrap}
 .amrtf-amec sup,.amrtf-amec sub{vertical-align:baseline;font-size:0.707em;line-height:0;font-variant-position:normal;position:relative}
 .amrtf-amec .zh-bo-mixed :lang(bo){line-height:1}
-.amrtf-amec .bo-only:lang(bo),.amrtf-amec .bo-only :lang(bo){line-height:inherit}
+.amrtf-amec .bo-only:lang(bo),.amrtf-amec .bo-only :lang(bo){line-height:inherit;position:static}
