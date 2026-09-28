@@ -80,7 +80,8 @@ h1.title1 {
   font-weight: 900;
   font-style: normal;
   line-height: 1.618;
-  text-align: justify; /* 很長的藏文書名會需要 */
+
+  /* text-align: justify; 很長的藏文書名會需要 */
   text-indent: 0;
 
   /* font-optical-sizing 屬性只對包含光學尺寸軸（Optical Size Axis，即 opsz）的可變字型（Variable Fonts）有效。
@@ -269,12 +270,27 @@ show in menu: false
 /*
 label: 純藏文時的行高設定
 show in menu: false
-純藏文時，行高可以繼承文章的設定值，不需要縮限為1。
+純藏文時，明確指定適合藏文的行高，不需要縮限為1。
 */
-.bo-only:lang(bo),
+.bo-only,
 .bo-only :lang(bo) {
   /* position: static; 不調整垂直高度❌👉由於"箋注"需要調整高度對齊頭線，所以此處若未固定，計算會變得太複雜。 */
-  line-height: inherit;
+  line-height: 1.8; /* 一般建議 1.8 ~ 2 */
+}
+
+/*
+label: 藏文排版
+show in menu: false
+會加上 bo-only / zh-bo-mixed 的一定是標題、段落、清單項目。
+*/
+.bo-only,
+.zh-bo-mixed :lang(bo) {
+  text-align-last: start; /* 防禦：避免最後一行被分散對齊拉成碎片 */
+  text-justify: inter-character;
+
+  /* 防禦：確保藏文按照標準音節點 (Tsek) 正確斷行 */
+  line-break: normal;
+  overflow-wrap: normal;
 }
 
 /*
@@ -1010,9 +1026,10 @@ sup {
 label: 轉-字元-下標
 keystroke: C
 show in menu: true
+我們實際上用不到真正的"下標"。這裡是當作"小字"用，所以底部切齊即可。
 */
 sub {
-  bottom: -0.15em;
+  bottom: -0.1em;
 }
 
 /* #endregion */
