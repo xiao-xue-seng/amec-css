@@ -487,10 +487,11 @@ show in menu: true
 */
 .annotation-title, /*箋注標題來共用*/
 .annotation,
-span.annotation {
+small.annotation {
   font-family: var(--font-sans-tc);
   font-size: var(--annotation-font-size) !important;
-  font-weight: 400;
+
+  /* font-weight: 400; */
 }
 
 /*
@@ -498,7 +499,8 @@ label: 轉B5-字元-箋注標題
 keystroke:
 show in menu: true
 */
-span.annotation-title {
+.annotation-title, /*相容性*/
+small.annotation-title {
   font-weight: bold;
 }
 
@@ -509,10 +511,16 @@ show in menu: false
 目前雖然只放了垂直對齊，但其實這裡可以放任何「箋注藏文」相關樣式
 */
 
+/* 給新式small的結構用 */
+:lang(bo)+.annotation-title:has(:lang(bo)) :lang(bo), /*前文是藏文*/
+.annotation-title:has(:lang(bo)):has(+ :lang(bo)) :lang(bo), /*後方是藏文*/
+:lang(bo)+.annotation:has(:lang(bo)) :lang(bo), /*前文是藏文*/
+.annotation:has(:lang(bo)):has(+ :lang(bo)) :lang(bo), /*後方是藏文*/
+
 /* 箋注標題來共用 */
 .annotation-title.font-tibetan:first-child, /*行首*/
 .font-tibetan+.annotation-title.font-tibetan, /*前文是藏文*/
-.annotation-title.font-tibetan:has(+ .font-tibetan), /*後方是藏文*//* ----- */
+.annotation-title.font-tibetan:has(+ .font-tibetan), /*後方是藏文*/
 .annotation.font-tibetan:first-child, /*行首*/
 .font-tibetan+.annotation.font-tibetan, /*前文是藏文*/
 .annotation.font-tibetan:has(+ .font-tibetan) /*後方是藏文*/ {
@@ -535,6 +543,10 @@ label: 轉隱-箋注藏文間距
 show in menu: false
 藏文箋注前後一律加間隔
 */
+/* 給新式small的結構用 */
+.annotation-title:has(:lang(bo)),
+.annotation:has(:lang(bo)),
+/* --- */
 .annotation-title.font-tibetan, /* 箋注標題來共用 */
 .annotation.font-tibetan {
   margin-inline: 0.5em;
@@ -956,6 +968,7 @@ p.footnote-text span.footnote-ref {
 
   font-size: 1em;
   text-align: right;
+  text-align-last: end; /* 壓制純藏文段落的設定 */
 
   opacity: 1;
 }
