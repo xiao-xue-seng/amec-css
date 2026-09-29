@@ -543,6 +543,7 @@ label: 轉隱-箋注藏文間距
 show in menu: false
 藏文箋注前後一律加間隔
 */
+
 /* 給新式small的結構用 */
 .annotation-title:has(:lang(bo)),
 .annotation:has(:lang(bo)),
@@ -939,6 +940,7 @@ p.postscript + p.postscript-right {
 label: 轉F1-字元-註腳原文
 keystroke:
 show in menu: true
+或稱「註腳詞條」
 */
 span.footnote-quotation {
   font-weight: bold;
@@ -950,37 +952,50 @@ keystroke:
 show in menu: true
 */
 p.footnote-text {
-  margin-inline-start: 3.5em;
+  --fn-indent: 3em; /* 適合1~99個註腳的縮排量，超過三位數的文章較少，讓其向左延伸凸出即可 */
+
+  padding-inline-start: var(--fn-indent);
+
   font-size: 0.75em;
 
-  /* 凸排 */
-  text-indent: -3.5em !important;
+  /* 換行與對齊。防禦性明確指定 */
+  text-align: justify;
+  text-indent: calc(var(--fn-indent) * -1); /* 凸排 */
+  overflow-wrap: break-word;
 }
 
 /*
-label: 轉隱-註腳文字前參照
+label: 轉隱-註腳區塊中的標號
 show in menu: false
 */
 p.footnote-text span.footnote-ref {
+  --max-fn-ref-width: 4em;
+
   display: inline-block;
 
-  min-width: 3.5em;
+  box-sizing: border-box; /* 防禦性明確確保 */
+  inline-size: var(--max-fn-ref-width);
+  margin-inline-start: calc(var(--fn-indent) - var(--max-fn-ref-width));
 
-  font-size: 1em;
-  text-align: right;
+  font-size: 1em; /* 復原"註腳參照"的縮小設定 */
+  font-feature-settings: "tnum" 1; /* 數字等寬，避免「註1：」與「註2：」因數字字寬不均產生微抖動 */
+  text-align: end;
   text-align-last: end; /* 壓制純藏文段落的設定 */
 
-  opacity: 1;
+  opacity: 1; /* 復原"註腳參照"的設定 */
+
+  /* white-space: nowrap; "註腳參照"已設定 */
 }
 
 /*
 label: 轉F3-字元-註腳參照
 keystroke:
 show in menu: true
+正文行間的（註1）等文字
 */
 span.footnote-ref {
   font-size: 0.75em;
-  text-wrap-mode: nowrap;
+  white-space: nowrap;
   opacity: 0.707;
 }
 
