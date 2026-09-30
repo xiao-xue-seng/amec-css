@@ -194,9 +194,9 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec :not(p.postscript-right):not(p.postscript) + p.postscript-right{margin-block-start:2lh}
 .amrtf-amec p.postscript + p.postscript-right{margin-block-start:1lh}
 .amrtf-amec span.footnote-quotation{font-weight:bold}
-.amrtf-amec p.footnote-text{margin-inline-start:3.5em;font-size:0.75em;text-indent:-3.5em !important}
-.amrtf-amec p.footnote-text span.footnote-ref{font-size:1em;opacity:1;text-align:right;min-width:3.5em;display:inline-block}
-.amrtf-amec span.footnote-ref{text-wrap-mode:nowrap;font-size:0.75em;opacity:0.707}
+.amrtf-amec p.footnote-text{padding-inline-start:var(--fn-indent);text-indent:calc(var(--fn-indent) * -1);--fn-indent:3em;font-size:0.75em;overflow-wrap:break-word;text-align:justify}
+.amrtf-amec p.footnote-text span.footnote-ref{text-align-last:end;display:inline-block;font-size:1em;box-sizing:border-box;font-feature-settings:"tnum" 1;--max-fn-ref-width:4em;margin-inline-start:calc(var(--fn-indent) - var(--max-fn-ref-width));inline-size:var(--max-fn-ref-width);opacity:1;text-align:end}
+.amrtf-amec span.footnote-ref{font-size:0.75em;opacity:0.707;white-space:nowrap}
 .amrtf-amec sup{top:-0.4em}
 .amrtf-amec sub{bottom:-0.1em}
 .amrtf-amec p.toc-title{text-indent:0;text-align:center}
