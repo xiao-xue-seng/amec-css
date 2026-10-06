@@ -1002,7 +1002,7 @@ p.footnote-text {
 label: 轉F2-段落-【兼容舊式】註腳文字
 show in menu: false
 */
-:not(.footnote-list) p.footnote-text,
+p.footnote-text:not(.footnote-list *),
 > p.footnote-text {
   --fn-indent: 3em; /* 適合1~99個註腳的縮排量，超過三位數的文章較少，讓其向左延伸凸出即可 */
 
