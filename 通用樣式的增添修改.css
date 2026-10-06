@@ -937,6 +937,48 @@ p.postscript + p.postscript-right {
 /* #region 註腳 */
 
 /*
+label: 註腳清單容器
+show in menu: false
+兩欄：第1欄依最長編號自適應寬度 (max-content)，第2欄吃滿剩餘寬度 (1fr)
+*/
+.footnote-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 0.5rem;
+  font-size: 0.75em;
+}
+
+/*
+label: 註腳項目
+show in menu: false
+繼承外層的網格欄寬
+*/
+.footnote-item {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: baseline;
+}
+
+/*
+label: 註腳編號標籤欄
+show in menu: false
+*/
+.footnote-label {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/*
+label: 註腳內容欄
+show in menu: false
+內部可自由放置任意塊級元素
+*/
+.footnote-body {
+  min-width: 0; /* 防止 table 或長文字將網格撐破 */
+}
+
+/*
 label: 轉F1-字元-註腳原文
 keystroke:
 show in menu: true
@@ -950,8 +992,18 @@ span.footnote-quotation {
 label: 轉F2-段落-註腳文字
 keystroke:
 show in menu: true
+為了顯示於後台編輯器樣式表
 */
 p.footnote-text {
+  --dummy: 0;
+}
+
+/*
+label: 轉F2-段落-【兼容舊式】註腳文字
+show in menu: false
+*/
+:not(.footnote-list) p.footnote-text,
+> p.footnote-text {
   --fn-indent: 3em; /* 適合1~99個註腳的縮排量，超過三位數的文章較少，讓其向左延伸凸出即可 */
 
   padding-inline-start: var(--fn-indent);
@@ -965,7 +1017,22 @@ p.footnote-text {
 }
 
 /*
-label: 轉隱-註腳區塊中的標號
+label: 轉F2-段落-【新式】註腳文字
+show in menu: false
+*/
+.footnote-list p.footnote-text {
+  margin-block: 0 1em;
+
+  font-size: inherit;
+
+  /* 換行與對齊。防禦性明確指定 */
+  text-align: justify;
+  text-indent: 0;
+  overflow-wrap: break-word;
+}
+
+/*
+label: 轉隱-【兼容舊式】註腳區塊中的標號
 show in menu: false
 */
 p.footnote-text span.footnote-ref {
@@ -988,6 +1055,15 @@ p.footnote-text span.footnote-ref {
 }
 
 /*
+label: 註腳列表中的標號
+show in menu: false
+*/
+.footnote-label .footnote-ref {
+  font-size: inherit; /* 復原"註腳參照"的縮小設定 */
+  opacity: 1; /* 復原"註腳參照"的設定 */
+}
+
+/*
 label: 轉F3-字元-註腳參照
 keystroke:
 show in menu: true
@@ -1005,6 +1081,8 @@ keystroke:
 show in menu: true
 */
 p.footnote-hr {
+  grid-column: span 2;
+
   width: 33%;
   height: 5px;
   margin: 2em 0 1em;
