@@ -1628,7 +1628,7 @@ blockquote .table td:first-of-type > span {
 
 /* ------------------------------------------------------------------------------- */
 
-/* Composable Utilities 參考 Tailwind CSS 設計成通用可混搭的樣式 */
+/* #region Composable Utilities 參考 Tailwind CSS 設計成通用可混搭的樣式 */
 
 /*
 label: 通用-垂直靠上
@@ -1665,5 +1665,42 @@ show in menu: false
 .align-text-bottom {
   vertical-align: text-bottom !important;
 } */
+
+/* --------- */
+
+/*
+label: 通用-清單-天干：甲乙丙
+show in menu: false
+*/
+.list-cjk-heavenly-stem {
+  list-style-type: cjk-heavenly-stem;
+}
+
+/*
+label: 通用-清單-繁體大寫數字：壹貳參
+show in menu: false
+*/
+.list-trad-chinese-formal {
+  list-style-type: trad-chinese-formal;
+}
+
+/*
+label: 通用-清單-中文數字：一二三
+show in menu: false
+*/
+.list-cjk-ideographic {
+  list-style-type: cjk-ideographic;
+}
+
+/*
+label: 通用-清單-帶圈數字
+show in menu: false
+帶圈數字：① ②
+*/
+.list-circled-decimal {
+  list-style-type: circled-decimal;
+}
+
+/* #endregion */
 
 /* --------- */
