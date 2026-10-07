@@ -194,7 +194,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec :not(p.postscript-right):not(p.postscript) + p.postscript-right{margin-block-start:2lh}
 .amrtf-amec p.postscript + p.postscript-right{margin-block-start:1lh}
 .amrtf-amec span.footnote-quotation{font-weight:bold}
-.amrtf-amec p.footnote-text{padding-inline-start:var(--fn-indent);text-indent:calc(var(--fn-indent) * -1);--fn-indent:3em;font-size:0.75em;overflow-wrap:break-word;text-align:justify}
+.amrtf-amec p.footnote-text{--dummy:0}
 .amrtf-amec p.footnote-text span.footnote-ref{text-align-last:end;display:inline-block;font-size:1em;box-sizing:border-box;font-feature-settings:"tnum" 1;--max-fn-ref-width:4em;margin-inline-start:calc(var(--fn-indent) - var(--max-fn-ref-width));inline-size:var(--max-fn-ref-width);opacity:1;text-align:end}
 .amrtf-amec span.footnote-ref{font-size:0.75em;opacity:0.707;white-space:nowrap}
 .amrtf-amec sup{top:-0.4em}
@@ -218,7 +218,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec p.toc-item2-br + p.toc-item2{margin-block-start:0}
 .amrtf-amec span.toc-item2-text{opacity:0.707}
 .amrtf-amec p.toc-item1 > .toc-item1-text:not(.font-tibetan) + .toc-item1-text.font-tibetan,.amrtf-amec p.toc-item2 > .toc-item2-text:not(.font-tibetan) + .toc-item2-text.font-tibetan,.amrtf-amec p.toc-item1 > .toc-item1-text.font-tibetan + .toc-item1-text:not(.font-tibetan),.amrtf-amec p.toc-item2 > .toc-item2-text.font-tibetan + .toc-item2-text:not(.font-tibetan){margin-inline-start:0.25em}
-.amrtf-amec p.footnote-hr{margin:2em 0 1em;text-indent:0;width:33%;border-width:1px 0 0;border-color:#808080;border-style:solid;height:5px}
+.amrtf-amec p.footnote-hr{margin:2em 0 1em;text-indent:0;width:33%;border-width:1px 0 0;border-color:#808080;grid-column:span 2;border-style:solid;height:5px}
 .amrtf-amec h2.title2 + h2.title2,.amrtf-amec h3.title3 + h3.title3{margin-block-start:1em}
 .amrtf-amec p.scripture-verse{text-align:left}
 .amrtf-amec .annotation-title,.amrtf-amec .annotation,.amrtf-amec small.annotation{font-size:var(--annotation-font-size) !important;font-family:var(--font-sans-tc)}
@@ -257,3 +257,14 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .zh-bo-mixed :lang(bo){line-height:1}
 .amrtf-amec .bo-only,.amrtf-amec .bo-only :lang(bo){line-height:1.8}
 .amrtf-amec .bo-only,.amrtf-amec .zh-bo-mixed :lang(bo){text-justify:inter-character;text-align-last:start;line-break:normal;overflow-wrap:normal}
+.amrtf-amec .footnote-list{column-gap:0.5rem;font-size:0.75em;grid-template-columns:max-content 1fr;display:grid}
+.amrtf-amec .footnote-item{align-items:baseline;grid-column:1 / -1;grid-template-columns:subgrid;display:grid}
+.amrtf-amec .footnote-label{white-space:nowrap;text-align:right}
+.amrtf-amec .footnote-body{min-width:0}
+.amrtf-amec p.footnote-text:not(.footnote-list *),.amrtf-amec > p.footnote-text{padding-inline-start:var(--fn-indent);font-size:0.75em;overflow-wrap:break-word;--fn-indent:3em;text-indent:calc(var(--fn-indent) * -1);text-align:justify}
+.amrtf-amec .footnote-list p.footnote-text{font-size:inherit;margin-block:0 1em;text-indent:0;overflow-wrap:break-word;text-align:justify}
+.amrtf-amec .footnote-label .footnote-ref{opacity:1;font-size:inherit}
+.amrtf-amec .list-cjk-heavenly-stem{list-style-type:cjk-heavenly-stem}
+.amrtf-amec .list-trad-chinese-formal{list-style-type:trad-chinese-formal}
+.amrtf-amec .list-cjk-ideographic{list-style-type:cjk-ideographic}
+.amrtf-amec .list-circled-decimal{list-style-type:circled-decimal}
