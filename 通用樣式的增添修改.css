@@ -518,6 +518,7 @@ show in menu: false
 .annotation-title:has(:lang(bo)):has(+ :lang(bo)) :lang(bo), /*後方是藏文*/
 :lang(bo)+.annotation:has(:lang(bo)) :lang(bo), /*前文是藏文*/
 .annotation:has(:lang(bo)):has(+ :lang(bo)) :lang(bo), /*後方是藏文*/
+.bo-only .annotation .font-tibetan:lang(bo), /*純藏文段落下*/
 
 /* 箋注標題來共用 */
 .annotation-title.font-tibetan:first-child, /*行首*/
