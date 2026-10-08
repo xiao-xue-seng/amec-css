@@ -246,7 +246,9 @@ keystroke: E
 show in menu: true
 */
 .font-tibetan,
-span.font-tibetan {
+span.font-tibetan,
+/* 當與其他樣式並列時，用於提高優先權 */
+span.font-tibetan:lang(bo) {
   position: relative;
   bottom: var(--tibetan-bottom);
 
