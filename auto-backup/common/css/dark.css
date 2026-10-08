@@ -127,7 +127,7 @@ body[data-theme=dark] .context-root .content .context.amrtf-amec.bo,
 .amrtf-amec .title2.sub_,.amrtf-amec .title2.super_{font-size:calc(155% * 0.75)}
 .amrtf-amec .title3.sub_,.amrtf-amec .title3.super_{font-size:calc(138% * 0.75)}
 .amrtf-amec blockquote .seek-to{font-size:calc(100% / 1.125)}
-.amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan{bottom:var(--tibetan-bottom);font-size:100%;line-height:1;font-family:var(--font-tibetan) !important;position:relative}
+.amrtf-amec .font-tibetan,.amrtf-amec span.font-tibetan,.amrtf-amec span.font-tibetan:lang(bo){bottom:var(--tibetan-bottom);font-size:100%;line-height:1;font-family:var(--font-tibetan) !important;position:relative}
 .amrtf-amec p.no-indent{text-indent:0em!important}
 .amrtf-amec .text-right{text-indent:0 !important;text-align:right !important}
 .amrtf-amec p.indent{text-indent:2em!important}
